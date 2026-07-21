@@ -202,3 +202,22 @@ async function loadLatest() {
     }
 
 }
+/* ==========================================================================
+   Initialize
+   ========================================================================== */
+
+async function initialize() {
+
+    await initializeLanguage();
+
+    initializeTheme();
+
+    initializeSupabase();
+
+    initializeSearch();
+
+    await loadLatest();
+
+}
+
+initialize();
