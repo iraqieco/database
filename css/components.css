@@ -1,223 +1,394 @@
-/* ==========================================
-   Iraqi Eco - Components
-   ========================================== */
+/* ==========================================================================
+   Iraqi Eco
+   Components
+   ========================================================================== */
 
-/* Buttons */
+/* ===========================
+   Buttons
+=========================== */
 
 .btn{
+
     display:inline-flex;
+
     align-items:center;
+
     justify-content:center;
-    gap:8px;
+
+    gap:var(--space-2);
+
     padding:12px 20px;
-    border-radius:var(--radius);
-    font-weight:600;
-    transition:var(--transition);
+
+    border:none;
+
+    border-radius:var(--radius-md);
+
+    font-size:var(--fs-md);
+
+    font-weight:var(--fw-semibold);
+
     cursor:pointer;
+
+    transition:all var(--transition-fast);
+
     user-select:none;
+
 }
 
 .btn-primary{
-    background:var(--primary);
-    color:#fff;
+
+    background:var(--color-primary);
+
+    color:#FFFFFF;
+
 }
 
 .btn-primary:hover{
-    background:var(--primary-light);
+
+    background:var(--color-primary-light);
+
+    transform:translateY(-2px);
+
+    box-shadow:var(--shadow-sm);
+
 }
 
 .btn-secondary{
-    background:var(--surface);
-    color:var(--text);
-    border:1px solid var(--border);
+
+    background:var(--color-surface);
+
+    color:var(--color-text);
+
+    border:1px solid var(--color-border);
+
 }
 
 .btn-secondary:hover{
-    border-color:var(--primary);
+
+    border-color:var(--color-primary);
+
+    background:var(--color-surface-2);
+
 }
 
-/* Cards */
+.btn-danger{
+
+    background:var(--color-danger);
+
+    color:#FFFFFF;
+
+}
+
+.btn-success{
+
+    background:var(--color-success);
+
+    color:#FFFFFF;
+
+}
+
+/* ===========================
+   Card
+=========================== */
 
 .card{
-    background:var(--background);
-    border:1px solid var(--border);
-    border-radius:var(--radius);
-    box-shadow:var(--shadow-small);
+
+    background:var(--color-background);
+
+    border:1px solid var(--color-border);
+
+    border-radius:var(--radius-lg);
+
+    box-shadow:var(--shadow-xs);
+
     overflow:hidden;
-    transition:var(--transition);
+
+    transition:all var(--transition-normal);
+
 }
 
 .card:hover{
+
     transform:translateY(-4px);
-    box-shadow:var(--shadow);
+
+    box-shadow:var(--shadow-md);
+
+}
+
+.card-header{
+
+    padding:var(--space-5);
+
+    border-bottom:1px solid var(--color-border);
+
 }
 
 .card-body{
-    padding:18px;
+
+    padding:var(--space-5);
+
 }
 
-.card-title{
-    font-size:1.1rem;
-    color:var(--primary);
-    margin-bottom:8px;
+.card-footer{
+
+    padding:var(--space-5);
+
+    border-top:1px solid var(--color-border);
+
 }
 
-.card-text{
-    color:var(--text-light);
-    line-height:1.8;
-}
-
-/* Images */
-
-.image{
-    width:100%;
-    display:block;
-    object-fit:cover;
-}
-
-.image-cover{
-    aspect-ratio:16/9;
-}
-
-.image-square{
-    aspect-ratio:1/1;
-}
-
-/* Search */
+/* ===========================
+   Search
+=========================== */
 
 .search-box{
+
     display:flex;
+
     align-items:center;
-    gap:10px;
-    padding:10px 14px;
-    background:var(--surface);
-    border:1px solid var(--border);
-    border-radius:var(--radius);
+
+    gap:var(--space-3);
+
+    background:var(--color-background);
+
+    border:1px solid var(--color-border);
+
+    border-radius:var(--radius-md);
+
+    padding:12px 16px;
+
 }
 
 .search-box input{
+
     width:100%;
+
 }
 
-/* Inputs */
+/* ===========================
+   Input
+=========================== */
 
 .input{
+
     width:100%;
-    padding:12px 14px;
-    border:1px solid var(--border);
-    border-radius:var(--radius);
-    background:var(--background);
+
+    padding:12px 16px;
+
+    border:1px solid var(--color-border);
+
+    border-radius:var(--radius-md);
+
+    background:var(--color-background);
+
 }
 
 .input:focus{
-    border-color:var(--primary);
+
+    border-color:var(--color-primary);
+
 }
 
-/* Select */
+/* ===========================
+   Select
+=========================== */
 
 .select{
+
     width:100%;
-    padding:12px;
-    border:1px solid var(--border);
-    border-radius:var(--radius);
-    background:var(--background);
+
+    padding:12px 16px;
+
+    border:1px solid var(--color-border);
+
+    border-radius:var(--radius-md);
+
+    background:var(--color-background);
+
+    cursor:pointer;
+
 }
 
-/* Badge */
+/* ===========================
+   Badge
+=========================== */
 
 .badge{
-    display:inline-block;
-    padding:4px 10px;
-    border-radius:999px;
-    background:var(--primary);
-    color:#fff;
-    font-size:.8rem;
+
+    display:inline-flex;
+
+    align-items:center;
+
+    justify-content:center;
+
+    padding:6px 12px;
+
+    border-radius:var(--radius-round);
+
+    background:var(--color-primary);
+
+    color:#FFFFFF;
+
+    font-size:var(--fs-xs);
+
+    font-weight:var(--fw-semibold);
+
 }
 
-/* Alert */
+/* ===========================
+   Chip
+=========================== */
+
+.chip{
+
+    display:inline-flex;
+
+    align-items:center;
+
+    gap:6px;
+
+    padding:8px 14px;
+
+    background:var(--color-surface);
+
+    border:1px solid var(--color-border);
+
+    border-radius:var(--radius-round);
+
+    font-size:var(--fs-sm);
+
+}
+
+/* ===========================
+   Alert
+=========================== */
 
 .alert{
-    padding:14px 16px;
-    border-radius:var(--radius);
-    margin:12px 0;
+
+    padding:16px;
+
+    border-radius:var(--radius-md);
+
 }
 
 .alert-success{
+
     background:#E8F5E9;
+
     color:#1B5E20;
+
 }
 
 .alert-warning{
+
     background:#FFF8E1;
+
     color:#8D6E00;
+
 }
 
 .alert-danger{
+
     background:#FFEBEE;
+
     color:#B71C1C;
+
 }
 
-/* Loading */
+/* ===========================
+   Loader
+=========================== */
 
 .loader{
-    width:42px;
-    height:42px;
-    border:4px solid var(--border);
-    border-top-color:var(--primary);
+
+    width:44px;
+
+    height:44px;
+
+    border:4px solid var(--color-border);
+
+    border-top-color:var(--color-primary);
+
     border-radius:50%;
-    animation:spin 1s linear infinite;
+
+    animation:loader-spin 1s linear infinite;
+
 }
 
-@keyframes spin{
+@keyframes loader-spin{
+
     to{
+
         transform:rotate(360deg);
+
     }
+
 }
 
-/* Divider */
+/* ===========================
+   Image
+=========================== */
+
+.image{
+
+    width:100%;
+
+    display:block;
+
+    object-fit:cover;
+
+}
+
+.image-square{
+
+    aspect-ratio:1 / 1;
+
+}
+
+.image-landscape{
+
+    aspect-ratio:16 / 9;
+
+}
+
+/* ===========================
+   Divider
+=========================== */
 
 .divider{
-    width:100%;
+
     height:1px;
-    background:var(--border);
-    margin:20px 0;
+
+    background:var(--color-border);
+
+    margin:var(--space-6) 0;
+
 }
 
-/* Empty State */
+/* ===========================
+   Empty
+=========================== */
 
 .empty-state{
+
+    padding:60px 20px;
+
     text-align:center;
-    padding:40px 20px;
-    color:var(--text-light);
+
+    color:var(--color-text-secondary);
+
 }
 
-/* Avatar */
+/* ===========================
+   Responsive
+=========================== */
 
-.avatar{
-    width:48px;
-    height:48px;
-    border-radius:50%;
-    object-fit:cover;
-}
-
-/* Chips */
-
-.chip{
-    display:inline-flex;
-    align-items:center;
-    padding:6px 12px;
-    border-radius:999px;
-    background:var(--surface);
-    border:1px solid var(--border);
-    font-size:.9rem;
-}
-
-/* Responsive */
-
-@media(max-width:768px){
+@media (max-width:768px){
 
     .btn{
+
         width:100%;
+
     }
 
-}
+   }
