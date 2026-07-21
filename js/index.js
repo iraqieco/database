@@ -169,19 +169,7 @@ function createCard(organism) {
    Latest
    ========================================================================== */
 
-async function loadLatest() {
 
-    try {
-
-        allorganisms =
-            await getLatestOrganisms();
-
-        initializeFilters(
-    allOrganisms,
-    latestContainer,
-    searchInput,
-    createCard
-);
 
 /* ==========================================================================
    Initialize
