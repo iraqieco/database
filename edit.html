@@ -72,19 +72,17 @@
 
 <div class="container">
 
-<h2 class="section-title">
+<h2
+    id="page-title"
+    class="section-title">
 
-إضافة / تعديل كائن
+إضافة كائن
 
 </h2>
 
-<form id="edit-form">
-
-<div id="dynamic-fields">
+<form id="organism-form">
 
 <!-- يتم إنشاء الحقول تلقائياً -->
-
-</div>
 
 <div class="flex gap-4 mt-6">
 
@@ -96,13 +94,14 @@
 
 </button>
 
-<a
-    href="admin.html"
+<button
+    id="cancel-button"
+    type="button"
     class="btn btn-secondary">
 
 إلغاء
 
-</a>
+</button>
 
 </div>
 
@@ -116,8 +115,11 @@
 
 <script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js"></script>
 
-<script type="module"
-        src="js/edit.js"></script>
+<script
+    type="module"
+    src="js/edit.js">
+
+</script>
 
 </body>
 
