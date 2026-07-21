@@ -1,0 +1,109 @@
+<!DOCTYPE html>
+<html lang="ar" dir="rtl">
+
+<head>
+
+    <meta charset="UTF-8">
+
+    <meta name="viewport"
+          content="width=device-width, initial-scale=1.0">
+
+    <title>عراقي إيكو</title>
+
+    <meta name="description"
+          content="قاعدة بيانات الكائنات الحية في العراق">
+
+    <link rel="icon"
+          href="favicon.ico">
+
+    <link rel="preconnect"
+          href="https://fonts.googleapis.com">
+
+    <link rel="preconnect"
+          href="https://fonts.gstatic.com"
+          crossorigin>
+
+    <link href="https://fonts.googleapis.com/css2?family=Cairo:wght@400;500;600;700;800&family=Poppins:wght@400;500;600;700&display=swap"
+          rel="stylesheet">
+
+    <link rel="stylesheet" href="css/variables.css">
+    <link rel="stylesheet" href="css/reset.css">
+    <link rel="stylesheet" href="css/layout.css">
+    <link rel="stylesheet" href="css/components.css">
+    <link rel="stylesheet" href="css/utilities.css">
+    <link rel="stylesheet" href="css/organism.css">
+    <link rel="stylesheet" href="css/dark.css">
+
+</head>
+
+<body>
+
+<header class="header">
+
+    <div class="container header-container">
+
+        <a href="index.html"
+           class="logo">
+
+            <img src="assets/logo/logo.png"
+                 class="logo-image"
+                 alt="عراقي إيكو">
+
+            <div>
+
+                <h1 class="logo-title"
+                    data-i18n="site.name">
+                    عراقي إيكو
+                </h1>
+
+                <p class="logo-description"
+                   data-i18n="site.description">
+                    قاعدة بيانات الكائنات الحية في العراق
+                </p>
+
+            </div>
+
+        </a>
+
+    </div>
+
+</header>
+
+<main>
+
+    <section class="section">
+
+        <div class="container">
+
+            <div id="organism-page">
+
+                <!-- يتم إنشاؤها بواسطة JS -->
+
+            </div>
+
+        </div>
+
+    </section>
+
+</main>
+
+<footer class="footer">
+
+    <div class="container">
+
+        <p data-i18n="footer.rights">
+            جميع الحقوق محفوظة © عراقي إيكو
+        </p>
+
+    </div>
+
+</footer>
+
+<script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js"></script>
+
+<script type="module"
+        src="js/organism.js"></script>
+
+</body>
+
+</html>
