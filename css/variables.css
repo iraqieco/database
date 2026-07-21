@@ -1,0 +1,115 @@
+/* ==========================================
+   Iraqi Eco - Design Variables
+   ========================================== */
+
+:root{
+
+    /* Primary Colors */
+    --primary:#1B5E20;
+    --primary-light:#2E7D32;
+    --primary-dark:#0D3B12;
+
+    /* Background */
+    --background:#FFFFFF;
+    --surface:#F7F9F7;
+
+    /* Text */
+    --text:#222222;
+    --text-light:#666666;
+
+    /* Borders */
+    --border:#D8E2D8;
+
+    /* Status */
+    --success:#2E7D32;
+    --warning:#F9A825;
+    --danger:#C62828;
+    --info:#1565C0;
+
+    /* Radius */
+    --radius-small:8px;
+    --radius:14px;
+    --radius-large:20px;
+
+    /* Shadows */
+    --shadow-small:0 2px 6px rgba(0,0,0,.08);
+    --shadow:0 8px 24px rgba(0,0,0,.10);
+    --shadow-large:0 16px 40px rgba(0,0,0,.15);
+
+    /* Animation */
+    --transition:.25s ease;
+
+    /* Width */
+    --container:1200px;
+
+    /* Header */
+    --header-height:70px;
+
+    /* Fonts */
+    --font-ar:"Cairo",sans-serif;
+    --font-en:"Poppins",sans-serif;
+    --font-ku:"Noto Sans Arabic",sans-serif;
+
+}
+
+/* ===========================
+   Dark Theme
+=========================== */
+
+[data-theme="dark"]{
+
+    --background:#111111;
+    --surface:#1A1A1A;
+
+    --text:#F5F5F5;
+    --text-light:#BBBBBB;
+
+    --border:#2E2E2E;
+
+    --shadow-small:0 2px 8px rgba(0,0,0,.35);
+    --shadow:0 8px 24px rgba(0,0,0,.45);
+    --shadow-large:0 16px 40px rgba(0,0,0,.55);
+
+}
+
+/* ===========================
+   Direction
+=========================== */
+
+html[dir="rtl"]{
+    direction:rtl;
+}
+
+html[dir="ltr"]{
+    direction:ltr;
+}
+
+/* ===========================
+   Selection
+=========================== */
+
+::selection{
+    background:var(--primary);
+    color:#fff;
+}
+
+/* ===========================
+   Scrollbar
+=========================== */
+
+::-webkit-scrollbar{
+    width:10px;
+}
+
+::-webkit-scrollbar-track{
+    background:var(--surface);
+}
+
+::-webkit-scrollbar-thumb{
+    background:var(--primary);
+    border-radius:50px;
+}
+
+::-webkit-scrollbar-thumb:hover{
+    background:var(--primary-light);
+}
