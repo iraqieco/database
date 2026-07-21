@@ -1,12 +1,13 @@
-/* ==========================================
-   Iraqi Eco - Configuration
-   ========================================== */
+/* ==========================================================================
+   Iraqi Eco
+   Global Configuration
+   ========================================================================== */
 
-const CONFIG = {
+export const CONFIG = Object.freeze({
 
-    /* ==========================
+    /* ===========================
        Website
-    ========================== */
+    =========================== */
 
     site: {
 
@@ -16,85 +17,37 @@ const CONFIG = {
 
         version: "1.0.0",
 
-        defaultLanguage: "ar",
+        author: "Iraqi Eco"
 
-        supportedLanguages: [
+    },
+
+
+
+    /* ===========================
+       Languages
+    =========================== */
+
+    language: {
+
+        default: "ar",
+
+        supported: [
+
             "ar",
+
             "en",
+
             "ku"
+
         ]
 
     },
 
 
 
-    /* ==========================
-       Supabase
-    ========================== */
-
-    supabase: {
-
-        url: "ضع_رابط_مشروع_Supabase_هنا",
-
-        anonKey: "ضع_مفتاح_Anon_هنا"
-
-    },
-
-
-
-    /* ==========================
-       Database
-    ========================== */
-
-    database: {
-
-        table: "organisms",
-
-        primaryKey: "id"
-
-    },
-
-
-
-    /* ==========================
-       Images
-    ========================== */
-
-    images: {
-
-        mode: "auto",
-
-        githubBase:
-            "https://raw.githubusercontent.com/USERNAME/REPOSITORY/main/assets/images/",
-
-        placeholder:
-            "assets/placeholders/no-image.webp"
-
-    },
-
-
-
-    /* ==========================
-       Search
-    ========================== */
-
-    search: {
-
-        ignoreExtraSpaces: true,
-
-        trimText: true,
-
-        caseSensitive: false,
-
-        minCharacters: 1
-
-    },
-
-
-
-    /* ==========================
+    /* ===========================
        Theme
-    ========================== */
+    =========================== */
 
     theme: {
 
@@ -106,54 +59,148 @@ const CONFIG = {
 
 
 
-    /* ==========================
-       Pagination
-    ========================== */
+    /* ===========================
+       Supabase
+    =========================== */
 
-    pagination: {
+    supabase: {
 
-        organismsPerPage: 24
+        url: "",
+
+        anonKey: ""
 
     },
 
 
 
-    /* ==========================
+    /* ===========================
+       Database
+    =========================== */
+
+    database: {
+
+        table: "organisms",
+
+        pageSize: 24
+
+    },
+
+
+
+    /* ===========================
+       Images
+    =========================== */
+
+    images: {
+
+        placeholder:
+            "assets/placeholders/no-image.webp",
+
+        githubBase:
+            "https://raw.githubusercontent.com/USERNAME/REPOSITORY/main/assets/images/",
+
+        allowedExtensions: [
+
+            "jpg",
+
+            "jpeg",
+
+            "png",
+
+            "webp",
+
+            "gif",
+
+            "svg"
+
+        ]
+
+    },
+
+
+
+    /* ===========================
+       Search
+    =========================== */
+
+    search: {
+
+        minimumCharacters: 1,
+
+        ignoreCase: true,
+
+        trim: true,
+
+        collapseSpaces: true
+
+    },
+
+
+
+    /* ===========================
        Cache
-    ========================== */
+    =========================== */
 
     cache: {
 
         enabled: true,
 
-        duration: 300000
+        lifetime: 300000
 
     },
 
 
 
-    /* ==========================
-       Date & Time
-    ========================== */
+    /* ===========================
+       Pagination
+    =========================== */
 
-    locale: {
+    pagination: {
 
-        ar: "ar-IQ",
+        defaultLimit: 24,
 
-        en: "en-US",
+        maximumLimit: 100
 
-        ku: "ku"
+    },
+
+
+
+    /* ===========================
+       Local Storage Keys
+    =========================== */
+
+    storage: {
+
+        language: "iraqiEco.language",
+
+        theme: "iraqiEco.theme",
+
+        cache: "iraqiEco.cache"
+
+    },
+
+
+
+    /* ===========================
+       Routes
+    =========================== */
+
+    routes: {
+
+        home: "index.html",
+
+        organisms: "organisms.html",
+
+        organism: "organism.html",
+
+        search: "search.html",
+
+        login: "login.html",
+
+        admin: "admin.html"
 
     }
 
+});
 
-
-};
-
-
-
-/* ==========================================
-   Freeze Configuration
-   ========================================== */
-
-Object.freeze(CONFIG);
+    
