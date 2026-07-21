@@ -1,0 +1,182 @@
+<!DOCTYPE html>
+<html lang="ar" dir="rtl">
+
+<head>
+
+    <meta charset="UTF-8">
+
+    <meta name="viewport"
+          content="width=device-width, initial-scale=1.0">
+
+    <title>عراقي إيكو</title>
+
+    <meta name="description"
+          content="قاعدة بيانات الكائنات الحية في العراق">
+
+    <link rel="icon"
+          href="favicon.ico">
+
+    <link rel="preconnect"
+          href="https://fonts.googleapis.com">
+
+    <link rel="preconnect"
+          href="https://fonts.gstatic.com"
+          crossorigin>
+
+    <link href="https://fonts.googleapis.com/css2?family=Cairo:wght@400;500;600;700;800&family=Poppins:wght@400;500;600;700&family=Noto+Sans+Arabic:wght@400;500;600;700&display=swap"
+          rel="stylesheet">
+
+    <link rel="stylesheet" href="css/variables.css">
+    <link rel="stylesheet" href="css/reset.css">
+    <link rel="stylesheet" href="css/layout.css">
+    <link rel="stylesheet" href="css/components.css">
+    <link rel="stylesheet" href="css/utilities.css">
+    <link rel="stylesheet" href="css/index.css">
+    <link rel="stylesheet" href="css/dark.css">
+
+</head>
+
+<body>
+
+<header class="header">
+
+    <div class="container header-container">
+
+        <a class="logo"
+           href="index.html">
+
+            <img
+                class="logo-image"
+                src="assets/logo/logo.png"
+                alt="عراقي إيكو">
+
+            <div>
+
+                <h1 class="logo-title"
+                    data-i18n="site.name">
+                    عراقي إيكو
+                </h1>
+
+                <p class="logo-description"
+                   data-i18n="site.description">
+                    قاعدة بيانات الكائنات الحية في العراق
+                </p>
+
+            </div>
+
+        </a>
+
+        <nav class="nav">
+
+            <div class="nav-links">
+
+                <a href="index.html"
+                   data-i18n="nav.home">
+                    الرئيسية
+                </a>
+
+                <a href="organisms.html"
+                   data-i18n="nav.organisms">
+                    الكائنات
+                </a>
+
+                <a href="search.html"
+                   data-i18n="nav.search">
+                    البحث
+                </a>
+
+                <a href="login.html"
+                   data-i18n="nav.login">
+                    تسجيل الدخول
+                </a>
+
+            </div>
+
+        </nav>
+
+    </div>
+
+</header>
+
+<main>
+
+    <section class="hero">
+
+        <div class="container">
+
+            <h2 data-i18n="home.hero.title">
+                موسوعة الكائنات الحية في العراق
+            </h2>
+
+            <p data-i18n="home.hero.description">
+                اكتشف الكائنات الحية الموجودة في العراق.
+            </p>
+
+            <form id="search-form"
+                  class="search-box">
+
+                <input
+                    id="search-input"
+                    class="input"
+                    type="search"
+                    data-i18n-placeholder="search.placeholder"
+                    placeholder="ابحث...">
+
+                <button
+                    class="btn btn-primary"
+                    type="submit"
+                    data-i18n="search.button">
+                    بحث
+                </button>
+
+            </form>
+
+        </div>
+
+    </section>
+
+    <section class="section">
+
+        <div class="container">
+
+            <div class="section-header">
+
+                <h2 class="section-title"
+                    data-i18n="home.latest">
+                    أحدث الكائنات
+                </h2>
+
+            </div>
+
+            <div id="latest-organisms"
+                 class="grid grid-4">
+
+            </div>
+
+        </div>
+
+    </section>
+
+</main>
+
+<footer class="footer">
+
+    <div class="container footer-content">
+
+        <p class="footer-text"
+           data-i18n="footer.rights">
+            جميع الحقوق محفوظة © عراقي إيكو
+        </p>
+
+    </div>
+
+</footer>
+
+<script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js"></script>
+
+<script type="module"
+        src="js/index.js"></script>
+
+</body>
+
+</html>
