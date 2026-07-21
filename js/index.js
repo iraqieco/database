@@ -173,7 +173,7 @@ async function loadLatest() {
 
     try {
 
-        const organisms =
+        allorganisms =
             await getLatestOrganisms();
 
         initializeFilters(
@@ -187,18 +187,30 @@ async function loadLatest() {
    Initialize
    ========================================================================== */
 
-async function initialize() {
+async function loadLatest() {
 
-    await initializeLanguage();
+    try {
 
-    initializeTheme();
+        allOrganisms =
+            await getLatestOrganisms();
 
-    initializeSupabase();
+        initializeFilters(
+            allOrganisms,
+            latestContainer,
+            searchInput,
+            createCard
+        );
 
-    initializeSearch();
+    }
 
-    await loadLatest();
+    catch (e) {
+
+        console.error(e);
+
+        error(
+            t("error")
+        );
+
+    }
 
 }
-
-initialize();
