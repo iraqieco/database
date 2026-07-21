@@ -16,7 +16,7 @@ import { createImage, detectImageSource } from "./image.js";
 import { t } from "./language.js";
 
 import { error } from "./notifications.js";
-
+import { initializeFilters } from "./filters.js";
 /* ==========================================================================
    Elements
    ========================================================================== */
@@ -32,7 +32,7 @@ const searchForm = document.getElementById(
 const searchInput = document.getElementById(
     "search-input"
 );
-
+let allOrganisms = [];
 /* ==========================================================================
    Search
    ========================================================================== */
@@ -176,40 +176,12 @@ async function loadLatest() {
         const organisms =
             await getLatestOrganisms();
 
-        latestContainer.innerHTML = "";
-
-        if (organisms.length === 0) {
-
-            latestContainer.innerHTML =
-                `<div class="home-empty">
-                    ${t("noData")}
-                </div>`;
-
-            return;
-
-        }
-
-        organisms.forEach(item => {
-
-            latestContainer.append(
-                createCard(item)
-            );
-
-        });
-
-    }
-
-    catch (e) {
-
-        console.error(e);
-
-        error(
-            t("error")
-        );
-
-    }
-
-}
+        initializeFilters(
+    allOrganisms,
+    latestContainer,
+    searchInput,
+    createCard
+);
 
 /* ==========================================================================
    Initialize
