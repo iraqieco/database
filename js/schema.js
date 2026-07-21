@@ -65,11 +65,7 @@ export const SCHEMA = Object.freeze({
        Description
     =========================== */
 
-    DESCRIPTION_AR: "description_ar",
-
-    DESCRIPTION_EN: "description_en",
-
-    DESCRIPTION_KU: "description_ku",
+    DESCRIPTION: "description"
 
 
 
