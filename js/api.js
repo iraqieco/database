@@ -242,7 +242,7 @@ export async function deleteOrganism(id) {
    Latest
    ========================================================================== */
 
-export async function getLatestOrganisms(limit = 10) {
+export async function getLatestOrganisms() {
 
     const { data, error } = await getClient()
 
@@ -260,9 +260,7 @@ export async function getLatestOrganisms(limit = 10) {
 
             }
 
-        )
-
-        .limit(limit);
+        );
 
     if (error) {
 
@@ -273,7 +271,6 @@ export async function getLatestOrganisms(limit = 10) {
     return data;
 
 }
-
 /* ==========================================================================
    Count
    ========================================================================== */
