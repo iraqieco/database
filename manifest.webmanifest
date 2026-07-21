@@ -1,7 +1,8 @@
 {
   "name": "عراقي إيكو",
   "short_name": "عراقي إيكو",
-  "start_url": "/database/",
+  "start_url": "/database/index.html",
+  "scope": "/database/",
   "display": "standalone",
   "background_color": "#0b4d1f",
   "theme_color": "#0b4d1f",
