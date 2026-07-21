@@ -1,139 +1,299 @@
-/* ==========================================
-   Iraqi Eco - Layout
-   ========================================== */
+/* ==========================================================================
+   Iraqi Eco
+   Layout
+   ========================================================================== */
 
-/* Container */
+/* ===========================
+   Container
+=========================== */
 
 .container{
-    width:min(var(--container),calc(100% - 32px));
+
+    width:min(var(--container-width),calc(100% - 32px));
+
     margin-inline:auto;
+
 }
 
-/* Sections */
+/* ===========================
+   Main
+=========================== */
+
+main{
+
+    min-height:calc(100vh - var(--header-height));
+
+}
+
+/* ===========================
+   Sections
+=========================== */
 
 .section{
-    padding:60px 0;
+
+    padding:var(--space-16) 0;
+
+}
+
+.section-header{
+
+    margin-bottom:var(--space-8);
+
 }
 
 .section-title{
-    font-size:2rem;
-    font-weight:700;
-    color:var(--primary);
-    margin-bottom:12px;
+
+    color:var(--color-primary);
+
+    font-size:var(--fs-2xl);
+
+    font-weight:var(--fw-bold);
+
+    margin-bottom:var(--space-2);
+
 }
 
 .section-description{
-    color:var(--text-light);
-    margin-bottom:32px;
+
+    color:var(--color-text-secondary);
+
+    font-size:var(--fs-md);
+
 }
 
-/* Grid */
+/* ===========================
+   Grid
+=========================== */
 
 .grid{
+
     display:grid;
-    gap:20px;
+
+    gap:var(--space-5);
+
 }
 
 .grid-2{
+
     grid-template-columns:repeat(2,minmax(0,1fr));
+
 }
 
 .grid-3{
+
     grid-template-columns:repeat(3,minmax(0,1fr));
+
 }
 
 .grid-4{
+
     grid-template-columns:repeat(4,minmax(0,1fr));
+
 }
 
-/* Flex */
+/* ===========================
+   Flex
+=========================== */
 
 .flex{
-    display:flex;
-}
 
-.flex-center{
     display:flex;
-    justify-content:center;
-    align-items:center;
-}
 
-.flex-between{
-    display:flex;
-    justify-content:space-between;
-    align-items:center;
 }
 
 .flex-column{
+
     display:flex;
+
     flex-direction:column;
+
 }
 
-/* Header */
+.flex-center{
+
+    display:flex;
+
+    justify-content:center;
+
+    align-items:center;
+
+}
+
+.flex-between{
+
+    display:flex;
+
+    justify-content:space-between;
+
+    align-items:center;
+
+}
+
+.flex-wrap{
+
+    flex-wrap:wrap;
+
+}
+
+.gap-1{gap:var(--space-1);}
+.gap-2{gap:var(--space-2);}
+.gap-3{gap:var(--space-3);}
+.gap-4{gap:var(--space-4);}
+.gap-5{gap:var(--space-5);}
+.gap-6{gap:var(--space-6);}
+
+/* ===========================
+   Header
+=========================== */
 
 .header{
+
     position:sticky;
+
     top:0;
-    z-index:1000;
+
+    z-index:var(--z-header);
+
     height:var(--header-height);
-    background:var(--background);
-    border-bottom:1px solid var(--border);
-    box-shadow:var(--shadow-small);
+
+    background:var(--color-background);
+
+    border-bottom:1px solid var(--color-border);
+
+    box-shadow:var(--shadow-xs);
+
 }
 
 .header-container{
+
     height:100%;
+
     display:flex;
-    justify-content:space-between;
+
     align-items:center;
+
+    justify-content:space-between;
+
+    gap:var(--space-6);
+
 }
 
 .logo{
+
     display:flex;
+
     align-items:center;
-    gap:12px;
+
+    gap:var(--space-3);
+
 }
 
-.logo h1{
-    font-size:1.4rem;
-    color:var(--primary);
+.logo-image{
+
+    width:48px;
+
+    height:48px;
+
+    object-fit:contain;
+
 }
 
-.logo p{
-    font-size:.85rem;
-    color:var(--text-light);
+.logo-title{
+
+    font-size:var(--fs-xl);
+
+    font-weight:var(--fw-bold);
+
+    color:var(--color-primary);
+
 }
 
-/* Main */
+.logo-description{
 
-main{
-    min-height:calc(100vh - var(--header-height));
+    font-size:var(--fs-sm);
+
+    color:var(--color-text-secondary);
+
 }
 
-/* Footer */
+/* ===========================
+   Navigation
+=========================== */
+
+.nav{
+
+    display:flex;
+
+    align-items:center;
+
+    gap:var(--space-3);
+
+}
+
+.nav-links{
+
+    display:flex;
+
+    align-items:center;
+
+    gap:var(--space-2);
+
+}
+
+/* ===========================
+   Footer
+=========================== */
 
 .footer{
-    background:var(--surface);
-    border-top:1px solid var(--border);
-    padding:40px 0;
-    margin-top:60px;
+
+    margin-top:var(--space-16);
+
+    padding:var(--space-10) 0;
+
+    background:var(--color-surface);
+
+    border-top:1px solid var(--color-border);
+
 }
 
-.footer p{
+.footer-content{
+
+    display:flex;
+
+    flex-direction:column;
+
+    align-items:center;
+
+    gap:var(--space-3);
+
     text-align:center;
-    color:var(--text-light);
+
 }
 
-/* Responsive */
+.footer-text{
+
+    color:var(--color-text-secondary);
+
+    font-size:var(--fs-sm);
+
+}
+
+/* ===========================
+   Responsive
+=========================== */
 
 @media (max-width:992px){
 
     .grid-4{
+
         grid-template-columns:repeat(2,1fr);
+
     }
 
     .grid-3{
+
         grid-template-columns:repeat(2,1fr);
+
     }
 
 }
@@ -143,15 +303,53 @@ main{
     .grid-2,
     .grid-3,
     .grid-4{
+
         grid-template-columns:1fr;
+
+    }
+
+    .header{
+
+        height:auto;
+
+        padding:var(--space-4) 0;
+
+    }
+
+    .header-container{
+
+        flex-direction:column;
+
+        align-items:stretch;
+
+    }
+
+    .nav{
+
+        flex-direction:column;
+
+        align-items:stretch;
+
+    }
+
+    .nav-links{
+
+        flex-wrap:wrap;
+
+        justify-content:center;
+
     }
 
     .section{
-        padding:40px 0;
+
+        padding:var(--space-12) 0;
+
     }
 
     .section-title{
-        font-size:1.6rem;
+
+        font-size:var(--fs-xl);
+
     }
 
-}
+   }
