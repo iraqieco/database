@@ -1,0 +1,157 @@
+/* ==========================================
+   Iraqi Eco - Layout
+   ========================================== */
+
+/* Container */
+
+.container{
+    width:min(var(--container),calc(100% - 32px));
+    margin-inline:auto;
+}
+
+/* Sections */
+
+.section{
+    padding:60px 0;
+}
+
+.section-title{
+    font-size:2rem;
+    font-weight:700;
+    color:var(--primary);
+    margin-bottom:12px;
+}
+
+.section-description{
+    color:var(--text-light);
+    margin-bottom:32px;
+}
+
+/* Grid */
+
+.grid{
+    display:grid;
+    gap:20px;
+}
+
+.grid-2{
+    grid-template-columns:repeat(2,minmax(0,1fr));
+}
+
+.grid-3{
+    grid-template-columns:repeat(3,minmax(0,1fr));
+}
+
+.grid-4{
+    grid-template-columns:repeat(4,minmax(0,1fr));
+}
+
+/* Flex */
+
+.flex{
+    display:flex;
+}
+
+.flex-center{
+    display:flex;
+    justify-content:center;
+    align-items:center;
+}
+
+.flex-between{
+    display:flex;
+    justify-content:space-between;
+    align-items:center;
+}
+
+.flex-column{
+    display:flex;
+    flex-direction:column;
+}
+
+/* Header */
+
+.header{
+    position:sticky;
+    top:0;
+    z-index:1000;
+    height:var(--header-height);
+    background:var(--background);
+    border-bottom:1px solid var(--border);
+    box-shadow:var(--shadow-small);
+}
+
+.header-container{
+    height:100%;
+    display:flex;
+    justify-content:space-between;
+    align-items:center;
+}
+
+.logo{
+    display:flex;
+    align-items:center;
+    gap:12px;
+}
+
+.logo h1{
+    font-size:1.4rem;
+    color:var(--primary);
+}
+
+.logo p{
+    font-size:.85rem;
+    color:var(--text-light);
+}
+
+/* Main */
+
+main{
+    min-height:calc(100vh - var(--header-height));
+}
+
+/* Footer */
+
+.footer{
+    background:var(--surface);
+    border-top:1px solid var(--border);
+    padding:40px 0;
+    margin-top:60px;
+}
+
+.footer p{
+    text-align:center;
+    color:var(--text-light);
+}
+
+/* Responsive */
+
+@media (max-width:992px){
+
+    .grid-4{
+        grid-template-columns:repeat(2,1fr);
+    }
+
+    .grid-3{
+        grid-template-columns:repeat(2,1fr);
+    }
+
+}
+
+@media (max-width:768px){
+
+    .grid-2,
+    .grid-3,
+    .grid-4{
+        grid-template-columns:1fr;
+    }
+
+    .section{
+        padding:40px 0;
+    }
+
+    .section-title{
+        font-size:1.6rem;
+    }
+
+}
