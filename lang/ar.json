@@ -1,0 +1,56 @@
+{
+  "site.name": "عراقي إيكو",
+  "site.description": "قاعدة بيانات الكائنات الحية في العراق",
+
+  "nav.home": "الرئيسية",
+  "nav.organisms": "الكائنات",
+  "nav.search": "البحث",
+  "nav.login": "تسجيل الدخول",
+  "nav.admin": "لوحة الإدارة",
+
+  "home.hero.title": "موسوعة الكائنات الحية في العراق",
+  "home.hero.description": "اكتشف الحيوانات والنباتات والفطريات وغيرها من الكائنات الحية الموجودة في العراق.",
+
+  "search.placeholder": "ابحث بالاسم العربي أو الإنجليزي أو الكردي أو الاسم العلمي...",
+  "search.button": "بحث",
+
+  "home.latest": "أحدث الكائنات",
+  "home.statistics": "إحصائيات",
+
+  "statistics.organisms": "عدد الكائنات",
+  "statistics.categories": "عدد التصنيفات",
+  "statistics.images": "عدد الصور",
+
+  "organisms.title": "الكائنات",
+  "organisms.all": "جميع الكائنات",
+
+  "organism.details": "معلومات الكائن",
+  "organism.classification": "التصنيف العلمي",
+  "organism.description": "الوصف",
+  "organism.distribution": "الانتشار",
+  "organism.habitat": "الموطن",
+  "organism.behavior": "السلوك",
+  "organism.diet": "الغذاء",
+  "organism.reproduction": "التكاثر",
+  "organism.lifespan": "متوسط العمر",
+  "organism.weight": "الوزن",
+  "organism.size": "الحجم",
+  "organism.color": "اللون",
+  "organism.status": "حالة الحفظ",
+  "organism.references": "المراجع",
+  "organism.notes": "ملاحظات",
+
+  "buttons.readMore": "عرض التفاصيل",
+  "buttons.back": "رجوع",
+  "buttons.save": "حفظ",
+  "buttons.cancel": "إلغاء",
+  "buttons.delete": "حذف",
+  "buttons.edit": "تعديل",
+
+  "loading": "جاري التحميل...",
+  "noData": "لا توجد بيانات.",
+  "notFound": "لم يتم العثور على أي نتائج.",
+  "error": "حدث خطأ، يرجى المحاولة مرة أخرى.",
+
+  "footer.rights": "جميع الحقوق محفوظة © عراقي إيكو"
+}
