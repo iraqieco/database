@@ -1,95 +1,119 @@
-/* ==========================================
-   Iraqi Eco - Theme Manager
-   ========================================== */
+/* ==========================================================================
+   Iraqi Eco
+   Theme Manager
+   ========================================================================== */
 
-const THEME_KEY = "theme";
+import { CONFIG } from "./config.js";
+import { setTheme, getTheme } from "./storage.js";
+import { validateTheme } from "./validator.js";
 
+const ATTRIBUTE = "data-theme";
 
-/* ==========================
-   الحصول على السمة المحفوظة
-========================== */
-
-function getSavedTheme() {
-
-    return load(THEME_KEY, null);
-
-}
-
-
-/* ==========================
-   حفظ السمة
-========================== */
-
-function saveTheme(theme) {
-
-    save(THEME_KEY, theme);
-
-}
-
-
-/* ==========================
-   اكتشاف سمة النظام
-========================== */
+/* ==========================================================================
+   System Theme
+   ========================================================================== */
 
 function getSystemTheme() {
 
-    return window.matchMedia("(prefers-color-scheme: dark)").matches
+    return window.matchMedia(
+        "(prefers-color-scheme: dark)"
+    ).matches
         ? "dark"
         : "light";
 
 }
 
+/* ==========================================================================
+   Apply Theme
+   ========================================================================== */
 
-/* ==========================
-   تطبيق السمة
-========================== */
+export function applyTheme(theme) {
 
-function applyTheme(theme) {
-
-    document.documentElement.setAttribute(
-        "data-theme",
-        theme
-    );
-
-    saveTheme(theme);
-
-}
-
-
-/* ==========================
-   تبديل السمة
-========================== */
-
-function toggleTheme() {
-
-    const current =
-        document.documentElement.getAttribute("data-theme");
-
-    const next =
-        current === "dark"
-            ? "light"
-            : "dark";
-
-    applyTheme(next);
-
-}
-
-
-/* ==========================
-   تحميل السمة
-========================== */
-
-function initTheme() {
-
-    let theme = getSavedTheme();
-
-    if (!theme) {
+    if (!validateTheme(theme)) {
 
         theme = CONFIG.theme.default;
 
-        if (theme === "system") {
-            theme = getSystemTheme();
-        }
+    }
+
+    document.documentElement.setAttribute(
+
+        ATTRIBUTE,
+
+        theme
+
+    );
+
+    setTheme(theme);
+
+    document.dispatchEvent(
+
+        new CustomEvent("themeChanged", {
+
+            detail: {
+
+                theme
+
+            }
+
+        })
+
+    );
+
+}
+
+/* ==========================================================================
+   Get Current Theme
+   ========================================================================== */
+
+export function currentTheme() {
+
+    return document.documentElement.getAttribute(
+
+        ATTRIBUTE
+
+    );
+
+}
+
+/* ==========================================================================
+   Toggle Theme
+   ========================================================================== */
+
+export function toggleTheme() {
+
+    const theme =
+
+        currentTheme() === "dark"
+
+            ? "light"
+
+            : "dark";
+
+    applyTheme(theme);
+
+}
+
+/* ==========================================================================
+   Initialize
+   ========================================================================== */
+
+export function initializeTheme() {
+
+    let theme = getTheme();
+
+    if (!validateTheme(theme)) {
+
+        theme = CONFIG.theme.default;
+
+    }
+
+    if (
+
+        theme === "system"
+
+    ) {
+
+        theme = getSystemTheme();
 
     }
 
@@ -97,52 +121,48 @@ function initTheme() {
 
 }
 
+/* ==========================================================================
+   Watch System Theme
+   ========================================================================== */
 
-/* ==========================
-   متابعة تغيير سمة النظام
-========================== */
+window.matchMedia(
 
-window.matchMedia("(prefers-color-scheme: dark)")
-.addEventListener("change", event => {
+    "(prefers-color-scheme: dark)"
 
-    const saved = getSavedTheme();
+).addEventListener(
 
-    if (saved === null) {
+    "change",
 
-        applyTheme(
-            event.matches
-                ? "dark"
-                : "light"
-        );
-
-    }
-
-});
-
-
-/* ==========================
-   زر تبديل السمة
-========================== */
-
-document.addEventListener(
-    "click",
     event => {
 
-        if (event.target.closest("[data-theme-toggle]")) {
+        const savedTheme = getTheme();
 
-            toggleTheme();
+        if (savedTheme === "system") {
+
+            applyTheme(
+
+                event.matches
+
+                    ? "dark"
+
+                    : "light"
+
+            );
 
         }
 
     }
+
 );
 
-
-/* ==========================
-   بداية التشغيل
-========================== */
+/* ==========================================================================
+   Auto Initialize
+   ========================================================================== */
 
 document.addEventListener(
+
     "DOMContentLoaded",
-    initTheme
+
+    initializeTheme
+
 );
