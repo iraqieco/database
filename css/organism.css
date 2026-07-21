@@ -1,0 +1,208 @@
+/* ==========================================================================
+   Iraqi Eco
+   Organism Details Page
+   ========================================================================== */
+
+/* ===========================
+   Layout
+=========================== */
+
+.organism-page{
+
+    display:grid;
+
+    grid-template-columns:380px 1fr;
+
+    gap:32px;
+
+    align-items:start;
+
+}
+
+/* ===========================
+   Image
+=========================== */
+
+.organism-image{
+
+    width:100%;
+
+    border-radius:20px;
+
+    overflow:hidden;
+
+    border:1px solid var(--color-border);
+
+    background:var(--color-surface);
+
+    box-shadow:var(--shadow-md);
+
+}
+
+.organism-image img{
+
+    width:100%;
+
+    display:block;
+
+    aspect-ratio:1/1;
+
+    object-fit:cover;
+
+}
+
+/* ===========================
+   Content
+=========================== */
+
+.organism-content{
+
+    display:flex;
+
+    flex-direction:column;
+
+    gap:24px;
+
+}
+
+.organism-title{
+
+    color:var(--color-primary);
+
+    font-size:2rem;
+
+    font-weight:700;
+
+    margin:0;
+
+}
+
+.organism-scientific{
+
+    color:var(--color-text-secondary);
+
+    font-style:italic;
+
+    font-size:1.05rem;
+
+}
+
+/* ===========================
+   Sections
+=========================== */
+
+.organism-section{
+
+    background:var(--color-surface);
+
+    border:1px solid var(--color-border);
+
+    border-radius:16px;
+
+    padding:22px;
+
+}
+
+.organism-section h2{
+
+    color:var(--color-primary);
+
+    margin-bottom:18px;
+
+    font-size:1.2rem;
+
+}
+
+/* ===========================
+   Fields
+=========================== */
+
+.organism-grid{
+
+    display:grid;
+
+    grid-template-columns:repeat(auto-fit,minmax(240px,1fr));
+
+    gap:16px;
+
+}
+
+.organism-field{
+
+    display:flex;
+
+    flex-direction:column;
+
+    gap:6px;
+
+    padding-bottom:12px;
+
+    border-bottom:1px solid var(--color-border);
+
+}
+
+.organism-field:last-child{
+
+    border-bottom:none;
+
+}
+
+.organism-label{
+
+    font-weight:700;
+
+    color:var(--color-primary);
+
+}
+
+.organism-value{
+
+    color:var(--color-text);
+
+    line-height:1.8;
+
+    word-break:break-word;
+
+}
+
+/* ===========================
+   Gallery
+=========================== */
+
+.organism-gallery{
+
+    display:grid;
+
+    grid-template-columns:repeat(auto-fill,minmax(180px,1fr));
+
+    gap:16px;
+
+}
+
+.organism-gallery img{
+
+    width:100%;
+
+    aspect-ratio:1/1;
+
+    object-fit:cover;
+
+    border-radius:12px;
+
+    border:1px solid var(--color-border);
+
+}
+
+/* ===========================
+   Responsive
+=========================== */
+
+@media (max-width:900px){
+
+    .organism-page{
+
+        grid-template-columns:1fr;
+
+    }
+
+}
