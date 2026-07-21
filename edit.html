@@ -1,0 +1,124 @@
+<!DOCTYPE html>
+<html lang="ar" dir="rtl">
+
+<head>
+
+    <meta charset="UTF-8">
+
+    <meta name="viewport"
+          content="width=device-width, initial-scale=1.0">
+
+    <title>إضافة / تعديل كائن | عراقي إيكو</title>
+
+    <meta name="description"
+          content="إضافة أو تعديل بيانات كائن حي">
+
+    <link rel="icon" href="favicon.ico">
+
+    <link rel="preconnect"
+          href="https://fonts.googleapis.com">
+
+    <link rel="preconnect"
+          href="https://fonts.gstatic.com"
+          crossorigin>
+
+    <link href="https://fonts.googleapis.com/css2?family=Cairo:wght@400;500;600;700;800&display=swap"
+          rel="stylesheet">
+
+    <link rel="stylesheet" href="css/variables.css">
+    <link rel="stylesheet" href="css/reset.css">
+    <link rel="stylesheet" href="css/layout.css">
+    <link rel="stylesheet" href="css/components.css">
+    <link rel="stylesheet" href="css/utilities.css">
+    <link rel="stylesheet" href="css/admin.css">
+    <link rel="stylesheet" href="css/dark.css">
+
+</head>
+
+<body>
+
+<header class="header">
+
+    <div class="container header-container">
+
+        <a href="admin.html"
+           class="logo">
+
+            <img src="assets/logo/logo.png"
+                 class="logo-image"
+                 alt="عراقي إيكو">
+
+            <div>
+
+                <h1 class="logo-title">
+                    عراقي إيكو
+                </h1>
+
+                <p class="logo-description">
+                    لوحة الإدارة
+                </p>
+
+            </div>
+
+        </a>
+
+    </div>
+
+</header>
+
+<main>
+
+<section class="section">
+
+<div class="container">
+
+<h2 class="section-title">
+
+إضافة / تعديل كائن
+
+</h2>
+
+<form id="edit-form">
+
+<div id="dynamic-fields">
+
+<!-- يتم إنشاء الحقول تلقائياً -->
+
+</div>
+
+<div class="flex gap-4 mt-6">
+
+<button
+    type="submit"
+    class="btn btn-primary">
+
+حفظ
+
+</button>
+
+<a
+    href="admin.html"
+    class="btn btn-secondary">
+
+إلغاء
+
+</a>
+
+</div>
+
+</form>
+
+</div>
+
+</section>
+
+</main>
+
+<script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js"></script>
+
+<script type="module"
+        src="js/edit.js"></script>
+
+</body>
+
+</html>
