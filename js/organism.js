@@ -31,7 +31,7 @@ const LABELS = {
     [SCHEMA.GENUS]: "الجنس",
     [SCHEMA.SPECIES]: "النوع",
 
-    [SCHEMA.DESCRIPTION_AR]: "الوصف",
+    [SCHEMA.DESCRIPTION]: "الوصف",
     [SCHEMA.HABITAT]: "الموطن",
     [SCHEMA.DISTRIBUTION]: "الانتشار",
     [SCHEMA.LOCATION]: "الموقع",
