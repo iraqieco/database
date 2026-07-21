@@ -1,0 +1,56 @@
+{
+  "site.name": "Iraqi Eco",
+  "site.description": "Database of Living Organisms in Iraq",
+
+  "nav.home": "Home",
+  "nav.organisms": "Organisms",
+  "nav.search": "Search",
+  "nav.login": "Login",
+  "nav.admin": "Admin Panel",
+
+  "home.hero.title": "Encyclopedia of Living Organisms in Iraq",
+  "home.hero.description": "Discover animals, plants, fungi, and other living organisms found in Iraq.",
+
+  "search.placeholder": "Search by Arabic, English, Kurdish, or scientific name...",
+  "search.button": "Search",
+
+  "home.latest": "Latest Organisms",
+  "home.statistics": "Statistics",
+
+  "statistics.organisms": "Organisms",
+  "statistics.categories": "Categories",
+  "statistics.images": "Images",
+
+  "organisms.title": "Organisms",
+  "organisms.all": "All Organisms",
+
+  "organism.details": "Organism Information",
+  "organism.classification": "Scientific Classification",
+  "organism.description": "Description",
+  "organism.distribution": "Distribution",
+  "organism.habitat": "Habitat",
+  "organism.behavior": "Behavior",
+  "organism.diet": "Diet",
+  "organism.reproduction": "Reproduction",
+  "organism.lifespan": "Lifespan",
+  "organism.weight": "Weight",
+  "organism.size": "Size",
+  "organism.color": "Color",
+  "organism.status": "Conservation Status",
+  "organism.references": "References",
+  "organism.notes": "Notes",
+
+  "buttons.readMore": "View Details",
+  "buttons.back": "Back",
+  "buttons.save": "Save",
+  "buttons.cancel": "Cancel",
+  "buttons.delete": "Delete",
+  "buttons.edit": "Edit",
+
+  "loading": "Loading...",
+  "noData": "No data available.",
+  "notFound": "No results found.",
+  "error": "An error occurred. Please try again.",
+
+  "footer.rights": "All rights reserved © Iraqi Eco"
+}
