@@ -174,7 +174,7 @@ async function loadLatest() {
     try {
 
         const organisms =
-            await getLatestOrganisms(8);
+            await getLatestOrganisms(600);
 
         latestContainer.innerHTML = "";
 
