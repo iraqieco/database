@@ -181,7 +181,17 @@ async function loadLatest() {
 
         allOrganisms =
             await getLatestOrganisms();
+allOrganisms.sort((a, b) => {
 
+    const nameA = (a[SCHEMA.NAME_AR] || "")
+        .replace(/^ال/, "");
+
+    const nameB = (b[SCHEMA.NAME_AR] || "")
+        .replace(/^ال/, "");
+
+    return nameA.localeCompare(nameB, "ar");
+
+});
         initializeFilters(
             allOrganisms,
             latestContainer,
