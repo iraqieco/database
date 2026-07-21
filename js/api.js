@@ -252,11 +252,11 @@ export async function getLatestOrganisms() {
 
         .order(
 
-            SCHEMA.CREATED_AT,
+            SCHEMA.NAME_AR,
 
             {
 
-                ascending: false
+                ascending: true
 
             }
 
