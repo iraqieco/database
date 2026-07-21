@@ -40,11 +40,11 @@ export async function getOrganisms(
 
         .order(
 
-            SCHEMA.CREATED_AT,
+            SCHEMA.NAME_AR,
 
             {
 
-                ascending: false
+                ascending: true
 
             }
 
