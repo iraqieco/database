@@ -260,3 +260,43 @@
     }
 
 }
+/* ===========================
+   Filters
+=========================== */
+
+#filters{
+    margin:20px 0;
+}
+
+.kingdom-filters,
+.image-filters{
+    display:flex;
+    flex-wrap:wrap;
+    justify-content:center;
+    gap:10px;
+    margin-bottom:12px;
+}
+
+.filter-btn,
+.image-btn{
+    padding:10px 18px;
+    border:none;
+    border-radius:999px;
+    background:#f3f4f6;
+    color:#333;
+    cursor:pointer;
+    font-size:14px;
+    font-weight:600;
+    transition:0.2s;
+}
+
+.filter-btn:hover,
+.image-btn:hover{
+    background:#dcefe2;
+}
+
+.filter-btn.active,
+.image-btn.active{
+    background:#1b5e20;
+    color:#fff;
+   }
