@@ -105,66 +105,7 @@ function createCard(organism) {
 
 
 
-    const title = document.createElement("h3");
-
-    title.className = "organism-card-title";
-
-    title.textContent =
-
-        organism[SCHEMA.NAME_AR] ||
-
-        organism[SCHEMA.NAME_EN] ||
-
-        organism[SCHEMA.NAME_KU] ||
-
-        organism[SCHEMA.SCIENTIFIC_NAME];
-
-
-
-    const text = document.createElement("p");
-
-    text.className = "organism-card-text";
-
-    text.textContent =
-
-        organism[SCHEMA.DESCRIPTION_AR] ||
-
-        organism[SCHEMA.DESCRIPTION_EN] ||
-
-        organism[SCHEMA.DESCRIPTION_KU] ||
-
-        "";
-
-
-
-    const button = document.createElement("a");
-
-    button.className = "btn btn-primary mt-4";
-
-    button.href =
-
-        `organism.html?id=${organism[SCHEMA.ID]}`;
-
-    button.textContent = t(
-
-        "buttons.readMore",
-
-        "View"
-
-    );
-
-
-
-    body.append(
-
-        title,
-
-        text,
-
-        button
-
-    );
-
+    
 
 
     card.append(
@@ -191,7 +132,58 @@ async function loadLatest() {
 
         const organisms =
 
-            await getLatestOrganisms(8);
+ const title = document.createElement("h3");
+title.className = "organism-card-title";
+title.textContent =
+    organism[SCHEMA.NAME_AR] || "";
+
+const scientific = document.createElement("p");
+scientific.className = "organism-card-scientific";
+scientific.textContent =
+    organism[SCHEMA.SCIENTIFIC_NAME] || "";
+
+const className = document.createElement("p");
+className.className = "organism-card-class";
+className.innerHTML =
+    `<strong>الطائفة:</strong> ${organism[SCHEMA.CLASS] || "-"}`;
+
+const description = document.createElement("p");
+description.className = "organism-card-text";
+
+const fullDescription =
+    organism[SCHEMA.DESCRIPTION_AR] ||
+    organism[SCHEMA.DESCRIPTION_EN] ||
+    organism[SCHEMA.DESCRIPTION_KU] ||
+    "";
+
+description.textContent =
+    fullDescription.length > 120
+        ? fullDescription.substring(0, 120) + "..."
+        : fullDescription;
+
+const conservation = document.createElement("p");
+conservation.className = "organism-card-status";
+conservation.innerHTML =
+    `<strong>حالة الحفظ:</strong> ${organism[SCHEMA.CONSERVATION_STATUS] || "-"}`;
+
+const button = document.createElement("a");
+button.className = "btn btn-primary mt-4";
+button.href =
+    `organism.html?id=${organism[SCHEMA.ID]}`;
+button.textContent = t(
+    "buttons.readMore",
+    "عرض التفاصيل"
+);
+
+body.append(
+    title,
+    scientific,
+    className,
+    description,
+    conservation,
+    button
+);
+       await getLatestOrganisms(8);
 
 
 
