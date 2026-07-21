@@ -1,139 +1,207 @@
-/* ==========================================
-   Iraqi Eco - Language Manager
-   ========================================== */
+/* ==========================================================================
+   Iraqi Eco
+   Language Manager
+   ========================================================================== */
 
-let currentLanguage = load("language", CONFIG.site.defaultLanguage);
+import { CONFIG } from "./config.js";
+import { LANGUAGES } from "./constants.js";
+import { getLanguage, setLanguage } from "./storage.js";
+import { validateLanguage } from "./validator.js";
 
-let translations = {};
+let dictionary = {};
 
+/* ==========================================================================
+   Get Current Language
+   ========================================================================== */
 
-/* ==========================
-   تحميل ملف اللغة
-========================== */
+export function currentLanguage() {
 
-async function loadLanguage(language) {
-
-    try {
-
-        const response = await fetch(`lang/${language}.json`);
-
-        translations = await response.json();
-
-        currentLanguage = language;
-
-        save("language", language);
-
-        applyLanguage();
-
-    }
-
-    catch (error) {
-
-        console.error("Language Error:", error);
-
-    }
+    return document.documentElement.lang;
 
 }
 
+/* ==========================================================================
+   Translate
+   ========================================================================== */
 
-/* ==========================
-   ترجمة عنصر واحد
-========================== */
+export function t(key, fallback = "") {
 
-function translate(key) {
-
-    return translations[key] ?? key;
+    return dictionary[key] ?? fallback ?? key;
 
 }
 
+/* ==========================================================================
+   Load Language File
+   ========================================================================== */
 
-/* ==========================
-   تطبيق الترجمة
-========================== */
+export async function loadLanguage(language) {
 
-function applyLanguage() {
+    if (!validateLanguage(language)) {
 
-    document.documentElement.lang = currentLanguage;
-
-    if (currentLanguage === "ar" || currentLanguage === "ku") {
-
-        document.documentElement.dir = "rtl";
+        language = CONFIG.language.default;
 
     }
 
-    else {
+    const response = await fetch(
 
-        document.documentElement.dir = "ltr";
+        `lang/${language}.json`
+
+    );
+
+    if (!response.ok) {
+
+        throw new Error(
+
+            `Unable to load language: ${language}`
+
+        );
 
     }
 
-    document.title = CONFIG.site.name;
+    dictionary = await response.json();
+
+}
+
+/* ==========================================================================
+   Apply Language
+   ========================================================================== */
+
+export function applyLanguage(language) {
+
+    if (!validateLanguage(language)) {
+
+        language = CONFIG.language.default;
+
+    }
+
+    const info = LANGUAGES[language];
+
+    document.documentElement.lang = info.code;
+
+    document.documentElement.dir = info.direction;
+
+    document.body.style.fontFamily =
+
+        `var(--font-${language})`;
+
+    setLanguage(language);
+
+}
+
+/* ==========================================================================
+   Translate Page
+   ========================================================================== */
+
+export function translatePage() {
 
     document
-        .querySelectorAll("[data-lang]")
+
+        .querySelectorAll("[data-i18n]")
+
         .forEach(element => {
 
-            const key = element.dataset.lang;
+            const key = element.dataset.i18n;
 
-            element.textContent = translate(key);
+            element.textContent = t(
+
+                key,
+
+                element.textContent
+
+            );
 
         });
 
+
+
     document
-        .querySelectorAll("[data-placeholder]")
+
+        .querySelectorAll("[data-i18n-placeholder]")
+
         .forEach(element => {
 
-            const key = element.dataset.placeholder;
+            const key =
 
-            element.placeholder = translate(key);
+                element.dataset.i18nPlaceholder;
+
+            element.placeholder = t(
+
+                key,
+
+                element.placeholder
+
+            );
 
         });
 
 }
 
 
-/* ==========================
-   تغيير اللغة
-========================== */
 
-async function changeLanguage(language) {
+/* ==========================================================================
+   Change Language
+   ========================================================================== */
 
-    if (
-        !CONFIG.site.supportedLanguages.includes(language)
-    ) {
-
-        return;
-
-    }
+export async function changeLanguage(language) {
 
     await loadLanguage(language);
 
+    applyLanguage(language);
+
+    translatePage();
+
+    document.dispatchEvent(
+
+        new CustomEvent(
+
+            "languageChanged",
+
+            {
+
+                detail: {
+
+                    language
+
+                }
+
+            }
+
+        )
+
+    );
+
 }
 
 
-/* ==========================
-   اللغة الحالية
-========================== */
 
-function getLanguage() {
+/* ==========================================================================
+   Initialize
+   ========================================================================== */
 
-    return currentLanguage;
+export async function initializeLanguage() {
+
+    let language = getLanguage();
+
+    if (!validateLanguage(language)) {
+
+        language = CONFIG.language.default;
+
+    }
+
+    await changeLanguage(language);
 
 }
 
 
-/* ==========================
-   بداية التشغيل
-========================== */
+
+/* ==========================================================================
+   Auto Initialize
+   ========================================================================== */
 
 document.addEventListener(
 
     "DOMContentLoaded",
 
-    () => {
-
-        loadLanguage(currentLanguage);
-
-    }
+    initializeLanguage
 
 );
