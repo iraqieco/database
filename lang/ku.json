@@ -1,0 +1,56 @@
+{
+  "site.name": "عێراقی ئیکۆ",
+  "site.description": "بنکەی زانیاری بۆ بوونەوەرە زیندووەکانی عێراق",
+
+  "nav.home": "سەرەکی",
+  "nav.organisms": "بوونەوەرەکان",
+  "nav.search": "گەڕان",
+  "nav.login": "چوونەژوورەوە",
+  "nav.admin": "بەڕێوەبەرایەتی",
+
+  "home.hero.title": "زانکۆی بوونەوەرە زیندووەکانی عێراق",
+  "home.hero.description": "ئاژەڵ، ڕووەک، قارچک و هەموو جۆرەکانی بوونەوەرە زیندووەکانی عێراق بناسە.",
+
+  "search.placeholder": "بە ناوی عەرەبی، ئینگلیزی، کوردی یان ناوی زانستی بگەڕێ...",
+  "search.button": "گەڕان",
+
+  "home.latest": "نوێترین بوونەوەرەکان",
+  "home.statistics": "ئامار",
+
+  "statistics.organisms": "ژمارەی بوونەوەرەکان",
+  "statistics.categories": "ژمارەی پۆلەکان",
+  "statistics.images": "ژمارەی وێنەکان",
+
+  "organisms.title": "بوونەوەرەکان",
+  "organisms.all": "هەموو بوونەوەرەکان",
+
+  "organism.details": "زانیاری بوونەوەر",
+  "organism.classification": "پۆلێنکردنی زانستی",
+  "organism.description": "وەسف",
+  "organism.distribution": "دابەشبوون",
+  "organism.habitat": "شوێنی ژیان",
+  "organism.behavior": "هەڵسوکەوت",
+  "organism.diet": "خۆراک",
+  "organism.reproduction": "زاوزێکردن",
+  "organism.lifespan": "تەمەنی مامناوەند",
+  "organism.weight": "کێش",
+  "organism.size": "قەبارە",
+  "organism.color": "ڕەنگ",
+  "organism.status": "دۆخی پاراستن",
+  "organism.references": "سەرچاوەکان",
+  "organism.notes": "تێبینیەکان",
+
+  "buttons.readMore": "پیشاندانی وردەکاری",
+  "buttons.back": "گەڕانەوە",
+  "buttons.save": "پاشەکەوت",
+  "buttons.cancel": "هەڵوەشاندنەوە",
+  "buttons.delete": "سڕینەوە",
+  "buttons.edit": "دەستکاریکردن",
+
+  "loading": "بارکردن...",
+  "noData": "هیچ زانیارییەک بەردەست نییە.",
+  "notFound": "هیچ ئەنجامێک نەدۆزرایەوە.",
+  "error": "هەڵەیەک ڕوویدا، تکایە دووبارە هەوڵبدە.",
+
+  "footer.rights": "هەموو مافەکان پارێزراون © عێراقی ئیکۆ"
+}
