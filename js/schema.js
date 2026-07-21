@@ -65,7 +65,7 @@ export const SCHEMA = Object.freeze({
        Description
     =========================== */
 
-    DESCRIPTION: "description"
+    DESCRIPTION: "description",
 
 
 
