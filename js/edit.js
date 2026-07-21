@@ -216,12 +216,8 @@ function createInput(field) {
 
     const textareaFields = [
 
-        SCHEMA.DESCRIPTION_AR,
-
-        SCHEMA.DESCRIPTION_EN,
-
-        SCHEMA.DESCRIPTION_KU,
-
+        SCHEMA.DESCRIPTION,
+     
         SCHEMA.NOTES,
 
         SCHEMA.REFERENCES
