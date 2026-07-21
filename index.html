@@ -35,7 +35,11 @@
     <link rel="stylesheet" href="css/dark.css">
 <link rel="manifest" href="manifest.webmanifest">
 </head>
-
+<script>
+if ("serviceWorker" in navigator) {
+    navigator.serviceWorker.register("sw.js");
+}
+</script>
 <body>
 
 <header class="header">
