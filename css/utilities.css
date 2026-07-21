@@ -1,0 +1,278 @@
+/* ==========================================================================
+   Iraqi Eco
+   Utilities
+   ========================================================================== */
+
+/* ===========================
+   Display
+=========================== */
+
+.d-none{
+    display:none !important;
+}
+
+.d-block{
+    display:block !important;
+}
+
+.d-inline{
+    display:inline !important;
+}
+
+.d-inline-block{
+    display:inline-block !important;
+}
+
+.d-flex{
+    display:flex !important;
+}
+
+.d-grid{
+    display:grid !important;
+}
+
+/* ===========================
+   Flex
+=========================== */
+
+.justify-start{
+    justify-content:flex-start !important;
+}
+
+.justify-center{
+    justify-content:center !important;
+}
+
+.justify-end{
+    justify-content:flex-end !important;
+}
+
+.justify-between{
+    justify-content:space-between !important;
+}
+
+.align-start{
+    align-items:flex-start !important;
+}
+
+.align-center{
+    align-items:center !important;
+}
+
+.align-end{
+    align-items:flex-end !important;
+}
+
+.flex-wrap{
+    flex-wrap:wrap !important;
+}
+
+/* ===========================
+   Width
+=========================== */
+
+.w-100{
+    width:100% !important;
+}
+
+.h-100{
+    height:100% !important;
+}
+
+/* ===========================
+   Text
+=========================== */
+
+.text-start{
+    text-align:start !important;
+}
+
+.text-center{
+    text-align:center !important;
+}
+
+.text-end{
+    text-align:end !important;
+}
+
+.text-primary{
+    color:var(--color-primary) !important;
+}
+
+.text-secondary{
+    color:var(--color-text-secondary) !important;
+}
+
+.text-muted{
+    color:var(--color-text-muted) !important;
+}
+
+.text-success{
+    color:var(--color-success) !important;
+}
+
+.text-warning{
+    color:var(--color-warning) !important;
+}
+
+.text-danger{
+    color:var(--color-danger) !important;
+}
+
+.fw-normal{
+    font-weight:var(--fw-normal) !important;
+}
+
+.fw-medium{
+    font-weight:var(--fw-medium) !important;
+}
+
+.fw-semibold{
+    font-weight:var(--fw-semibold) !important;
+}
+
+.fw-bold{
+    font-weight:var(--fw-bold) !important;
+}
+
+/* ===========================
+   Background
+=========================== */
+
+.bg-primary{
+    background:var(--color-primary) !important;
+    color:#FFFFFF !important;
+}
+
+.bg-surface{
+    background:var(--color-surface) !important;
+}
+
+.bg-white{
+    background:#FFFFFF !important;
+}
+
+/* ===========================
+   Border Radius
+=========================== */
+
+.rounded-sm{
+    border-radius:var(--radius-sm) !important;
+}
+
+.rounded{
+    border-radius:var(--radius-md) !important;
+}
+
+.rounded-lg{
+    border-radius:var(--radius-lg) !important;
+}
+
+.rounded-full{
+    border-radius:var(--radius-round) !important;
+}
+
+/* ===========================
+   Shadow
+=========================== */
+
+.shadow-sm{
+    box-shadow:var(--shadow-sm) !important;
+}
+
+.shadow-md{
+    box-shadow:var(--shadow-md) !important;
+}
+
+.shadow-lg{
+    box-shadow:var(--shadow-lg) !important;
+}
+
+/* ===========================
+   Margin
+=========================== */
+
+.m-0{margin:0!important;}
+.mt-1{margin-top:var(--space-1)!important;}
+.mt-2{margin-top:var(--space-2)!important;}
+.mt-3{margin-top:var(--space-3)!important;}
+.mt-4{margin-top:var(--space-4)!important;}
+.mt-5{margin-top:var(--space-5)!important;}
+.mt-6{margin-top:var(--space-6)!important;}
+.mt-8{margin-top:var(--space-8)!important;}
+
+.mb-1{margin-bottom:var(--space-1)!important;}
+.mb-2{margin-bottom:var(--space-2)!important;}
+.mb-3{margin-bottom:var(--space-3)!important;}
+.mb-4{margin-bottom:var(--space-4)!important;}
+.mb-5{margin-bottom:var(--space-5)!important;}
+.mb-6{margin-bottom:var(--space-6)!important;}
+.mb-8{margin-bottom:var(--space-8)!important;}
+
+/* ===========================
+   Padding
+=========================== */
+
+.p-1{padding:var(--space-1)!important;}
+.p-2{padding:var(--space-2)!important;}
+.p-3{padding:var(--space-3)!important;}
+.p-4{padding:var(--space-4)!important;}
+.p-5{padding:var(--space-5)!important;}
+.p-6{padding:var(--space-6)!important;}
+.p-8{padding:var(--space-8)!important;}
+
+/* ===========================
+   Cursor
+=========================== */
+
+.pointer{
+    cursor:pointer !important;
+}
+
+.not-allowed{
+    cursor:not-allowed !important;
+}
+
+/* ===========================
+   Overflow
+=========================== */
+
+.overflow-hidden{
+    overflow:hidden !important;
+}
+
+.overflow-auto{
+    overflow:auto !important;
+}
+
+/* ===========================
+   Visibility
+=========================== */
+
+.hidden{
+    visibility:hidden !important;
+}
+
+.visible{
+    visibility:visible !important;
+}
+
+/* ===========================
+   Responsive
+=========================== */
+
+@media (max-width:768px){
+
+    .mobile-hidden{
+        display:none !important;
+    }
+
+    .mobile-center{
+        text-align:center !important;
+    }
+
+    .mobile-w-100{
+        width:100% !important;
+    }
+
+}
