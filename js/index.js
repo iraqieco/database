@@ -138,7 +138,7 @@ async function loadLatest() {
 
         allOrganisms = await getLatestOrganisms();
 
-alert("عدد الكائنات: " + allOrganisms.length);
+
 allOrganisms.sort((a, b) => {
 
     const nameA = (a[SCHEMA.NAME_AR] || "")
