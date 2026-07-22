@@ -1,3 +1,4 @@
+import { changeLanguage } from "./language.js";
 const menu = document.getElementById("side-menu");
 
 const overlay = document.getElementById("menu-overlay");
@@ -101,3 +102,16 @@ if (languageToggle && languageBox) {
     });
 
 }
+document.querySelectorAll(".language-option").forEach(button => {
+
+    button.addEventListener("click", async (e) => {
+
+        e.preventDefault();
+
+        const language = button.dataset.lang;
+
+        await changeLanguage(language);
+
+    });
+
+});
