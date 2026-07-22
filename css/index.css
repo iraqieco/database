@@ -345,3 +345,7 @@
     width:100%;
     text-align:center;
 }
+.hero .search-box input,
+#search-input{
+    font-size:16px !important;
+   }
