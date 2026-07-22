@@ -107,7 +107,21 @@ const STATUS = {
 
     const conservation = document.createElement("p");
     conservation.className = "organism-card-status";
-    conservation.textContent = organism[SCHEMA.CONSERVATION_STATUS] || "-";
+    const statusCode = (organism[SCHEMA.CONSERVATION_STATUS] || "")
+    .trim()
+    .replace(/\s+/g, "")
+    .toUpperCase();
+
+const status = STATUS[statusCode] || {
+    text: statusCode || "-",
+    color: "#777"
+};
+
+conservation.innerHTML = `
+<strong>حالة الحفظ:</strong>
+<span style="color:${status.color};font-weight:bold;">
+${status.text}
+</span>`;
 
     const button = document.createElement("a");
     button.className = "btn btn-primary mt-4";
