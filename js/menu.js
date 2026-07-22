@@ -84,3 +84,20 @@ if (contactToggle && contactBox) {
     });
 
 }
+const languageToggle = document.getElementById("language-toggle");
+const languageBox = document.getElementById("language-box");
+
+if (languageToggle && languageBox) {
+
+    languageToggle.addEventListener("click", function (e) {
+
+        e.preventDefault();
+
+        languageBox.style.display =
+            languageBox.style.display === "block"
+                ? "none"
+                : "block";
+
+    });
+
+}
