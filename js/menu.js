@@ -49,31 +49,3 @@ sourcesToggle.addEventListener("click", (e) => {
     }
 
 });
-const sourcesToggle = document.getElementById("sources-toggle");
-const sourcesBox = document.getElementById("sources-box");
-
-if (sourcesToggle && sourcesBox) {
-
-    sourcesToggle.addEventListener("click", function (e) {
-
-        e.preventDefault();
-
-        closeMenu();
-
-        if (sourcesBox.style.display === "block") {
-
-            sourcesBox.style.display = "none";
-
-        } else {
-
-            sourcesBox.style.display = "block";
-
-            sourcesBox.scrollIntoView({
-                behavior: "smooth"
-            });
-
-        }
-
-    });
-
-}
