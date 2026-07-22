@@ -104,7 +104,7 @@ export function createImage({
 
 };
 
-    };
+    
 
     return image;
 
