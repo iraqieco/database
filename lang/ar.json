@@ -54,3 +54,18 @@
 
   "footer.rights": "جميع الحقوق محفوظة © عراقي إيكو"
 }
+{
+  "filter.all": "الكل",
+  "filter.animals": "الحيوانات",
+  "filter.plants": "النباتات",
+  "filter.fungi": "الفطريات",
+  "filter.protists": "الطلائعيات",
+  "filter.bacteria": "البكتيريا",
+
+  "image.all": "الكل",
+  "image.with": "مع صور",
+  "image.without": "بدون صور",
+
+  "label.class": "الطائفة",
+  "results": "النتائج"
+}
