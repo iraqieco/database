@@ -120,11 +120,6 @@ const status = STATUS[statusCode] || {
 conservation.textContent = status.text;
 conservation.style.background = status.color;
 conservation.style.color = "#fff";
-conservation.innerHTML = `
-<strong>حالة الحفظ:</strong>
-<span style="color:${status.color};font-weight:bold;">
-${status.text}
-</span>`;
 
     const button = document.createElement("a");
     button.className = "btn btn-primary mt-4";
