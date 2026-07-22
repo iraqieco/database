@@ -117,6 +117,9 @@ const status = STATUS[statusCode] || {
     color: "#777"
 };
 
+conservation.textContent = status.text;
+conservation.style.background = status.color;
+conservation.style.color = "#fff";
 conservation.innerHTML = `
 <strong>حالة الحفظ:</strong>
 <span style="color:${status.color};font-weight:bold;">
