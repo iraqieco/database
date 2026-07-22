@@ -49,3 +49,38 @@ sourcesToggle.addEventListener("click", (e) => {
     }
 
 });
+const supportToggle = document.getElementById("support-toggle");
+const supportBox = document.getElementById("support-box");
+
+if (supportToggle && supportBox) {
+
+    supportToggle.addEventListener("click", function (e) {
+
+        e.preventDefault();
+
+        supportBox.style.display =
+            supportBox.style.display === "block"
+                ? "none"
+                : "block";
+
+    });
+
+}
+
+const contactToggle = document.getElementById("contact-toggle");
+const contactBox = document.getElementById("contact-box");
+
+if (contactToggle && contactBox) {
+
+    contactToggle.addEventListener("click", function (e) {
+
+        e.preventDefault();
+
+        contactBox.style.display =
+            contactBox.style.display === "block"
+                ? "none"
+                : "block";
+
+    });
+
+}
