@@ -66,5 +66,15 @@
   "image.without": "بدون صور",
 
   "label.class": "الطائفة",
-  "results": "النتائج"
+  "results": "النتائج",
+
+"status.EX": "منقرض",
+"status.EW": "منقرض في البرية",
+"status.CR": "مهدد بخطر انقراض حرج",
+"status.EN": "مهدد بالانقراض",
+"status.VU": "معرض للخطر",
+"status.NT": "قريب من التهديد",
+"status.LC": "أقل اهتمام",
+"status.DD": "بيانات غير كافية",
+"status.NE": "غير مقيم"
 }
