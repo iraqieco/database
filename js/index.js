@@ -63,7 +63,17 @@ function initializeSearch() {
     );
 
 }
-
+const STATUS = {
+    "EX": { text: "منقرض", color: "#000000" },
+    "EW": { text: "منقرض في البرية", color: "#5c5c5c" },
+    "CR": { text: "مهدد بخطر انقراض حرج", color: "#d32f2f" },
+    "EN": { text: "مهدد بالانقراض", color: "#f57c00" },
+    "VU": { text: "معرض للخطر", color: "#fbc02d" },
+    "NT": { text: "قريب من التهديد", color: "#8bc34a" },
+    "LC": { text: "أقل اهتمام", color: "#2e7d32" },
+    "DD": { text: "بيانات غير كافية", color: "#607d8b" },
+    "NE": { text: "غير مقيم", color: "#9e9e9e" }
+};
 /* ==========================================================================
    Card
    ========================================================================== */
@@ -134,8 +144,17 @@ function createCard(organism) {
     conservation.className =
         "organism-card-status";
 
-    conservation.innerHTML =
-        `<strong>حالة الحفظ:</strong> ${organism[SCHEMA.CONSERVATION_STATUS] || "-"}`;
+    const statusCode = organism[SCHEMA.CONSERVATION_STATUS] || "";
+const status = STATUS[statusCode] || {
+    text: statusCode || "-",
+    color: "#777"
+};
+
+conservation.innerHTML =
+    `<strong>حالة الحفظ:</strong>
+    <span style="color:${status.color};font-weight:bold;">
+        ${status.text}
+    </span>`;
 
     const button = document.createElement("a");
 
