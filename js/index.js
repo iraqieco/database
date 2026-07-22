@@ -74,7 +74,8 @@ const STATUS = {
     "DD": { text: "بيانات غير كافية", color: "#607d8b" },
     "NE": { text: "غير مقيم", color: "#9e9e9e" }
 };
-function createCard(organism) {
+
+  function createCard(organism) {
 
     const card = document.createElement("article");
     card.className = "organism-card card";
@@ -88,65 +89,28 @@ function createCard(organism) {
     const body = document.createElement("div");
     body.className = "organism-card-content";
 
-    body.style.display = "flex";
-    body.style.flexDirection = "column";
-    body.style.alignItems = "center";
-    body.style.textAlign = "center";
-
     const title = document.createElement("h3");
     title.className = "organism-card-title";
-    title.style.width = "100%";
-    title.style.textAlign = "center";
     title.textContent = organism[SCHEMA.NAME_AR] || "";
 
     const scientific = document.createElement("p");
     scientific.className = "organism-card-scientific";
-    scientific.style.width = "100%";
-    scientific.style.textAlign = "center";
     scientific.textContent = organism[SCHEMA.SCIENTIFIC_NAME] || "";
 
     const className = document.createElement("p");
     className.className = "organism-card-class";
-    className.style.width = "100%";
-    className.style.textAlign = "center";
-    className.innerHTML =
-        `<strong>الطائفة:</strong> ${organism[SCHEMA.CLASS] || "-"}`;
+    className.innerHTML = `<strong>الطائفة:</strong> ${organism[SCHEMA.CLASS] || "-"}`;
 
     const description = document.createElement("p");
     description.className = "organism-card-text";
-    description.style.width = "100%";
-    description.style.textAlign = "center";
-
-    const text = organism[SCHEMA.DESCRIPTION] || "";
-
-    description.textContent =
-        text.length > 120
-            ? text.substring(0, 120) + "..."
-            : text;
+    description.textContent = organism[SCHEMA.DESCRIPTION] || "";
 
     const conservation = document.createElement("p");
     conservation.className = "organism-card-status";
-    conservation.style.width = "100%";
-    conservation.style.textAlign = "center";
-
-    const statusCode = (organism[SCHEMA.CONSERVATION_STATUS] || "")
-        .replace(/\s+/g, "")
-        .toUpperCase();
-
-    const status = STATUS[statusCode] || {
-        text: statusCode || "-",
-        color: "#777"
-    };
-
-    conservation.innerHTML =
-        `<strong>حالة الحفظ:</strong>
-        <span style="color:${status.color};font-weight:bold;">
-            ${status.text}
-        </span>`;
+    conservation.textContent = organism[SCHEMA.CONSERVATION_STATUS] || "-";
 
     const button = document.createElement("a");
     button.className = "btn btn-primary mt-4";
-    button.style.alignSelf = "center";
     button.href = `organism.html?id=${organism[SCHEMA.ID]}`;
     button.textContent = "عرض التفاصيل";
 
@@ -162,8 +126,7 @@ function createCard(organism) {
     card.append(image, body);
 
     return card;
-}
-
+  }  
 
 /* ==========================================================================
    Initialize
