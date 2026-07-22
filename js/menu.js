@@ -25,42 +25,27 @@ function closeMenu() {
     overlay.classList.remove("show");
 
 }
-.menu-dropdown{
+const sourcesToggle = document.getElementById("sources-toggle");
+const sourcesBox = document.getElementById("sources-box");
 
-    background:#f5f5f5;
+sourcesToggle.addEventListener("click", (e) => {
 
-    border-radius:12px;
+    e.preventDefault();
 
-    margin-bottom:10px;
+    closeMenu();
 
-}
+    if (sourcesBox.style.display === "block") {
 
-.menu-dropdown summary{
+        sourcesBox.style.display = "none";
 
-    list-style:none;
+    } else {
 
-    cursor:pointer;
+        sourcesBox.style.display = "block";
 
-    padding:16px;
+        sourcesBox.scrollIntoView({
+            behavior: "smooth"
+        });
 
-    font-weight:bold;
+    }
 
-    display:flex;
-
-    justify-content:space-between;
-
-}
-
-.menu-dropdown summary::-webkit-details-marker{
-
-    display:none;
-
-}
-
-.menu-dropdown-content{
-
-    padding:0 16px 16px;
-
-    color:#444;
-
-        }
+});
