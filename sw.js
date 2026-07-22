@@ -1,18 +1,18 @@
 const CACHE_NAME = "iraqieco-v1";
 
 const FILES = [
-  "/",
-  "/index.html",
-  "/manifest.webmanifest",
-  "/css/variables.css",
-  "/css/reset.css",
-  "/css/layout.css",
-  "/css/components.css",
-  "/css/utilities.css",
-  "/css/index.css",
-  "/css/dark.css",
-  "/js/index.js",
-  "/assets/icons/icon-512.png"
+  "/database/",
+  "/database/index.html",
+  "/database/manifest.webmanifest",
+  "/database/css/variables.css",
+  "/database/css/reset.css",
+  "/database/css/layout.css",
+  "/database/css/components.css",
+  "/database/css/utilities.css",
+  "/database/css/index.css",
+  "/database/css/dark.css",
+  "/database/js/index.js",
+  "/database/assets/icons/icon-512.png"
 ];
 
 self.addEventListener("install", event => {
