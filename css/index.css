@@ -357,9 +357,4 @@
     font-weight:700;
     color:#fff;
     border-radius:0 0 var(--radius-lg) var(--radius-lg);
-}
-#search-input{
-    color:#000 !important;
-    -webkit-text-fill-color:#000 !important;
-    caret-color:#000 !important;
-}
+
