@@ -54,3 +54,18 @@
 
   "footer.rights": "All rights reserved © Iraqi Eco"
 }
+{
+  "filter.all": "All",
+  "filter.animals": "Animals",
+  "filter.plants": "Plants",
+  "filter.fungi": "Fungi",
+  "filter.protists": "Protists",
+  "filter.bacteria": "Bacteria",
+
+  "image.all": "All",
+  "image.with": "With Images",
+  "image.without": "Without Images",
+
+  "label.class": "Class",
+  "results": "Results"
+}
