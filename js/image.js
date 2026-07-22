@@ -73,45 +73,27 @@ export function getGallery(images = [], source = IMAGE_SOURCE.URL) {
    ========================================================================== */
 
 export function createImage({
-
     src = "",
-
     alt = "",
-
     className = "",
-
     loading = "lazy",
-
     source = IMAGE_SOURCE.URL
-
 } = {}) {
 
     const image = document.createElement("img");
 
     image.src = getImageUrl(src, source);
-
     image.alt = alt;
-
     image.loading = loading;
-
     image.decoding = "async";
-
     image.className = className;
 
     image.onerror = () => {
-
-    image.src = "assets/images/no-image.png";
-
-};
-
-    
+        image.src = "assets/images/no-image.png";
+    };
 
     return image;
-
 }
-
-
-
 /* ==========================================================================
    Replace Broken Images
    ========================================================================== */
