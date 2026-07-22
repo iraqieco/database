@@ -73,38 +73,7 @@ if ("serviceWorker" in navigator) {
 
         </a>
 
-        <nav class="nav">
-
-            <div class="nav-links">
-
-                <a href="index.html"
-                   data-i18n="nav.home">
-                    الرئيسية
-                </a>
-
-                <a href="organisms.html"
-                   data-i18n="nav.organisms">
-                    الكائنات
-                </a>
-
-                <a href="search.html"
-                   data-i18n="nav.search">
-                    البحث
-                </a>
-
-                <a href="login.html"
-                   data-i18n="nav.login">
-                    تسجيل الدخول
-                </a>
-              
-
-                </div>
-
-            </div>
-
-        </nav>
-
-    </div>
+        
 
 </header>
 
@@ -129,7 +98,14 @@ if ("serviceWorker" in navigator) {
                     id="search-input"
                     class="input"
                     type="search"
-                    data-i18n-placeholder="search.placeholder"
+                    data-<nav class="nav">
+
+    <button id="menu-toggle" class="menu-toggle">
+        ☰
+    </button>
+
+            </nav>
+                i18n-placeholder="search.placeholder"
                     placeholder="ابحث...">
 
                 <button
@@ -214,7 +190,31 @@ if ("serviceWorker" in navigator) {
 
 <script type="module"
         src="js/index.js"></script>
+<div id="menu-overlay" class="menu-overlay"></div>
 
+<aside id="side-menu" class="side-menu">
+
+    <button id="menu-close" class="menu-close">✕</button>
+
+    <a href="index.html">🏠 الرئيسية <span>›</span></a>
+
+    <a href="search.html">🔍 البحث <span>›</span></a>
+
+    <a href="login.html">👤 تسجيل الدخول <span>›</span></a>
+
+    <a href="#">🌍 اللغة <span>›</span></a>
+
+    <a href="about.html">ℹ️ عن المشروع <span>›</span></a>
+
+    <a href="sources.html">📚 المصادر <span>›</span></a>
+
+    <a href="support.html">❤️ الدعم <span>›</span></a>
+
+    <a href="contact.html">✉️ التواصل <span>›</span></a>
+
+</aside>
+
+<script src="js/menu.js"></script>
 </body>
 
 </html>
