@@ -66,5 +66,15 @@
   "image.without": "Without Images",
 
   "label.class": "Class",
-  "results": "Results"
+
+ "results": "Results",
+"status.EX": "Extinct",
+"status.EW": "Extinct in the Wild",
+"status.CR": "Critically Endangered",
+"status.EN": "Endangered",
+"status.VU": "Vulnerable",
+"status.NT": "Near Threatened",
+"status.LC": "Least Concern",
+"status.DD": "Data Deficient",
+"status.NE": "Not Evaluated" 
 }
