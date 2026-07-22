@@ -220,4 +220,4 @@ document.addEventListener("languageChanged", () => {
         createCard
     );
 
-});                                                }
+});                                                
