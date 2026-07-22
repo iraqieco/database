@@ -145,7 +145,7 @@ function createCard(organism) {
         "organism-card-status";
 
     const statusCode = (organism[SCHEMA.CONSERVATION_STATUS] || "")
-    .trim()
+    .replace(/\s+/g, "")
     .toUpperCase();
 
 const status = STATUS[statusCode] || {
