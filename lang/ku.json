@@ -54,3 +54,18 @@
 
   "footer.rights": "هەموو مافەکان پارێزراون © عێراقی ئیکۆ"
 }
+{
+  "filter.all": "هەموو",
+  "filter.animals": "ئاژەڵەکان",
+  "filter.plants": "ڕووەکەکان",
+  "filter.fungi": "قارچەکان",
+  "filter.protists": "پڕۆتیستەکان",
+  "filter.bacteria": "باکتریاکان",
+
+  "image.all": "هەموو",
+  "image.with": "لەگەڵ وێنە",
+  "image.without": "بێ وێنە",
+
+  "label.class": "پۆل",
+  "results": "ئەنجامەکان"
+}
