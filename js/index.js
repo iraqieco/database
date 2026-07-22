@@ -212,16 +212,26 @@ allOrganisms.sort((a, b) => {
 
 async function initialize() {
 
-    await initializeLanguage();
+    try {
 
-    initializeTheme();
+        await initializeLanguage();
 
-    initializeSupabase();
+        initializeTheme();
 
-    initializeSearch();
+        initializeSupabase();
 
-    await loadLatest();
+        initializeSearch();
 
-}
+        await loadLatest();
 
-initialize();
+    }
+
+    catch (e) {
+
+        console.error(e);
+
+        alert(e.message);
+
+    }
+
+} 
