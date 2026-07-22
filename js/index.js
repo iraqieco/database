@@ -121,10 +121,7 @@ conservation.textContent = status.text;
 conservation.style.background = status.color;
 conservation.style.color = "#fff";
 
-    const button = document.createElement("a");
-    button.className = "btn btn-primary mt-4";
-    button.href = `organism.html?id=${organism[SCHEMA.ID]}`;
-    button.textContent = "عرض التفاصيل";
+    
 
     body.append(
         title,
@@ -132,7 +129,7 @@ conservation.style.color = "#fff";
         className,
         description,
         conservation,
-        button
+        
     );
 
     card.append(image, body);
