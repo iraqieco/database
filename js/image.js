@@ -15,9 +15,10 @@ export function getImageUrl(image, source = IMAGE_SOURCE.URL) {
 
     if (isEmpty(image)) {
 
-        return CONFIG.images.placeholder;
+    return "assets/images/no-image.png";
 
     }
+    
 
     image = trim(image);
 
@@ -99,7 +100,9 @@ export function createImage({
 
     image.onerror = () => {
 
-        image.src = CONFIG.images.placeholder;
+    image.src = "assets/images/no-image.png";
+
+};
 
     };
 
