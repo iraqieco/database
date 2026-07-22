@@ -144,10 +144,14 @@ function createCard(organism) {
     conservation.className =
         "organism-card-status";
 
-    const statusCode = organism[SCHEMA.CONSERVATION_STATUS] || "";
+    const statusCode = (organism[SCHEMA.CONSERVATION_STATUS] || "")
+    .trim()
+    .toUpperCase();
+
 const status = STATUS[statusCode] || {
     text: statusCode || "-",
     color: "#777"
+
 };
 
 conservation.innerHTML =
