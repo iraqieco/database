@@ -358,3 +358,14 @@
     color:#fff;
     border-radius:0 0 var(--radius-lg) var(--radius-lg);
 
+/* مربع البحث */
+
+#search-input{
+    color:#222;
+    background:#fff;
+    caret-color:#222;
+}
+
+#search-input::placeholder{
+    color:#777;
+}
