@@ -4,64 +4,51 @@
    ========================================================================== */
 
 import { initializeTheme } from "./theme.js";
-import { initializeLanguage } from "./language.js";
+import { initializeLanguage, t } from "./language.js";
 import { initializeSupabase } from "./supabase.js";
-
 import { getLatestOrganisms } from "./api.js";
-
 import { SCHEMA } from "./schema.js";
-
 import { createImage, detectImageSource } from "./image.js";
-
-import { t } from "./language.js";
-
 import { error } from "./notifications.js";
 import { initializeFilters } from "./filters.js";
+
 /* ==========================================================================
    Elements
    ========================================================================== */
 
-const latestContainer = document.getElementById(
-    "latest-organisms"
-);
+const latestContainer = document.getElementById("latest-organisms");
+const searchForm = document.getElementById("search-form");
+const searchInput = document.getElementById("search-input");
 
-const searchForm = document.getElementById(
-    "search-form"
-);
-
-const searchInput = document.getElementById(
-    "search-input"
-);
 let allOrganisms = [];
+
 /* ==========================================================================
    Search
    ========================================================================== */
 
 function initializeSearch() {
 
-    searchForm?.addEventListener(
+    searchForm?.addEventListener("submit", event => {
 
-        "submit",
+        event.preventDefault();
 
-        event => {
+        const query = searchInput.value.trim();
 
-            event.preventDefault();
+        if (!query) return;
 
-            const query = searchInput.value.trim();
+        window.location.href =
+            `search.html?q=${encodeURIComponent(query)}`;
 
-            if (!query) {
+    });
 
-                return;
+}
 
-            }
+/* ==========================================================================
+   Conservation Status
+   ========================================================================== */
 
-            window.location.href =
-                `search.html?q=${encodeURIComponent(query)}`;
-
-        }
-
-    );
 const STATUS = {
+
     "EX": { key: "status.EX", color: "#000000" },
     "EW": { key: "status.EW", color: "#5c5c5c" },
     "CR": { key: "status.CR", color: "#d32f2f" },
@@ -71,9 +58,14 @@ const STATUS = {
     "LC": { key: "status.LC", color: "#2e7d32" },
     "DD": { key: "status.DD", color: "#607d8b" },
     "NE": { key: "status.NE", color: "#9e9e9e" }
+
 };
 
-  function createCard(organism) {
+/* ==========================================================================
+   Card
+   ========================================================================== */
+
+function createCard(organism) {
 
     const card = document.createElement("article");
     card.className = "organism-card card";
@@ -93,50 +85,53 @@ const STATUS = {
 
     const scientific = document.createElement("p");
     scientific.className = "organism-card-scientific";
-    scientific.textContent = organism[SCHEMA.SCIENTIFIC_NAME] || "";
+    scientific.textContent =
+        organism[SCHEMA.SCIENTIFIC_NAME] || "";
 
     const className = document.createElement("p");
     className.className = "organism-card-class";
-    className.innerHTML = `<strong>الطائفة:</strong> ${organism[SCHEMA.CLASS] || "-"}`;
+    className.innerHTML =
+        `<strong>${t("label.class")}:</strong> ${organism[SCHEMA.CLASS] || "-"}`;
 
     const description = document.createElement("p");
     description.className = "organism-card-text";
-    description.textContent = organism[SCHEMA.DESCRIPTION] || "";
+    description.textContent =
+        organism[SCHEMA.DESCRIPTION] || "";
 
     const conservation = document.createElement("p");
     conservation.className = "organism-card-status";
-    const statusCode = (organism[SCHEMA.CONSERVATION_STATUS] || "")
-    .trim()
-    .replace(/\s+/g, "")
-    .toUpperCase();
 
-const status = STATUS[statusCode] || {
-    text: statusCode || "-",
-    color: "#777"
-};
+    const statusCode = (
+        organism[SCHEMA.CONSERVATION_STATUS] || ""
+    )
+        .trim()
+        .replace(/\s+/g, "")
+        .toUpperCase();
 
-conservation.textContent = status.key ? t(status.key) : (statusCode || "-");
-conservation.style.background = status.color;
-conservation.style.color = "#fff";
+    const status = STATUS[statusCode] || {
+        color: "#777"
+    };
 
-    
+    conservation.textContent =
+        status.key ? t(status.key) : (statusCode || "-");
+
+    conservation.style.background = status.color;
+    conservation.style.color = "#fff";
 
     body.append(
         title,
         scientific,
         className,
         description,
-        conservation,
-        
+        conservation
     );
 
     card.append(image, body);
 
     return card;
-  }  
 
-/* ==========================================================================
-   Initialize
+ /* ==========================================================================
+   Load Latest
    ========================================================================== */
 
 async function loadLatest() {
@@ -145,18 +140,18 @@ async function loadLatest() {
 
         allOrganisms = await getLatestOrganisms();
 
+        allOrganisms.sort((a, b) => {
 
-allOrganisms.sort((a, b) => {
+            const nameA = (a[SCHEMA.NAME_AR] || "")
+                .replace(/^ال/, "");
 
-    const nameA = (a[SCHEMA.NAME_AR] || "")
-        .replace(/^ال/, "");
+            const nameB = (b[SCHEMA.NAME_AR] || "")
+                .replace(/^ال/, "");
 
-    const nameB = (b[SCHEMA.NAME_AR] || "")
-        .replace(/^ال/, "");
+            return nameA.localeCompare(nameB, "ar");
 
-    return nameA.localeCompare(nameB, "ar");
+        });
 
-});
         initializeFilters(
             allOrganisms,
             latestContainer,
@@ -177,6 +172,7 @@ allOrganisms.sort((a, b) => {
     }
 
 }
+
 /* ==========================================================================
    Initialize
    ========================================================================== */
@@ -205,5 +201,23 @@ async function initialize() {
 
     }
 
-} 
+}
+
 initialize();
+
+/* ==========================================================================
+   Refresh cards when language changes
+   ========================================================================== */
+
+document.addEventListener("languageChanged", () => {
+
+    if (!allOrganisms.length) return;
+
+    initializeFilters(
+        allOrganisms,
+        latestContainer,
+        searchInput,
+        createCard
+    );
+
+});                                                }
