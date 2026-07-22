@@ -3,218 +3,249 @@
 
 <head>
 
-    <meta charset="UTF-8">
+<meta charset="UTF-8">
 
-    <meta name="viewport"
-      content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
-    <title>عراقي إيكو</title>
+<meta name="viewport"
+content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
 
-    <meta name="description"
-          content="قاعدة بيانات الكائنات الحية في العراق">
+<title>عراقي إيكو</title>
 
-    <link rel="icon"
-          href="favicon.ico">
+<meta name="description"
+content="قاعدة بيانات الكائنات الحية في العراق">
 
-    <link rel="preconnect"
-          href="https://fonts.googleapis.com">
+<link rel="icon" href="favicon.ico">
 
-    <link rel="preconnect"
-          href="https://fonts.gstatic.com"
-          crossorigin>
+<link rel="preconnect" href="https://fonts.googleapis.com">
 
-    <link href="https://fonts.googleapis.com/css2?family=Cairo:wght@400;500;600;700;800&family=Poppins:wght@400;500;600;700&family=Noto+Sans+Arabic:wght@400;500;600;700&display=swap"
-          rel="stylesheet">
+<link rel="preconnect"
+href="https://fonts.gstatic.com"
+crossorigin>
 
-    <link rel="stylesheet" href="css/variables.css">
-    <link rel="stylesheet" href="css/reset.css">
-    <link rel="stylesheet" href="css/layout.css">
-    <link rel="stylesheet" href="css/components.css">
-    <link rel="stylesheet" href="css/utilities.css">
-    <link rel="stylesheet" href="css/index.css">
-    <link rel="stylesheet" href="css/dark.css">
+<link href="https://fonts.googleapis.com/css2?family=Cairo:wght@400;500;600;700;800&family=Poppins:wght@400;500;600;700&family=Noto+Sans+Arabic:wght@400;500;600;700&display=swap"
+rel="stylesheet">
 
-   <link rel="manifest" href="manifest.webmanifest">
+<link rel="stylesheet" href="css/variables.css">
+<link rel="stylesheet" href="css/reset.css">
+<link rel="stylesheet" href="css/layout.css">
+<link rel="stylesheet" href="css/components.css">
+<link rel="stylesheet" href="css/utilities.css">
+<link rel="stylesheet" href="css/index.css">
+<link rel="stylesheet" href="css/dark.css">
+
+<link rel="manifest" href="manifest.webmanifest">
+
 <meta name="theme-color" content="#0b4d1f">
-    <script>
+
+<script>
 if ("serviceWorker" in navigator) {
     navigator.serviceWorker.register("sw.js");
 }
 </script>
+
 </head>
-   
 
 <body>
 
 <header class="header">
 
-    <div class="container header-container">
+<div class="container header-container">
 
-        <a class="logo"
-           href="index.html">
+<a class="logo" href="index.html">
 
-            <img
-                class="logo-image"
-                src="assets/logo/logo.png"
-                alt="عراقي إيكو">
+<img
+class="logo-image"
+src="assets/logo/logo.png"
+alt="عراقي إيكو">
 
-            <div>
+<div>
 
-                <h1 class="logo-title"
-                    data-i18n="site.name">
-                    عراقي إيكو
-                </h1>
+<h1
+class="logo-title"
+data-i18n="site.name">
+عراقي إيكو
+</h1>
 
-                <p class="logo-description"
-                   data-i18n="site.description">
-                    قاعدة بيانات الكائنات الحية في العراق
-                </p>
-
-            </div>
-
-        </a>
-
-        
-
-</header>
-
-<main>
-
-    <section class="hero">
-
-        <div class="container">
-
-            <h2 data-i18n="home.hero.title">
-                موسوعة الكائنات الحية في العراق
-            </h2>
-
-            <p data-i18n="home.hero.description">
-                اكتشف الكائنات الحية الموجودة في العراق.
-            </p>
-
-            <form id="search-form"
-                  class="search-box">
-
-                <input
-                    id="search-input"
-                    class="input"
-                    type="search"
-                    data-<nav class="nav">
-
-    <button id="menu-toggle" class="menu-toggle">
-        ☰
-    </button>
-
-            </nav>
-                i18n-placeholder="search.placeholder"
-                    placeholder="ابحث...">
-
-                <button
-                    class="btn btn-primary"
-                    type="submit"
-                    data-i18n="search.button">
-                    بحث
-                </button>
-
-            </form>
-<div id="filters">
-
-    <div class="kingdom-filters">
-
-        <button class="filter-btn" data-kingdom="">الكل</button>
-
-        <button class="filter-btn" data-kingdom="حيوانات">الحيوانات</button>
-
-        <button class="filter-btn" data-kingdom="نباتات">النباتات</button>
-
-        <button class="filter-btn" data-kingdom="فطريات">الفطريات</button>
-
-        <button class="filter-btn" data-kingdom="طلائعيات">الطلائعيات</button>
-
-        <button class="filter-btn" data-kingdom="بدائيات">البكتيريا</button>
-
-    </div>
-
-    <div class="image-filters">
-
-        <button class="image-btn" data-image="">الكل</button>
-
-        <button class="image-btn" data-image="with">مع صور</button>
-
-        <button class="image-btn" data-image="without">بدون صور</button>
-
-    </div>
+<p
+class="logo-description"
+data-i18n="site.description">
+قاعدة بيانات الكائنات الحية في العراق
+</p>
 
 </div>
-        </div>
 
-    </section>
+</a>
 
-    <section class="section">
+<nav class="nav">
 
-        <div class="container">
+<button
+id="menu-toggle"
+class="menu-toggle">
 
-            <div class="section-header">
+☰
 
-                <h2 class="section-title"
-                    data-i18n="home.latest">
-                     النتائج
-                </h2>
+</button>
 
-            </div>
+</nav>
 
-            <div id="latest-organisms"
-                 class="grid grid-4">
+</div>
 
-            </div>
+</header>
+<main>
 
-        </div>
+<section class="hero">
 
-    </section>
+<div class="container">
+
+<h2 data-i18n="home.hero.title">
+موسوعة الكائنات الحية في العراق
+</h2>
+
+<p data-i18n="home.hero.description">
+اكتشف الكائنات الحية الموجودة في العراق.
+</p>
+
+<form id="search-form" class="search-box">
+
+<input
+id="search-input"
+class="input"
+type="search"
+data-i18n-placeholder="search.placeholder"
+placeholder="ابحث...">
+
+<button
+class="btn btn-primary"
+type="submit"
+data-i18n="search.button">
+بحث
+</button>
+
+</form>
+
+<div id="filters">
+
+<div class="kingdom-filters">
+
+<button class="filter-btn" data-kingdom="">الكل</button>
+<button class="filter-btn" data-kingdom="حيوانات">الحيوانات</button>
+<button class="filter-btn" data-kingdom="نباتات">النباتات</button>
+<button class="filter-btn" data-kingdom="فطريات">الفطريات</button>
+<button class="filter-btn" data-kingdom="طلائعيات">الطلائعيات</button>
+<button class="filter-btn" data-kingdom="بدائيات">البكتيريا</button>
+
+</div>
+
+<div class="image-filters">
+
+<button class="image-btn" data-image="">الكل</button>
+<button class="image-btn" data-image="with">مع صور</button>
+<button class="image-btn" data-image="without">بدون صور</button>
+
+</div>
+
+</div>
+
+</div>
+
+</section>
+
+<section class="section">
+
+<div class="container">
+
+<div class="section-header">
+
+<h2
+class="section-title"
+data-i18n="home.latest">
+النتائج
+</h2>
+
+</div>
+
+<div
+id="latest-organisms"
+class="grid grid-4">
+
+</div>
+
+</div>
+
+</section>
 
 </main>
 
 <footer class="footer">
 
-    <div class="container footer-content">
+<div class="container footer-content">
 
-        <p class="footer-text"
-           data-i18n="footer.rights">
-            جميع الحقوق محفوظة © عراقي إيكو
-        </p>
+<p
+class="footer-text"
+data-i18n="footer.rights">
+جميع الحقوق محفوظة © عراقي إيكو
+</p>
 
-    </div>
+</div>
 
 </footer>
 
-<script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js"></script>
-
-<script type="module"
-        src="js/index.js"></script>
 <div id="menu-overlay" class="menu-overlay"></div>
 
 <aside id="side-menu" class="side-menu">
 
-    <button id="menu-close" class="menu-close">✕</button>
+<button
+id="menu-close"
+class="menu-close">
+✕
+</button>
 
-    <a href="index.html">🏠 الرئيسية <span>›</span></a>
+<a href="index.html">
+🏠 الرئيسية
+<span>›</span>
+</a>
 
-    <a href="search.html">🔍 البحث <span>›</span></a>
+<a href="search.html">
+🔍 البحث
+<span>›</span>
+</a>
 
-    <a href="login.html">👤 تسجيل الدخول <span>›</span></a>
+<a href="login.html">
+👤 تسجيل الدخول
+<span>›</span>
+</a>
 
-    <a href="#">🌍 اللغة <span>›</span></a>
+<a href="#">
+🌍 اللغة
+<span>›</span>
+</a>
 
-    <a href="about.html">ℹ️ عن المشروع <span>›</span></a>
+<a href="about.html">
+ℹ️ عن المشروع
+<span>›</span>
+</a>
 
-    <a href="sources.html">📚 المصادر <span>›</span></a>
+<a href="sources.html">
+📚 المصادر
+<span>›</span>
+</a>
 
-    <a href="support.html">❤️ الدعم <span>›</span></a>
+<a href="support.html">
+❤️ الدعم
+<span>›</span>
+</a>
 
-    <a href="contact.html">✉️ التواصل <span>›</span></a>
+<a href="contact.html">
+✉️ التواصل
+<span>›</span>
+</a>
 
 </aside>
 
-<script src="js/menu.js"></script>
-</body>
+<script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js"></script>
 
-</html>
+<script type="module" src="js/index.js"></script>
+
+<script src="js/menu.js"></script>
+
+</body>
+    </html>
