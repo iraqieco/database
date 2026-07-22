@@ -32,7 +32,7 @@ sourcesToggle.addEventListener("click", (e) => {
 
     e.preventDefault();
 
-    closeMenu();
+    
 
     if (sourcesBox.style.display === "block") {
 
