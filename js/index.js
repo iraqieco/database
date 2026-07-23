@@ -289,25 +289,8 @@ downloadBtn.addEventListener("click", () => {
             closeCardMenu();
         });
 
-});
-    if (!currentOrganism) return;
 
-    const blob = new Blob(
-        [JSON.stringify(currentOrganism, null, 2)],
-        { type: "application/json" }
-    );
-
-    const url = URL.createObjectURL(blob);
-
-    const a = document.createElement("a");
-    a.href = url;
-    a.download = `${currentOrganism.name_ar || "organism"}.json`;
-    a.click();
-
-    URL.revokeObjectURL(url);
-
-    closeCardMenu();
-});
+    
 
 editBtn.addEventListener("click", () => {
     if (!currentOrganism) return;
