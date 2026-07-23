@@ -17,6 +17,7 @@ import { t } from "./language.js";
 
 import { error } from "./notifications.js";
 import { initializeFilters } from "./filters.js";
+
 let currentOrganism = null;
 
 const menuOverlay = document.getElementById("card-menu-overlay");
@@ -24,65 +25,53 @@ const closeMenuBtn = document.getElementById("card-menu-close");
 const downloadBtn = document.getElementById("card-download");
 const editBtn = document.getElementById("card-edit");
 const deleteBtn = document.getElementById("card-delete");
+
 /* ==========================================================================
    Elements
    ========================================================================== */
 
-const latestContainer = document.getElementById(
-    "latest-organisms"
-);
+const latestContainer = document.getElementById("latest-organisms");
 
-const searchForm = document.getElementById(
-    "search-form"
-);
+const searchForm = document.getElementById("search-form");
 
-const searchInput = document.getElementById(
-    "search-input"
-);
+const searchInput = document.getElementById("search-input");
+
 let allOrganisms = [];
+
 /* ==========================================================================
    Search
    ========================================================================== */
 
 function initializeSearch() {
 
-    searchForm?.addEventListener(
+    searchForm?.addEventListener("submit", event => {
 
-        "submit",
+        event.preventDefault();
 
-        event => {
+        const query = searchInput.value.trim();
 
-            event.preventDefault();
+        if (!query) return;
 
-            const query = searchInput.value.trim();
+        window.location.href =
+            `search.html?q=${encodeURIComponent(query)}`;
 
-            if (!query) {
-
-                return;
-
-            }
-
-            window.location.href =
-                `search.html?q=${encodeURIComponent(query)}`;
-
-        }
-
-    );
+    });
 
 }
+
 const STATUS = {
-    "EX": { key: "status.EX", color: "#000000" },
-    "EW": { key: "status.EW", color: "#5c5c5c" },
-    "CR": { key: "status.CR", color: "#d32f2f" },
-    "EN": { key: "status.EN", color: "#f57c00" },
-    "VU": { key: "status.VU", color: "#fbc02d" },
-    "NT": { key: "status.NT", color: "#8bc34a" },
-    "LC": { key: "status.LC", color: "#2e7d32" },
-    "DD": { key: "status.DD", color: "#607d8b" },
-    "NE": { key: "status.NE", color: "#9e9e9e" }
+    EX: { key: "status.EX", color: "#000000" },
+    EW: { key: "status.EW", color: "#5c5c5c" },
+    CR: { key: "status.CR", color: "#d32f2f" },
+    EN: { key: "status.EN", color: "#f57c00" },
+    VU: { key: "status.VU", color: "#fbc02d" },
+    NT: { key: "status.NT", color: "#8bc34a" },
+    LC: { key: "status.LC", color: "#2e7d32" },
+    DD: { key: "status.DD", color: "#607d8b" },
+    NE: { key: "status.NE", color: "#9e9e9e" }
 };
 
-  function createCard(organism) {
+function createCard(organism) {
 
     const card = document.createElement("article");
     card.className = "organism-card card";
@@ -106,53 +95,56 @@ const STATUS = {
 
     const className = document.createElement("p");
     className.className = "organism-card-class";
-    className.innerHTML = `<strong>${t("label.class")}:</strong> ${organism[SCHEMA.CLASS] || "-"}`;
+    className.innerHTML =
+        `<strong>${t("label.class")}:</strong> ${organism[SCHEMA.CLASS] || "-"}`;
 
     const description = document.createElement("p");
     description.className = "organism-card-text";
-    description.textContent = organism[SCHEMA.DESCRIPTION] || "";
+    description.textContent =
+        organism[SCHEMA.DESCRIPTION_AR] ||
+        organism.description_ar ||
+        "";
 
     const conservation = document.createElement("p");
     conservation.className = "organism-card-status";
+
     const statusCode = (organism[SCHEMA.CONSERVATION_STATUS] || "")
-    .trim()
-    .replace(/\s+/g, "")
-    .toUpperCase();
+        .trim()
+        .replace(/\s+/g, "")
+        .toUpperCase();
 
-const status = STATUS[statusCode] || {
-    key: null,
-    color: "#777"
-};
+    const status = STATUS[statusCode] || {
+        key: null,
+        color: "#777"
+    };
 
-conservation.textContent =
-    status.key ? t(status.key) : (statusCode || "-");
-conservation.style.background = status.color;
-conservation.style.color = "#fff";
+    conservation.textContent =
+        status.key ? t(status.key) : (statusCode || "-");
 
-    
-
-    body.append(
+    conservation.style.background = status.color;
+    conservation.style.color = "#fff";
+     body.append(
         title,
         scientific,
         className,
         description,
-        conservation,
-        
+        conservation
     );
-const menuBtn = document.createElement("button");
-menuBtn.className = "card-menu-btn";
-menuBtn.textContent = "⋮";
 
-menuBtn.addEventListener("click", (e) => {
-    e.stopPropagation();
-    openCardMenu(organism);
-});
+    const menuBtn = document.createElement("button");
+    menuBtn.className = "card-menu-btn";
+    menuBtn.textContent = "⋮";
 
+    menuBtn.addEventListener("click", (e) => {
+        e.stopPropagation();
+        openCardMenu(organism);
+    });
 
     card.append(menuBtn, image, body);
 
     return card;
-  }  
+}
+
 function openCardMenu(organism) {
     currentOrganism = organism;
     menuOverlay.classList.add("show");
@@ -161,9 +153,10 @@ function openCardMenu(organism) {
 function closeCardMenu() {
     currentOrganism = null;
     menuOverlay.classList.remove("show");
-   }
+}
+
 /* ==========================================================================
-   Initialize
+   Load
    ========================================================================== */
 
 async function loadLatest() {
@@ -172,18 +165,18 @@ async function loadLatest() {
 
         allOrganisms = await getLatestOrganisms();
 
+        allOrganisms.sort((a, b) => {
 
-allOrganisms.sort((a, b) => {
+            const nameA = (a[SCHEMA.NAME_AR] || "")
+                .replace(/^ال/, "");
 
-    const nameA = (a[SCHEMA.NAME_AR] || "")
-        .replace(/^ال/, "");
+            const nameB = (b[SCHEMA.NAME_AR] || "")
+                .replace(/^ال/, "");
 
-    const nameB = (b[SCHEMA.NAME_AR] || "")
-        .replace(/^ال/, "");
+            return nameA.localeCompare(nameB, "ar");
 
-    return nameA.localeCompare(nameB, "ar");
+        });
 
-});
         initializeFilters(
             allOrganisms,
             latestContainer,
@@ -191,19 +184,15 @@ allOrganisms.sort((a, b) => {
             createCard
         );
 
-    }
-
-    catch (e) {
+    } catch (e) {
 
         console.error(e);
-
-        error(
-            t("error")
-        );
+        error(t("error"));
 
     }
 
 }
+
 /* ==========================================================================
    Initialize
    ========================================================================== */
@@ -222,9 +211,7 @@ async function initialize() {
 
         await loadLatest();
 
-    }
-
-    catch (e) {
+    } catch (e) {
 
         console.error(e);
 
@@ -232,70 +219,37 @@ async function initialize() {
 
     }
 
-} 
+}
+
 initialize();
-    
-  closeMenuBtn.addEventListener("click", closeCardMenu);
+
+closeMenuBtn.addEventListener("click", closeCardMenu);
 
 menuOverlay.addEventListener("click", (e) => {
+
     if (e.target === menuOverlay) {
+
         closeCardMenu();
+
     }
+
 });
 
 downloadBtn.addEventListener("click", () => {
 
-    if (!currentOrganism) return;
+    alert("ميزة تنزيل PDF قيد التطوير.");
 
-    const card = document.getElementById("pdf-card");
+    closeCardMenu();
 
-    document.getElementById("pdf-title").textContent =
-        currentOrganism.name_ar || "-";
-
-    document.getElementById("pdf-scientific").textContent =
-        currentOrganism.scientific_name || "-";
-
-    document.getElementById("pdf-description").textContent =
-        currentOrganism.description_ar || "-";
-
-    document.getElementById("pdf-class").textContent =
-        "الطائفة: " + (currentOrganism.class || "-");
-
-    document.getElementById("pdf-status").textContent =
-        "حالة الحفظ: " + (currentOrganism.conservation_status || "-");
-
-    const img = document.getElementById("pdf-image");
-    img.src = currentOrganism.image || "";
-    img.style.display = currentOrganism.image ? "block" : "none";
-
-    card.style.display = "block";
-
-    html2pdf()
-        .set({
-            margin: 10,
-            filename: `${currentOrganism.name_ar || "organism"}.pdf`,
-            image: { type: "jpeg", quality: 1 },
-            html2canvas: { scale: 2 },
-            jsPDF: {
-                unit: "mm",
-                format: "a4",
-                orientation: "portrait"
-            }
-        })
-        .from(card)
-        .save()
-        .then(() => {
-            card.style.display = "none";
-            closeCardMenu();
-        });
 });
 
-    
-
 editBtn.addEventListener("click", () => {
+
     if (!currentOrganism) return;
 
-    window.location.href = `edit.html?id=${currentOrganism.id}`;
+    window.location.href =
+        `edit.html?id=${currentOrganism.id}`;
+
 });
 
 deleteBtn.addEventListener("click", async () => {
@@ -320,4 +274,4 @@ deleteBtn.addEventListener("click", async () => {
 
     }
 
-});
+});  
