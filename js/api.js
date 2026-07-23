@@ -304,24 +304,4 @@ export async function getOrganismsCount() {
     return count;
 
 }
-/* ==========================================================================
-   Delete
-   ========================================================================== */
 
-export async function deleteOrganism(id) {
-
-    const { error } = await getClient()
-
-        .from(TABLE)
-
-        .delete()
-
-        .eq(SCHEMA.ID, id);
-
-    if (error) {
-
-        throw error;
-
-    }
-
-}
