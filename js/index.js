@@ -247,25 +247,47 @@ downloadBtn.addEventListener("click", () => {
 
     if (!currentOrganism) return;
 
-    const { jsPDF } = window.jspdf;
+    const card = document.getElementById("pdf-card");
 
-    const pdf = new jsPDF();
+    document.getElementById("pdf-title").textContent =
+        currentOrganism.name_ar || "-";
 
-    pdf.setFontSize(18);
-    pdf.text("Iraqi Eco", 20, 20);
+    document.getElementById("pdf-scientific").textContent =
+        currentOrganism.scientific_name || "-";
 
-    pdf.setFontSize(14);
-    pdf.text(`ID: ${currentOrganism.id}`, 20, 35);
-    pdf.text(`Arabic Name: ${currentOrganism.name_ar || "-"}`, 20, 45);
-    pdf.text(`Scientific Name: ${currentOrganism.scientific_name || "-"}`, 20, 55);
-    pdf.text(`Kingdom: ${currentOrganism.kingdom || "-"}`, 20, 65);
-    pdf.text(`Phylum: ${currentOrganism.phylum || "-"}`, 20, 75);
-    pdf.text(`Class: ${currentOrganism.class || "-"}`, 20, 85);
-    pdf.text(`Status: ${currentOrganism.conservation_status || "-"}`, 20, 95);
+    document.getElementById("pdf-description").textContent =
+        currentOrganism.description_ar || "-";
 
-    pdf.save(`${currentOrganism.name_ar || "organism"}.pdf`);
+    document.getElementById("pdf-class").textContent =
+        "الطائفة: " + (currentOrganism.class || "-");
 
-    closeCardMenu();
+    document.getElementById("pdf-status").textContent =
+        "حالة الحفظ: " + (currentOrganism.conservation_status || "-");
+
+    const img = document.getElementById("pdf-image");
+    img.src = currentOrganism.image || "";
+    img.style.display = currentOrganism.image ? "block" : "none";
+
+    card.style.display = "block";
+
+    html2pdf()
+        .set({
+            margin: 10,
+            filename: `${currentOrganism.name_ar || "organism"}.pdf`,
+            image: { type: "jpeg", quality: 1 },
+            html2canvas: { scale: 2 },
+            jsPDF: {
+                unit: "mm",
+                format: "a4",
+                orientation: "portrait"
+            }
+        })
+        .from(card)
+        .save()
+        .then(() => {
+            card.style.display = "none";
+            closeCardMenu();
+        });
 
 });
     if (!currentOrganism) return;
