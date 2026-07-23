@@ -175,15 +175,16 @@
 .input{
     width:100%;
     padding:12px 16px;
-    font-size:16px !important;
-    border:1px solid var(--color-border);
-    border-radius:var(--radius-md);
-    background:var(--color-background);
+    font-size:16px;
+    border:1px solid #ccc;
+    border-radius:12px;
 
-    color:#999 !important;
-    -webkit-text-fill-color:#999 !important;
+    background:#fff !important;
+    color:#000 !important;
+    -webkit-text-fill-color:#000 !important;
+    caret-color:#000 !important;
+
     opacity:1 !important;
-    caret-color:#999 !important;
 }
 
 
