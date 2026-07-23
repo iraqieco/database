@@ -17,6 +17,13 @@ import { t } from "./language.js";
 
 import { error } from "./notifications.js";
 import { initializeFilters } from "./filters.js";
+let currentOrganism = null;
+
+const menuOverlay = document.getElementById("card-menu-overlay");
+const closeMenuBtn = document.getElementById("card-menu-close");
+const downloadBtn = document.getElementById("card-download");
+const editBtn = document.getElementById("card-edit");
+const deleteBtn = document.getElementById("card-delete");
 /* ==========================================================================
    Elements
    ========================================================================== */
@@ -146,7 +153,15 @@ card.append(menuBtn);
 
     return card;
   }  
+function openCardMenu(organism) {
+    currentOrganism = organism;
+    menuOverlay.classList.add("show");
+}
 
+function closeCardMenu() {
+    currentOrganism = null;
+    menuOverlay.classList.remove("show");
+   }
 /* ==========================================================================
    Initialize
    ========================================================================== */
@@ -220,4 +235,45 @@ async function initialize() {
 } 
 initialize();
     
-                                           
+  closeMenuBtn.addEventListener("click", closeCardMenu);
+
+menuOverlay.addEventListener("click", (e) => {
+    if (e.target === menuOverlay) {
+        closeCardMenu();
+    }
+});
+
+downloadBtn.addEventListener("click", () => {
+    if (!currentOrganism) return;
+
+    const blob = new Blob(
+        [JSON.stringify(currentOrganism, null, 2)],
+        { type: "application/json" }
+    );
+
+    const url = URL.createObjectURL(blob);
+
+    const a = document.createElement("a");
+    a.href = url;
+    a.download = `${currentOrganism.name_ar || "organism"}.json`;
+    a.click();
+
+    URL.revokeObjectURL(url);
+
+    closeCardMenu();
+});
+
+editBtn.addEventListener("click", () => {
+    if (!currentOrganism) return;
+
+    window.location.href = `edit.html?id=${currentOrganism.id}`;
+});
+
+deleteBtn.addEventListener("click", () => {
+    if (!currentOrganism) return;
+
+    if (confirm("هل تريد حذف هذا الكائن؟")) {
+        // سنضيف كود الحذف من Supabase في الخطوة التالية.
+        closeCardMenu();
+    }
+});                                         
