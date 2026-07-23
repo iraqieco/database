@@ -148,7 +148,7 @@ menuBtn.addEventListener("click", (e) => {
     openCardMenu(organism);
 });
 
-card.append(menuBtn);
+
     card.append(menuBtn, image, body);
 
     return card;
