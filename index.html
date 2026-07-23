@@ -321,7 +321,7 @@ IUCN Red List
 </aside>
 
 <script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js"></script>
-<script src="https://cdnjs.cloudflare.com/ajax/libs/jspdf/2.5.1/jspdf.umd.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/html2pdf.js/0.10.1/html2pdf.bundle.min.js"></script>
 <script type="module" src="js/index.js"></script>
 
 <script type="module" src="js/menu.js"></script>
@@ -346,5 +346,23 @@ IUCN Red List
 
     </div>
 </div>
+    <div id="pdf-card" style="display:none;background:#fff;padding:30px;width:800px;font-family:Cairo,sans-serif;color:#000;">
+
+    <h1 id="pdf-title"></h1>
+
+    <h3 id="pdf-scientific"></h3>
+
+    <img id="pdf-image"
+         style="max-width:300px;display:block;margin:20px auto;">
+
+    <p id="pdf-description"></p>
+
+    <hr>
+
+    <p id="pdf-class"></p>
+
+    <p id="pdf-status"></p>
+
+    </div>
 </body>
     </html>
