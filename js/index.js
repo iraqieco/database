@@ -244,6 +244,30 @@ menuOverlay.addEventListener("click", (e) => {
 });
 
 downloadBtn.addEventListener("click", () => {
+
+    if (!currentOrganism) return;
+
+    const { jsPDF } = window.jspdf;
+
+    const pdf = new jsPDF();
+
+    pdf.setFontSize(18);
+    pdf.text("Iraqi Eco", 20, 20);
+
+    pdf.setFontSize(14);
+    pdf.text(`ID: ${currentOrganism.id}`, 20, 35);
+    pdf.text(`Arabic Name: ${currentOrganism.name_ar || "-"}`, 20, 45);
+    pdf.text(`Scientific Name: ${currentOrganism.scientific_name || "-"}`, 20, 55);
+    pdf.text(`Kingdom: ${currentOrganism.kingdom || "-"}`, 20, 65);
+    pdf.text(`Phylum: ${currentOrganism.phylum || "-"}`, 20, 75);
+    pdf.text(`Class: ${currentOrganism.class || "-"}`, 20, 85);
+    pdf.text(`Status: ${currentOrganism.conservation_status || "-"}`, 20, 95);
+
+    pdf.save(`${currentOrganism.name_ar || "organism"}.pdf`);
+
+    closeCardMenu();
+
+});
     if (!currentOrganism) return;
 
     const blob = new Blob(
