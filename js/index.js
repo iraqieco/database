@@ -132,8 +132,17 @@ conservation.style.color = "#fff";
         conservation,
         
     );
+const menuBtn = document.createElement("button");
+menuBtn.className = "card-menu-btn";
+menuBtn.textContent = "⋮";
 
-    card.append(image, body);
+menuBtn.addEventListener("click", (e) => {
+    e.stopPropagation();
+    openCardMenu(organism);
+});
+
+card.append(menuBtn);
+    card.append(menuBtn, image, body);
 
     return card;
   }  
