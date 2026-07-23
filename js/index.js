@@ -269,11 +269,26 @@ editBtn.addEventListener("click", () => {
     window.location.href = `edit.html?id=${currentOrganism.id}`;
 });
 
-deleteBtn.addEventListener("click", () => {
+deleteBtn.addEventListener("click", async () => {
+
     if (!currentOrganism) return;
 
-    if (confirm("هل تريد حذف هذا الكائن؟")) {
-        // سنضيف كود الحذف من Supabase في الخطوة التالية.
+    if (!confirm("هل تريد حذف هذا الكائن؟")) return;
+
+    try {
+
+        await deleteOrganism(currentOrganism.id);
+
         closeCardMenu();
+
+        location.reload();
+
+    } catch (err) {
+
+        console.error(err);
+
+        alert("فشل حذف الكائن.");
+
     }
-});                                         
+
+});
