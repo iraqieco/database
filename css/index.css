@@ -355,13 +355,13 @@
     padding:12px;
     text-align:center;
     font-weight:700;
-    color:#fff;
+    color:#999;
     border-radius:0 0 var(--radius-lg) var(--radius-lg);
 }
 /* مربع البحث */
 
 #search-input{
-    color:#222;
+    color:#999;
     background:#111;
     caret-color:#222;
 }
