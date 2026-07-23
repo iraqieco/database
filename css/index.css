@@ -369,3 +369,66 @@
 #search-input::placeholder{
     color:#777;
 }
+/* زر ⋮ */
+.card-menu-btn{
+    position:absolute;
+    top:10px;
+    left:10px;
+    width:36px;
+    height:36px;
+    border:none;
+    border-radius:50%;
+    background:rgba(255,255,255,.9);
+    cursor:pointer;
+    font-size:22px;
+    font-weight:bold;
+    z-index:10;
+}
+
+/* لأن الزر absolute */
+.organism-card{
+    position:relative;
+}
+
+/* الخلفية */
+.card-menu-overlay{
+    position:fixed;
+    inset:0;
+    background:rgba(0,0,0,.45);
+    display:none;
+    align-items:center;
+    justify-content:center;
+    z-index:9999;
+}
+
+.card-menu-overlay.show{
+    display:flex;
+}
+
+/* النافذة */
+.card-menu{
+    width:260px;
+    background:#fff;
+    border-radius:14px;
+    overflow:hidden;
+    box-shadow:0 10px 30px rgba(0,0,0,.3);
+}
+
+.card-menu button{
+    width:100%;
+    border:none;
+    background:#fff;
+    padding:16px;
+    font-size:16px;
+    cursor:pointer;
+    text-align:center;
+}
+
+.card-menu button:hover{
+    background:#f3f3f3;
+}
+
+.card-menu-close{
+    font-size:22px;
+    font-weight:bold;
+}
