@@ -288,7 +288,7 @@ downloadBtn.addEventListener("click", () => {
             card.style.display = "none";
             closeCardMenu();
         });
-
+});
 
     
 
