@@ -467,9 +467,9 @@ async function saveRecord() {
             alert(
 
                 "تم تحديث الكائن بنجاح."
-formChanged = false;
-            );
 
+            );
+formChanged = false;
         }
 
         else {
@@ -487,9 +487,9 @@ formChanged = false;
             alert(
 
                 "تمت إضافة الكائن بنجاح."
-formChanged = false;
-            );
 
+            );
+formChanged = false;
         }
 
         window.location.href =
