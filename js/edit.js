@@ -471,7 +471,7 @@ async function saveRecord() {
             );
 
         }
-formChanged = false;
+
         else {
 
             record[SCHEMA.CREATED_AT] =
@@ -491,7 +491,7 @@ formChanged = false;
             );
 
         }
-formChanged = false;
+
         window.location.href =
 
             "admin.html";
