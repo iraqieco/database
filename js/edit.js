@@ -455,7 +455,7 @@ async function saveRecord() {
             now;
 
         if (organismId) {
-alert(record.image);
+alert(JSON.stringify(record));
             await updateOrganism(
 
                 organismId,
