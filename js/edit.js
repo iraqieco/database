@@ -491,7 +491,7 @@ async function saveRecord() {
             );
 
         }
-
+formChanged = false;
         window.location.href =
 
             "admin.html";
