@@ -487,7 +487,7 @@ formChanged = false;
             alert(
 
                 "تمت إضافة الكائن بنجاح."
-
+formChanged = false;
             );
 
         }
