@@ -101,7 +101,7 @@ function createCard(organism) {
     const description = document.createElement("p");
     description.className = "organism-card-text";
     description.textContent =
-        organism[SCHEMA.DESCRIPTION_AR] ||
+        organism[SCHEMA.DESCRIPTION] ||
         organism.description ||
         "";
 
