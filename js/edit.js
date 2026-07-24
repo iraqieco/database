@@ -469,9 +469,9 @@ async function saveRecord() {
                 "تم تحديث الكائن بنجاح."
 
             );
-formChanged = false;
-        }
 
+        }
+formChanged = false;
         else {
 
             record[SCHEMA.CREATED_AT] =
@@ -489,9 +489,9 @@ formChanged = false;
                 "تمت إضافة الكائن بنجاح."
 
             );
-formChanged = false;
-        }
 
+        }
+formChanged = false;
         window.location.href =
 
             "admin.html";
