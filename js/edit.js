@@ -498,15 +498,16 @@ async function saveRecord() {
 
     }
 
-    catch (err) {
+    
+catch (err) {
 
-        console.error(err);
+    console.error(err);
 
-        alert(
-
-            "حدث خطأ أثناء الحفظ."
-
-        );
+    alert(
+        err?.message ||
+        JSON.stringify(err) ||
+        "حدث خطأ أثناء الحفظ."
+    );
 
     }
 
