@@ -180,17 +180,20 @@ export async function createOrganism(record) {
 
 export async function updateOrganism(id, record) {
 
-    const { error } = await getClient()
+    const result = await getClient()
         .from(TABLE)
         .update(record)
-        .eq(SCHEMA.ID, id);
+        .eq(SCHEMA.ID, id)
+        .select();
 
-    if (error) {
-        throw error;
+    alert(JSON.stringify(result));
+
+    if (result.error) {
+        throw result.error;
     }
 
-    return true;
-} 
+    return result.data;
+}
 /* ==========================================================================
    Delete
    ========================================================================== */
