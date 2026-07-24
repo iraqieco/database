@@ -467,7 +467,7 @@ async function saveRecord() {
             alert(
 
                 "تم تحديث الكائن بنجاح."
-
+formChanged = false;
             );
 
         }
