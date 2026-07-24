@@ -196,7 +196,7 @@ export async function updateOrganism(id, record) {
 
         .select()
 
-        .single();
+        .maybesingle();
 
     if (error) {
 
