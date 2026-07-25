@@ -179,52 +179,6 @@ export async function createOrganism(record) {
    ========================================================================== */
 
 
-/* ==========================================================================
-   Delete
-   ========================================================================== */
-
-export async function deleteOrganism(id) {
-
-    const { error } = await getClient()
-
-        .from(TABLE)
-
-        .delete()
-
-        .eq(
-
-            SCHEMA.ID,
-
-            id
-
-        );
-
-    if (error) {
-
-        throw error;
-
-    }
-
-    retuexport async function updateOrganism(id, record) {
-
-    alert(JSON.stringify(record));
-
-    const result = await getClient()
-        .from(TABLE)
-        .update(record)
-        .eq(SCHEMA.ID, id)
-        .select();
-
-    alert(JSON.stringify(result));
-
-    if (result.error) {
-        throw result.error;
-    }
-
-    return result.data;
-    }rn true;
-
-}
 
 /* ==========================================================================
    Latest
