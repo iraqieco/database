@@ -7,8 +7,11 @@ import { initializeTheme } from "./theme.js";
 import { initializeLanguage } from "./language.js";
 import { initializeSupabase } from "./supabase.js";
 
-import { getLatestOrganisms, deleteOrganism } from "./api.js";
-
+import {
+    getLatestOrganisms,
+    deleteOrganism,
+    updateOrganism
+} from "./api.js";
 import { SCHEMA } from "./schema.js";
 
 import { createImage, detectImageSource } from "./image.js";
