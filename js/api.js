@@ -226,7 +226,21 @@ export async function deleteOrganism(id) {
     return true;
 
 }
+export async function updateOrganismImage(id, imageUrl) {
 
+    const { data, error } = await supabase
+        .from(CONFIG.database.table)
+        .update({
+            image: imageUrl
+        })
+        .eq("id", id)
+        .select()
+        .single();
+
+    if (error) throw error;
+
+    return data;
+}
 /* ==========================================================================
    Latest
    ========================================================================== */
