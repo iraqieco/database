@@ -209,6 +209,23 @@ if (classBtn) {
         });
 
        }
-    render();
+const classSearch = document.getElementById("classSearch");
+
+classSearch.addEventListener("input", () => {
+
+    const q = classSearch.value.trim().toLowerCase();
+
+    document.querySelectorAll(".class-btn")
+        .forEach(btn => {
+
+            btn.style.display =
+                btn.textContent.toLowerCase().includes(q)
+                ? ""
+                : "none";
+
+        });
+
+});
+   render();
 
 }
