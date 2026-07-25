@@ -15,6 +15,7 @@ export function initializeFilters(
 
     let currentKingdom = "";
     let currentImage = "";
+    let currentClass = "";
 
     function render() {
 
@@ -62,10 +63,17 @@ export function initializeFilters(
 
                 (currentImage === "without" && !hasImage);
 
+            /* الطائفة */
+
+            const matchesClass =
+                !currentClass ||
+                item[SCHEMA.CLASS] === currentClass;
+
             return (
                 matchesSearch &&
                 matchesKingdom &&
-                matchesImage
+                matchesImage &&
+                matchesClass
             );
 
         });
@@ -108,6 +116,22 @@ export function initializeFilters(
 
                 currentImage =
                     btn.dataset.image;
+
+                render();
+
+            });
+
+        });
+
+    /* فلتر الأصناف */
+
+    document.querySelectorAll(".class-btn")
+        .forEach(btn => {
+
+            btn.addEventListener("click", () => {
+
+                currentClass =
+                    btn.dataset.class || "";
 
                 render();
 
