@@ -178,22 +178,7 @@ export async function createOrganism(record) {
    Update
    ========================================================================== */
 
-export async function updateOrganism(id, record) {
 
-    const result = await getClient()
-        .from(TABLE)
-        .update(record)
-        .eq(SCHEMA.ID, id)
-        .select();
-
-    alert(JSON.stringify(result));
-
-    if (result.error) {
-        throw result.error;
-    }
-
-    return result.data;
-}
 /* ==========================================================================
    Delete
    ========================================================================== */
@@ -220,7 +205,24 @@ export async function deleteOrganism(id) {
 
     }
 
-    return true;
+    retuexport async function updateOrganism(id, record) {
+
+    alert(JSON.stringify(record));
+
+    const result = await getClient()
+        .from(TABLE)
+        .update(record)
+        .eq(SCHEMA.ID, id)
+        .select();
+
+    alert(JSON.stringify(result));
+
+    if (result.error) {
+        throw result.error;
+    }
+
+    return result.data;
+    }rn true;
 
 }
 
