@@ -353,3 +353,71 @@ main{
     }
 
    }
+.results-header{
+display:flex;
+justify-content:space-between;
+align-items:center;
+margin-bottom:20px;
+}
+
+.class-filter-btn{
+background:#0b6b2e;
+color:#fff;
+border:none;
+padding:10px 16px;
+border-radius:10px;
+cursor:pointer;
+font-size:15px;
+}
+
+.class-drawer{
+position:fixed;
+top:0;
+right:-300px;
+width:280px;
+height:100%;
+background:#fff;
+z-index:9999;
+transition:.3s;
+overflow:auto;
+box-shadow:-5px 0 20px rgba(0,0,0,.2);
+}
+
+.class-drawer.open{
+right:0;
+}
+
+.drawer-header{
+display:flex;
+justify-content:space-between;
+align-items:center;
+padding:15px;
+border-bottom:1px solid #ddd;
+}
+
+.drawer-overlay{
+position:fixed;
+inset:0;
+background:rgba(0,0,0,.35);
+display:none;
+z-index:9998;
+}
+
+.drawer-overlay.show{
+display:block;
+}
+
+#classList button{
+display:block;
+width:100%;
+padding:12px;
+border:none;
+background:#fff;
+text-align:right;
+border-bottom:1px solid #eee;
+cursor:pointer;
+}
+
+#classList button:hover{
+background:#f3f3f3;
+   }
