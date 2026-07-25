@@ -277,6 +277,38 @@ cancelImageBtn.addEventListener("click", () => {
     imageDialog.style.display = "none";
 
 });
+saveImageBtn.addEventListener("click", async () => {
+
+    if (!currentOrganism) return;
+
+    const url = imageUrlInput.value.trim();
+
+    if (!url) {
+        alert("أدخل رابط الصورة");
+        return;
+    }
+
+    try {
+
+        await updateOrganism(currentOrganism.id, {
+            image: url
+        });
+
+        imageDialog.style.display = "none";
+
+        alert("تم حفظ الصورة.");
+
+        location.reload();
+
+    } catch (err) {
+
+        console.error(err);
+
+        alert("فشل حفظ الصورة.");
+
+    }
+
+});
 deleteBtn.addEventListener("click", async () => {
 
     if (!currentOrganism) return;
