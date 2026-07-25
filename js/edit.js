@@ -431,7 +431,7 @@ function validate(record) {
 async function saveRecord() {
 
     let record =
-    buildRecord();
+    prepareRecord(buildRecord());
 
 alert(record.image);
 
