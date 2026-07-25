@@ -55,8 +55,10 @@
   "footer.rights": "جميع الحقوق محفوظة © عراقي إيكو",
 
   "filter.all": "الكل",
-  "filter.animals": "الحيوانات",
+ 
+ 
   "filter.plants": "النباتات",
+  "filter.animals": "الحيوانات",
   "filter.fungi": "الفطريات",
   "filter.protists": "الطلائعيات",
   "filter.bacteria": "البكتيريا",
