@@ -215,15 +215,14 @@ classSearch.addEventListener("input", () => {
 
     const q = classSearch.value.trim().toLowerCase();
 
-    document.querySelectorAll(".class-btn")
-        .forEach(btn => {
+    document.querySelectorAll(".class-btn").forEach(btn => {
 
-            btn.style.display =
-                btn.textContent.toLowerCase().includes(q)
-                ? ""
+        btn.style.display =
+            btn.textContent.toLowerCase().includes(q)
+                ? "block"
                 : "none";
 
-        });
+    });
 
 });
    render();
