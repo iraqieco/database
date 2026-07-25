@@ -180,7 +180,7 @@ export async function createOrganism(record) {
 
 export async function updateOrganism(id, record) {
 
-    alert("RECORD:\n" + JSON.stringify(record));
+    
 
     const { data, error } = await getClient()
         .from(TABLE)
@@ -188,9 +188,7 @@ export async function updateOrganism(id, record) {
         .eq(SCHEMA.ID, id)
         .select();
 
-    alert("DATA:\n" + JSON.stringify(data));
-    alert("ERROR:\n" + JSON.stringify(error));
-
+    
     if (error) {
         throw error;
     }
