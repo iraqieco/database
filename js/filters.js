@@ -138,7 +138,77 @@ export function initializeFilters(
             });
 
         });
+const classBtn = document.getElementById("classFilterBtn");
+const classDrawer = document.getElementById("classDrawer");
+const drawerOverlay = document.getElementById("drawerOverlay");
+const closeDrawer = document.getElementById("closeDrawer");
+const classList = document.getElementById("classList");
 
+if (classBtn) {
+
+    classBtn.onclick = () => {
+        classDrawer.classList.add("open");
+        drawerOverlay.classList.add("show");
+    };
+
+    closeDrawer.onclick = () => {
+        classDrawer.classList.remove("open");
+        drawerOverlay.classList.remove("show");
+    };
+
+    drawerOverlay.onclick = () => {
+        classDrawer.classList.remove("open");
+        drawerOverlay.classList.remove("show");
+    };
+
+    const classes = [
+        ...new Set(
+            organisms
+                .map(o => o[SCHEMA.CLASS])
+                .filter(Boolean)
+        )
+    ].sort();
+
+    classList.innerHTML = "";
+
+    const all = document.createElement("button");
+    all.className = "class-btn";
+    all.dataset.class = "";
+    all.textContent = "الكل";
+    classList.appendChild(all);
+
+    classes.forEach(c => {
+
+        const btn = document.createElement("button");
+
+        btn.className = "class-btn";
+        btn.dataset.class = c;
+        btn.textContent = c;
+
+        classList.appendChild(btn);
+
+    });
+
+    document.querySelectorAll(".class-btn")
+        .forEach(btn => {
+
+            btn.onclick = () => {
+
+                currentClass = btn.dataset.class;
+
+                classBtn.textContent =
+                    currentClass || "الأصناف";
+
+                classDrawer.classList.remove("open");
+                drawerOverlay.classList.remove("show");
+
+                render();
+
+            };
+
+        });
+
+       }
     render();
 
 }
