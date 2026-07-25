@@ -154,9 +154,13 @@ data-i18n="search.button">
 
 <div class="section-header">
 
-<h2 class="section-title" data-i18n="results">
-النتائج
-</h2>
+<div class="results-header">
+    <button id="classFilterBtn" class="class-filter-btn">
+        الأصناف
+    </button>
+
+    <h2>النتائج</h2>
+</div>
 
 </div>
 
@@ -363,6 +367,19 @@ IUCN Red List
 
     <p id="pdf-status"></p>
 
+
+   </div>
+<div id="classDrawer" class="class-drawer">
+
+    <div class="drawer-header">
+        <h3>الأصناف</h3>
+        <button id="closeDrawer">✕</button>
     </div>
+
+    <div id="classList"></div>
+
+</div>
+
+<div id="drawerOverlay" class="drawer-overlay"></div>
 </body>
     </html>
