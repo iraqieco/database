@@ -25,7 +25,15 @@ const closeMenuBtn = document.getElementById("card-menu-close");
 const downloadBtn = document.getElementById("card-download");
 const editBtn = document.getElementById("card-edit");
 const deleteBtn = document.getElementById("card-delete");
+const addImageBtn = document.getElementById("card-add-image");
 
+const imageDialog = document.getElementById("image-dialog");
+
+const imageUrlInput = document.getElementById("image-url-input");
+
+const saveImageBtn = document.getElementById("save-image-btn");
+
+const cancelImageBtn = document.getElementById("cancel-image-btn");
 /* ==========================================================================
    Elements
    ========================================================================== */
@@ -251,7 +259,21 @@ editBtn.addEventListener("click", () => {
         `edit.html?id=${currentOrganism.id}`;
 
 });
+addImageBtn.addEventListener("click", () => {
 
+    closeCardMenu();
+
+    imageDialog.style.display = "flex";
+
+    imageUrlInput.value = "";
+
+});
+
+cancelImageBtn.addEventListener("click", () => {
+
+    imageDialog.style.display = "none";
+
+});
 deleteBtn.addEventListener("click", async () => {
 
     if (!currentOrganism) return;
