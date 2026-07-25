@@ -265,9 +265,9 @@ editBtn.addEventListener("click", () => {
 });
 addImageBtn.addEventListener("click", () => {
 
-    closeCardMenu();
+    menuOverlay.classList.remove("show");
 
-    imageDialog.style.display = "flex";
+imageDialog.style.display = "flex";
 
     imageUrlInput.value = "";
 
