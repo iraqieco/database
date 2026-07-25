@@ -10,7 +10,8 @@ import { initializeSupabase } from "./supabase.js";
 import {
     getLatestOrganisms,
     deleteOrganism,
-    updateOrganism
+    updateOrganism,
+    updateOrganismImage
 } from "./api.js";
 import { SCHEMA } from "./schema.js";
 
