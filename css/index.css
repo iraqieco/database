@@ -432,3 +432,15 @@
     font-size:22px;
     font-weight:bold;
 }
+#filters{
+    display:flex;
+    flex-direction:column;
+    gap:10px;
+}
+
+.kingdom-filters,
+.image-filters{
+    display:flex;
+    flex-wrap:wrap;
+    gap:8px;
+}
