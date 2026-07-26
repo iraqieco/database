@@ -92,17 +92,16 @@ document.querySelectorAll(".filter-btn").forEach(btn => {
     }
 
 });
-        container.innerHTML = "";
+        
+   container.innerHTML = "";
 
-        filtered.forEach(item => {
+for (const item of filtered) {
 
-            container.append(
-                createCard(item)
-            );
+    const card = await createCard(item);
 
-        });
+    container.append(card);
 
-    }
+}
 
     searchInput.addEventListener(
         "input",
