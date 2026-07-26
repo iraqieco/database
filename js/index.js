@@ -83,7 +83,7 @@ const STATUS = {
     NE: { key: "status.NE", color: "#9e9e9e" }
 };
 
-function createCard(organism) {
+async function createCard(organism) { {
 
     const card = document.createElement("article");
     card.className = "organism-card card";
@@ -98,24 +98,28 @@ function createCard(organism) {
     body.className = "organism-card-content";
 
     const title = document.createElement("h3");
-    title.className = "organism-card-title";
-    title.textContent = organism[SCHEMA.NAME_AR] || "";
+title.className = "organism-card-title";
+title.textContent = await translateText(
+    organism[SCHEMA.NAME_AR] || ""
+);
 
-    const scientific = document.createElement("p");
-    scientific.className = "organism-card-scientific";
-    scientific.textContent = organism[SCHEMA.SCIENTIFIC_NAME] || "";
+const scientific = document.createElement("p");
+scientific.className = "organism-card-scientific";
+scientific.textContent =
+    organism[SCHEMA.SCIENTIFIC_NAME] || "";
 
-    const className = document.createElement("p");
-    className.className = "organism-card-class";
-    className.innerHTML =
-        `<strong>${t("label.class")}:</strong> ${organism[SCHEMA.CLASS] || "-"}`;
+const className = document.createElement("p");
+className.className = "organism-card-class";
+className.innerHTML =
+    `<strong>${await translateText("الطائفة")}:</strong> ${await translateText(organism[SCHEMA.CLASS] || "-")}`;
 
-    const description = document.createElement("p");
-    description.className = "organism-card-text";
-    description.textContent =
-        organism[SCHEMA.DESCRIPTION] ||
-        organism.description ||
-        "";
+const description = document.createElement("p");
+description.className = "organism-card-text";
+description.textContent = await translateText(
+    organism[SCHEMA.DESCRIPTION] ||
+    organism.description ||
+    ""
+);
 
     const conservation = document.createElement("p");
     conservation.className = "organism-card-status";
