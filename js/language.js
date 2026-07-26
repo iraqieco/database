@@ -9,7 +9,7 @@ import { getLanguage, setLanguage } from "./storage.js";
 import { validateLanguage } from "./validator.js";
 
 let dictionary = {};
-
+let textMap = {};
 /* ==========================================================================
    Get Current Language
    ========================================================================== */
@@ -24,10 +24,19 @@ export function currentLanguage() {
    Translate
    ========================================================================== */
 
-export function t(key, fallback = "") {
+export function t(text, fallback = "") {
 
-    return dictionary[key] ?? fallback ?? key;
+    // النظام الحالي (المفاتيح)
+    if (dictionary[text] !== undefined) {
+        return dictionary[text];
+    }
 
+    // ترجمة النص العربي مباشرة
+    if (textMap[text] !== undefined) {
+        return textMap[text];
+    }
+
+    return fallback || text;
 }
 
 /* ==========================================================================
