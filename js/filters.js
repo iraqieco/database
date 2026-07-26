@@ -6,7 +6,7 @@
 import { SCHEMA } from "./schema.js";
 import { normalizeText } from "./helpers.js";
 
-export async function initializeFilters(
+export function initializeFilters(
     organisms,
     container,
     searchInput,
@@ -17,7 +17,7 @@ export async function initializeFilters(
     let currentImage = "";
     let currentClass = "";
 
-    async function render() {
+    function render() {
 
         const query = normalizeText(
             searchInput.value.trim()
@@ -77,44 +77,28 @@ export async function initializeFilters(
             );
 
         });
-document.querySelectorAll(".filter-btn").forEach(btn => {
 
-    const kingdom = btn.dataset.kingdom;
+        container.innerHTML = "";
 
-    const count = kingdom === ""
-        ? organisms.length
-        : organisms.filter(o => o[SCHEMA.KINGDOM] === kingdom).length;
+        filtered.forEach(item => {
 
-    const span = btn.querySelector(".count");
+            container.append(
+                createCard(item)
+            );
 
-    if (span) {
-        span.textContent = ` (${count})`;
+        });
+
     }
-
-});
-        
-   container.innerHTML = "";
-
-for (const item of filtered) {
-
-    const card = await createCard(item);
-
-    container.append(card);
-
-}
 
     searchInput.addEventListener(
-    "input",
-    async () => {
+        "input",
+        render
+    );
 
-        await render();
-
-    }
-);
     document.querySelectorAll(".filter-btn")
         .forEach(btn => {
 
-            btn.addEventListener("click", async () => {
+            btn.addEventListener("click", () => {
 
                 currentKingdom =
                     btn.dataset.kingdom;
@@ -128,7 +112,7 @@ for (const item of filtered) {
     document.querySelectorAll(".image-btn")
         .forEach(btn => {
 
-            btn.addEventListener("click", async () => {
+            btn.addEventListener("click", () => {
 
                 currentImage =
                     btn.dataset.image;
@@ -144,7 +128,7 @@ for (const item of filtered) {
     document.querySelectorAll(".class-btn")
         .forEach(btn => {
 
-            btn.addEventListener("click", async () => {
+            btn.addEventListener("click", () => {
 
                 currentClass =
                     btn.dataset.class || "";
@@ -208,7 +192,7 @@ if (classBtn) {
     document.querySelectorAll(".class-btn")
         .forEach(btn => {
 
-            btn.onclick = async () => {
+            btn.onclick = () => {
 
                 currentClass = btn.dataset.class;
 
@@ -241,7 +225,6 @@ classSearch.addEventListener("input", () => {
     });
 
 });
-   await render();
+   render();
 
-                 }
-                
+                   }
