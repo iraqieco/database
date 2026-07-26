@@ -68,7 +68,29 @@ export async function loadLanguage(language) {
     }
 
     dictionary = await response.json();
+textMap = {};
 
+// العربية هي المرجع
+const arResponse = await fetch("lang/ar.json");
+
+if (arResponse.ok) {
+
+    const arDictionary = await arResponse.json();
+
+    for (const key in arDictionary) {
+
+        if (
+            typeof arDictionary[key] === "string" &&
+            typeof dictionary[key] === "string"
+        ) {
+
+            textMap[arDictionary[key]] = dictionary[key];
+
+        }
+
+    }
+
+}
 }
 
 /* ==========================================================================
