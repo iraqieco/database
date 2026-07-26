@@ -193,12 +193,12 @@ async function loadLatest() {
 
         });
 
-        initializeFilters(
-            allOrganisms,
-            latestContainer,
-            searchInput,
-            createCard
-        );
+        await initializeFilters(
+    allOrganisms,
+    latestContainer,
+    searchInput,
+    createCard
+);
 
     } catch (e) {
 
