@@ -228,8 +228,8 @@ classSearch.addEventListener("input", () => {
 });
    render();
 
-               }
-
+                 }
+                
 
 
             
