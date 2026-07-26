@@ -6,7 +6,7 @@
 import { SCHEMA } from "./schema.js";
 import { normalizeText } from "./helpers.js";
 
-export function initializeFilters(
+export async function initializeFilters(
     organisms,
     container,
     searchInput,
@@ -17,7 +17,7 @@ export function initializeFilters(
     let currentImage = "";
     let currentClass = "";
 
-    function render() {
+    async function render() {
 
         const query = normalizeText(
             searchInput.value.trim()
