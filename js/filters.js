@@ -77,7 +77,21 @@ export function initializeFilters(
             );
 
         });
+document.querySelectorAll(".filter-btn").forEach(btn => {
 
+    const kingdom = btn.dataset.kingdom;
+
+    const count = kingdom === ""
+        ? organisms.length
+        : organisms.filter(o => o[SCHEMA.KINGDOM] === kingdom).length;
+
+    const span = btn.querySelector(".count");
+
+    if (span) {
+        span.textContent = ` (${count})`;
+    }
+
+});
         container.innerHTML = "";
 
         filtered.forEach(item => {
