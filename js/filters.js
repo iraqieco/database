@@ -104,10 +104,13 @@ for (const item of filtered) {
 }
 
     searchInput.addEventListener(
-        "input",
-        render
-    );
+    "input",
+    async () => {
 
+        await render();
+
+    }
+);
     document.querySelectorAll(".filter-btn")
         .forEach(btn => {
 
@@ -141,7 +144,7 @@ for (const item of filtered) {
     document.querySelectorAll(".class-btn")
         .forEach(btn => {
 
-            btn.addEventListener("click", () => {
+            btn.addEventListener("click", async () => {
 
                 currentClass =
                     btn.dataset.class || "";
