@@ -2,7 +2,7 @@
    Iraqi Eco
    Home Page
    ========================================================================== */
-
+import { translateText } from "./language.js";
 import { initializeTheme } from "./theme.js";
 import { initializeLanguage } from "./language.js";
 import { initializeSupabase } from "./supabase.js";
