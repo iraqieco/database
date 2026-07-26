@@ -197,45 +197,7 @@ export async function initializeLanguage() {
 /* ==========================================================================
    Auto Initialize
    ========================================================================== */
-const translateCache = {};
 
-export async function translateText(text) {
-
-    if (!text) return "";
-
-    const lang = currentLanguage();
-
-    if (lang === "ar") return text;
-
-    const key = `${lang}:${text}`;
-
-    if (translateCache[key]) {
-        return translateCache[key];
-    }
-
-    try {
-
-        const response = await fetch(
-            `https://translate.googleapis.com/translate_a/single?client=gtx&sl=ar&tl=${lang}&dt=t&q=${encodeURIComponent(text)}`
-        );
-
-        const data = await response.json();
-
-        const translated = data[0]
-            .map(item => item[0])
-            .join("");
-
-        translateCache[key] = translated;
-
-        return translated;
-
-    } catch {
-
-        return text;
-
-    }
-
-}
 document.addEventListener(
 
     "DOMContentLoaded",
