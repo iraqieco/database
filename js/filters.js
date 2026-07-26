@@ -208,7 +208,7 @@ if (classBtn) {
     document.querySelectorAll(".class-btn")
         .forEach(btn => {
 
-            btn.onclick = () => {
+            btn.onclick = async () => {
 
                 currentClass = btn.dataset.class;
 
@@ -241,7 +241,7 @@ classSearch.addEventListener("input", () => {
     });
 
 });
-   render();
+   await render();
 
                  }
                 
