@@ -179,19 +179,15 @@ if (classBtn) {
 
     classes.forEach(c => {
 
-    const count = organisms.filter(
-        o => o[SCHEMA.CLASS] === c
-    ).length;
+        const btn = document.createElement("button");
 
-    const btn = document.createElement("button");
+        btn.className = "class-btn";
+        btn.dataset.class = c;
+        btn.textContent = c;
 
-    btn.className = "class-btn";
-    btn.dataset.class = c;
-    btn.textContent = `${c} (${count})`;
+        classList.appendChild(btn);
 
-    classList.appendChild(btn);
-
-});
+    });
 
     document.querySelectorAll(".class-btn")
         .forEach(btn => {
@@ -231,4 +227,5 @@ classSearch.addEventListener("input", () => {
 });
    render();
 
-}
+                 }
+                
