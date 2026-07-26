@@ -179,15 +179,19 @@ if (classBtn) {
 
     classes.forEach(c => {
 
-        const btn = document.createElement("button");
+    const count = organisms.filter(
+        o => o[SCHEMA.CLASS] === c
+    ).length;
 
-        btn.className = "class-btn";
-        btn.dataset.class = c;
-        btn.textContent = c;
+    const btn = document.createElement("button");
 
-        classList.appendChild(btn);
+    btn.className = "class-btn";
+    btn.dataset.class = c;
+    btn.textContent = `${c} (${count})`;
 
-    });
+    classList.appendChild(btn);
+
+});
 
     document.querySelectorAll(".class-btn")
         .forEach(btn => {
