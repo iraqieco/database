@@ -114,7 +114,7 @@ for (const item of filtered) {
     document.querySelectorAll(".filter-btn")
         .forEach(btn => {
 
-            btn.addEventListener("click", () => {
+            btn.addEventListener("click", async () => {
 
                 currentKingdom =
                     btn.dataset.kingdom;
@@ -128,7 +128,7 @@ for (const item of filtered) {
     document.querySelectorAll(".image-btn")
         .forEach(btn => {
 
-            btn.addEventListener("click", () => {
+            btn.addEventListener("click", async () => {
 
                 currentImage =
                     btn.dataset.image;
