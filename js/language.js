@@ -122,67 +122,80 @@ export function applyLanguage(language) {
 /* ==========================================================================
    Translate Page
    ========================================================================== */
-
 export function translatePage() {
 
+    // ترجمة العناصر التي تستخدم data-i18n
     document
-
         .querySelectorAll("[data-i18n]")
-
         .forEach(element => {
 
             const key = element.dataset.i18n;
 
             element.textContent = t(
-
                 key,
-
                 element.textContent
-
             );
 
         });
 
-
-
+    // ترجمة placeholder
     document
-
         .querySelectorAll("[data-i18n-placeholder]")
-
         .forEach(element => {
 
-            const key =
-
-                element.dataset.i18nPlaceholder;
+            const key = element.dataset.i18nPlaceholder;
 
             element.placeholder = t(
-
                 key,
-
                 element.placeholder
-
             );
+
+        });
+
+    // ترجمة title
+    document
+        .querySelectorAll("[data-i18n-title]")
+        .forEach(element => {
+
+            const key = element.dataset.i18nTitle;
+
+            element.title = t(
+                key,
+                element.title
+            );
+
+        });
+
+    // ترجمة النصوص الثابتة
+    document
+        .querySelectorAll("button,a,label,option,span,p,li,h1,h2,h3,h4,h5,h6")
+        .forEach(element => {
+
+            // استثناء العناصر
+            if (
+                element.hasAttribute("data-no-translate") ||
+                element.classList.contains("no-translate")
+            ) {
+                return;
+            }
+
+            const text = element.textContent.trim();
+
+            if (!text) return;
+
+            // تجاهل الأرقام
+            if (/^[0-9\s.,:%/-]+$/.test(text)) return;
+
+            // تجاهل الأسماء العلمية
+            if (/^[A-Z][a-z]+(\s[a-z-]+)+$/.test(text)) return;
+
+            element.textContent = t(text, text);
 
         });
 
 }
 
-// ترجمة النصوص الثابتة تلقائياً
-document.querySelectorAll("*").forEach(element => {
-
-    if (
-        element.children.length === 0 &&
-        element.textContent.trim()
-    ) {
-
-        element.textContent = t(
-            element.textContent.trim(),
-            element.textContent
-        );
-
-    }
-
-});
+        
 
 /* ==========================================================================
    Change Language
