@@ -167,7 +167,22 @@ export function translatePage() {
 
 }
 
+// ترجمة النصوص الثابتة تلقائياً
+document.querySelectorAll("*").forEach(element => {
 
+    if (
+        element.children.length === 0 &&
+        element.textContent.trim()
+    ) {
+
+        element.textContent = t(
+            element.textContent.trim(),
+            element.textContent
+        );
+
+    }
+
+});
 
 /* ==========================================================================
    Change Language
