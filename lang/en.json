@@ -76,5 +76,79 @@
 "status.NT": "Near Threatened",
 "status.LC": "Least Concern",
 "status.DD": "Data Deficient",
-"status.NE": "Not Evaluated" 
+"status.NE": "Not Evaluated", 
+"classes.title": "Classes",
+
+"class.ثدييات": "Mammals",
+"class.طيور": "Birds",
+"class.زواحف": "Reptiles",
+"class.برمائيات": "Amphibians",
+"class.أسماك": "Fishes",
+"class.لافكيات": "Jawless Fishes",
+"class.غضروفيات": "Cartilaginous Fishes",
+"class.شعاعيات الزعانف": "Ray-finned Fishes",
+
+"class.حشرات": "Insects",
+"class.عنكبيات": "Arachnids",
+"class.قشريات": "Crustaceans",
+"class.عديدات الأرجل": "Myriapods",
+
+"class.بطنيات القدم": "Gastropods",
+"class.ذوات المصراعين": "Bivalves",
+"class.رأسيات القدم": "Cephalopods",
+"class.متعددات الصفائح": "Polyplacophora",
+"class.أحاديات الصفائح": "Monoplacophora",
+"class.سكافوبودا": "Scaphopods",
+
+"class.نجميات البحر": "Sea Stars",
+"class.قنافذ البحر": "Sea Urchins",
+"class.خيار البحر": "Sea Cucumbers",
+"class.نجوم البحر الهشة": "Brittle Stars",
+"class.زنابق البحر": "Crinoids",
+
+"class.الهيدريات": "Hydrozoans",
+"class.المرجانيات": "Corals",
+"class.القناديل": "Jellyfish",
+"class.الكأسيات": "Scyphozoans",
+
+"class.الإسفنجيات الكلسية": "Calcareous Sponges",
+"class.الإسفنجيات الزجاجية": "Glass Sponges",
+"class.الإسفنجيات العادية": "Demosponges",
+
+"class.الديدان المفلطحة": "Flatworms",
+"class.الديدان الأسطوانية": "Roundworms",
+"class.قليلات الأشواك": "Oligochaetes",
+"class.عديدات الأشواك": "Polychaetes",
+"class.العلقيات": "Leeches",
+
+"class.الفطريات الزقية": "Sac Fungi",
+"class.الفطريات الدعامية": "Club Fungi",
+"class.الفطريات الاقترانية": "Conjugation Fungi",
+"class.الفطريات الكيتريدية": "Chytrids",
+"class.الفطريات الجليدية": "Glomeromycetes",
+
+"class.أحاديات الفلقة": "Monocots",
+"class.ثنائيات الفلقة": "Dicots",
+"class.الصنوبريات": "Conifers",
+"class.السيكاديات": "Cycads",
+"class.الجنكيات": "Ginkgo",
+"class.النتيات": "Gnetophytes",
+"class.السرخسيات": "Ferns",
+"class.ذنب الخيل": "Horsetails",
+"class.الحزازيات": "Mosses",
+"class.الحشائش الكبدية": "Liverworts",
+"class.الحزازيات القرنية": "Hornworts",
+
+"class.الطحالب الخضراء": "Green Algae",
+"class.الطحالب البنية": "Brown Algae",
+"class.الطحالب الحمراء": "Red Algae",
+"class.الدياتومات": "Diatoms",
+"class.الدينوفلاجيلات": "Dinoflagellates",
+
+"class.السوطيات": "Flagellates",
+"class.الهدبيات": "Ciliates",
+"class.الأميبيات": "Amoebae",
+"class.البوغيات": "Sporozoans",
+
+"class.غير محدد": "Unspecified"
 }
