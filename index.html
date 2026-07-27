@@ -156,8 +156,11 @@ data-i18n="search.button">
 <div class="section-header">
 
 <div class="results-header">
-    <button id="classFilterBtn" class="class-filter-btn">
-        الأصناف
+    <button
+    id="classFilterBtn"
+    class="class-filter-btn"
+    data-i18n="classes.title">
+    الأصناف
     </button>
 
     <h2>النتائج</h2>
@@ -396,13 +399,16 @@ IUCN Red List
 <div id="classDrawer" class="class-drawer">
 
     <div class="drawer-header">
-        <h3>الأصناف</h3>
+        <h3 data-i18n="classes.title">
+    الأصناف
+        </h3>
         <button id="closeDrawer">✕</button>
     </div>
 <input
     id="classSearch"
     class="input"
     type="text"
+    data-i18n-placeholder="classes.search"
     placeholder="ابحث عن صنف...">
     <div id="classList"></div>
 
