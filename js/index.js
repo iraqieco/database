@@ -108,8 +108,11 @@ function createCard(organism) {
     const className = document.createElement("p");
     className.className = "organism-card-class";
     className.innerHTML =
-        `<strong>${t("label.class")}:</strong> ${organism[SCHEMA.CLASS] || "-"}`;
-
+    `<strong>${t("label.class")}:</strong> ${
+        organism[SCHEMA.CLASS]
+            ? t(`class.${organism[SCHEMA.CLASS]}`, organism[SCHEMA.CLASS])
+            : "-"
+    }`;
     const description = document.createElement("p");
     description.className = "organism-card-text";
     description.textContent =
