@@ -101,6 +101,15 @@ for (const key in arDictionary) {
     }
 
 }
+   translatePage();
+
+if (!window.translationObserverStarted) {
+
+    observeTranslations();
+
+    window.translationObserverStarted = true;
+
+}
 /* ==========================================================================
    Apply Language
    ========================================================================== */
@@ -272,3 +281,19 @@ document.addEventListener(
     initializeLanguage
 
 );
+function observeTranslations() {
+
+    const observer = new MutationObserver(() => {
+
+        translatePage();
+
+    });
+
+    observer.observe(document.body, {
+
+        childList: true,
+        subtree: true
+
+    });
+
+}
