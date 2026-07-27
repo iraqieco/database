@@ -1,15 +1,15 @@
 {
   "site.name": "عراقي إيكو",
-  "site.description": "قاعدة بيانات الكائنات الحية في العراق",
+  "site.description": "قاعدة بيانات المخلوقات الحية في العراق",
 
   "nav.home": "الرئيسية",
-  "nav.organisms": "الكائنات",
+  "nav.organisms": "المخلوقات",
   "nav.search": "البحث",
   "nav.login": "تسجيل الدخول",
   "nav.admin": "لوحة الإدارة",
 
-  "home.hero.title": "موسوعة الكائنات الحية في العراق",
-  "home.hero.description": "اكتشف الحيوانات والنباتات والفطريات وغيرها من الكائنات الحية الموجودة في العراق.",
+  "home.hero.title": "موسوعة المخلوقات الحية في العراق",
+  "home.hero.description": "اكتشف الحيوانات والنباتات والفطريات وغيرها من المخلوقات الحية الموجودة في العراق.",
 
   "search.placeholder": "ابحث بالاسم العربي اللاتيني(للثدييات بالعربي او الإنجليزي)...",
   "search.button": "بحث",
@@ -17,14 +17,14 @@
   "home.latest": "النتائج",
   "home.statistics": "إحصائيات",
 
-  "statistics.organisms": "عدد الكائنات",
+  "statistics.organisms": "عدد المخلوقات",
   "statistics.categories": "عدد التصنيفات",
   "statistics.images": "عدد الصور",
 
-  "organisms.title": "الكائنات",
-  "organisms.all": "جميع الكائنات",
+  "organisms.title": "المخلوقات",
+  "organisms.all": "جميع المخلوقات",
 
-  "organism.details": "معلومات الكائن",
+  "organism.details": "معلومات المخلوق",
   "organism.classification": "التصنيف العلمي",
   "organism.description": "الوصف",
   "organism.distribution": "الانتشار",
