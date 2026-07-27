@@ -9,7 +9,7 @@ import { getLanguage, setLanguage } from "./storage.js";
 import { validateLanguage } from "./validator.js";
 
 let dictionary = {};
-let textMap = {};
+
 /* ==========================================================================
    Get Current Language
    ========================================================================== */
@@ -24,19 +24,10 @@ export function currentLanguage() {
    Translate
    ========================================================================== */
 
-export function t(text, fallback = "") {
+export function t(key, fallback = "") {
 
-    // النظام الحالي (المفاتيح)
-    if (dictionary[text] !== undefined) {
-        return dictionary[text];
-    }
+    return dictionary[key] ?? fallback ?? key;
 
-    // ترجمة النص العربي مباشرة
-    if (textMap[text] !== undefined) {
-        return textMap[text];
-    }
-
-    return fallback || text;
 }
 
 /* ==========================================================================
@@ -68,41 +59,8 @@ export async function loadLanguage(language) {
     }
 
     dictionary = await response.json();
-textMap = {};
-
-// العربية هي المرجع
-let arDictionary = {};
-
-if (language === "ar") {
-
-    arDictionary = dictionary;
-
-} else {
-
-    const arResponse = await fetch("lang/ar.json");
-
-    if (arResponse.ok) {
-
-        arDictionary = await arResponse.json();
-
-    }
 
 }
-
-for (const key in arDictionary) {
-
-    if (
-        typeof arDictionary[key] === "string" &&
-        typeof dictionary[key] === "string"
-    ) {
-
-        textMap[arDictionary[key]] = dictionary[key];
-
-    }
-
-}
-   translatePage();
-
 
 /* ==========================================================================
    Apply Language
@@ -133,80 +91,52 @@ export function applyLanguage(language) {
 /* ==========================================================================
    Translate Page
    ========================================================================== */
+
 export function translatePage() {
 
-    // ترجمة العناصر التي تستخدم data-i18n
     document
+
         .querySelectorAll("[data-i18n]")
+
         .forEach(element => {
 
             const key = element.dataset.i18n;
 
             element.textContent = t(
+
                 key,
+
                 element.textContent
+
             );
 
         });
 
-    // ترجمة placeholder
+
+
     document
+
         .querySelectorAll("[data-i18n-placeholder]")
+
         .forEach(element => {
 
-            const key = element.dataset.i18nPlaceholder;
+            const key =
+
+                element.dataset.i18nPlaceholder;
 
             element.placeholder = t(
+
                 key,
+
                 element.placeholder
+
             );
-
-        });
-
-    // ترجمة title
-    document
-        .querySelectorAll("[data-i18n-title]")
-        .forEach(element => {
-
-            const key = element.dataset.i18nTitle;
-
-            element.title = t(
-                key,
-                element.title
-            );
-
-        });
-
-    // ترجمة النصوص الثابتة
-    document
-        .querySelectorAll("button,a,label,option,span,p,li,h1,h2,h3,h4,h5,h6")
-        .forEach(element => {
-
-            // استثناء العناصر
-            if (
-                element.hasAttribute("data-no-translate") ||
-                element.classList.contains("no-translate")
-            ) {
-                return;
-            }
-
-            const text = element.textContent.trim();
-
-            if (!text) return;
-
-            // تجاهل الأرقام
-            if (/^[0-9\s.,:%/-]+$/.test(text)) return;
-
-            // تجاهل الأسماء العلمية
-            if (/^[A-Z][a-z]+(\s[a-z-]+)+$/.test(text)) return;
-
-            element.textContent = t(text, text);
 
         });
 
 }
 
-        
+
 
 /* ==========================================================================
    Change Language
@@ -275,19 +205,3 @@ document.addEventListener(
     initializeLanguage
 
 );
-function observeTranslations() {
-
-    const observer = new MutationObserver(() => {
-
-        translatePage();
-
-    });
-
-    observer.observe(document.body, {
-
-        childList: true,
-        subtree: true
-
-    });
-
-}
