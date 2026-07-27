@@ -5,7 +5,7 @@
 
 import { SCHEMA } from "./schema.js";
 import { normalizeText } from "./helpers.js";
-
+import { t } from "./language.js";
 export function initializeFilters(
     organisms,
     container,
@@ -174,7 +174,7 @@ if (classBtn) {
     const all = document.createElement("button");
     all.className = "class-btn";
     all.dataset.class = "";
-    all.textContent = "الكل";
+    all.textContent = t("filter.all");
     classList.appendChild(all);
 
     classes.forEach(c => {
@@ -183,8 +183,7 @@ if (classBtn) {
 
         btn.className = "class-btn";
         btn.dataset.class = c;
-        btn.textContent = c;
-
+        btn.textContent = t(`class.${c}`, c);
         classList.appendChild(btn);
 
     });
@@ -197,7 +196,9 @@ if (classBtn) {
                 currentClass = btn.dataset.class;
 
                 classBtn.textContent =
-                    currentClass || "الأصناف";
+                    currentClass
+    ? t(`class.${currentClass}`, currentClass)
+    : t("classes.title");
 
                 classDrawer.classList.remove("open");
                 drawerOverlay.classList.remove("show");
