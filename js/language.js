@@ -103,13 +103,7 @@ for (const key in arDictionary) {
 }
    translatePage();
 
-if (!window.translationObserverStarted) {
 
-    observeTranslations();
-
-    window.translationObserverStarted = true;
-
-}
 /* ==========================================================================
    Apply Language
    ========================================================================== */
