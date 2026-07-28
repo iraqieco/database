@@ -249,10 +249,51 @@ menuOverlay.addEventListener("click", (e) => {
     }
 
 });
+downloadBtn.addEventListener("click", async () => {
 
-downloadBtn.addEventListener("click", () => {
+    if (!currentOrganism) return;
 
-    alert("ميزة تنزيل PDF قيد التطوير.");
+    const cards = document.querySelectorAll(".organism-card");
+
+    let targetCard = null;
+
+    cards.forEach(card => {
+
+        const title = card.querySelector(".organism-card-title");
+
+        if (
+            title &&
+            title.textContent.trim() ===
+            (currentOrganism[SCHEMA.NAME_AR] || "").trim()
+        ) {
+
+            targetCard = card;
+
+        }
+
+    });
+
+    if (!targetCard) {
+
+        alert("تعذر العثور على البطاقة.");
+
+        return;
+
+    }
+
+    const canvas = await html2canvas(targetCard, {
+        backgroundColor: "#ffffff",
+        scale: 2
+    });
+
+    const link = document.createElement("a");
+
+    link.download =
+        (currentOrganism[SCHEMA.NAME_AR] || "organism") + ".png";
+
+    link.href = canvas.toDataURL("image/png");
+
+    link.click();
 
     closeCardMenu();
 
