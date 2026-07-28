@@ -281,10 +281,21 @@ downloadBtn.addEventListener("click", async () => {
 
     }
 
-    const canvas = await html2canvas(targetCard, {
-        backgroundColor: "#ffffff",
-        scale: 2
-    });
+    const menu = targetCard.querySelector(".card-menu-btn");
+
+if (menu) {
+    menu.style.display = "none";
+}
+
+const canvas = await html2canvas(targetCard, {
+    backgroundColor: "#ffffff",
+    scale: 3,
+    useCORS: true
+});
+
+if (menu) {
+    menu.style.display = "";
+}
 
     const link = document.createElement("a");
 
