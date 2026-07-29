@@ -12,7 +12,8 @@ async function fetchNews() {
         .from(CONFIG.database.newsTable)
         .select('*')
         .order('created_at', { ascending: false });
-
+console.log("DATA:", data);
+console.log("ERROR:", error);
     if (error) {
         console.error('Error fetching:', error);
         return;
