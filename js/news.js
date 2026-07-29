@@ -15,10 +15,11 @@ async function fetchNews() {
 console.log("DATA:", data);
 console.log("ERROR:", error);
     if (error) {
-        console.error('Error fetching:', error);
-        return;
-    }
+    alert("خطأ:\n" + JSON.stringify(error, null, 2));
+    return;
+}
 
+alert("عدد الأخبار: " + data.length);
     renderSection('local', data.filter(item => item.category === 'local'));
     renderSection('global', data.filter(item => item.category === 'global'));
     renderAdminList(data);
