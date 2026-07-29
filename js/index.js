@@ -253,25 +253,61 @@ downloadBtn.addEventListener("click", async () => {
 
     if (!currentOrganism) return;
 
-    const cards = document.querySelectorAll(".organism-card");
+    const { jsPDF } = window.jspdf;
 
-    let targetCard = null;
+    const doc = new jsPDF({
+        orientation: "portrait",
+        unit: "mm",
+        format: "a4"
+    });
 
-    cards.forEach(card => {
+    doc.setFontSize(20);
+    doc.text("Iraqi Eco", 105, 15, { align: "center" });
 
-        const title = card.querySelector(".organism-card-title");
+    doc.setFontSize(16);
+    doc.text(currentOrganism[SCHEMA.NAME_AR] || "", 105, 28, { align: "center" });
 
-        if (
-            title &&
-            title.textContent.trim() ===
-            (currentOrganism[SCHEMA.NAME_AR] || "").trim()
-        ) {
+    doc.setFontSize(12);
+    doc.text(
+        currentOrganism[SCHEMA.SCIENTIFIC_NAME] || "",
+        105,
+        36,
+        { align: "center" }
+    );
 
-            targetCard = card;
+    let y = 50;
 
-        }
+    const fields = [
+
+        ["الطائفة", currentOrganism[SCHEMA.CLASS]],
+
+        ["المملكة", currentOrganism[SCHEMA.KINGDOM]],
+
+        ["الحالة", currentOrganism[SCHEMA.CONSERVATION_STATUS]],
+
+        ["الوصف", currentOrganism[SCHEMA.DESCRIPTION]]
+
+    ];
+
+    fields.forEach(([label, value]) => {
+
+        if (!value) return;
+
+        doc.setFontSize(12);
+
+        doc.text(`${label}: ${value}`, 15, y);
+
+        y += 10;
 
     });
+
+    doc.save(
+        (currentOrganism[SCHEMA.NAME_AR] || "organism") + ".pdf"
+    );
+
+    closeCardMenu();
+
+});
 
     if (!targetCard) {
 
