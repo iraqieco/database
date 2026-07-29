@@ -1,4 +1,4 @@
-import { getClient } from "./supabase.js";
+
 import { getClient } from "./supabase.js";
 import { CONFIG } from "./config.js";
 const _supabase = getClient();
@@ -9,7 +9,7 @@ document.addEventListener('DOMContentLoaded', () => {
 
 async function fetchNews() {
     const { data, error } = await _supabase
-        .from('news')
+        .from(CONFIG.database.newsTable)
         .select('*')
         .order('created_at', { ascending: false });
 
@@ -188,7 +188,7 @@ async function incrementViewsOnce(id) {
     const viewedKey = `viewed_${id}`;
     if (localStorage.getItem(viewedKey)) return;
 
-    const { data } = await _supabase.from('news').select('views').eq('id', id).single();
+    const { data } = await _supabase.from(CONFIG.database.newsTable).select('views').eq('id', id).single();
     if (data) {
         const newViews = (data.views || 0) + 1;
         const { error } = await _supabase.from('news').update({ views: newViews }).eq('id', id);
