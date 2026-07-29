@@ -102,46 +102,7 @@ function toggleDescription(descId, btnId) {
     }
 }
 
-function renderSection(category, items) {
-    const featuredContainer = document.getElementById(`${category}-featured`);
-    const archiveContainer = document.getElementById(`${category}-archive`);
-    
-    featuredContainer.innerHTML = '';
-    archiveContainer.innerHTML = '';
 
-    const featured = items.slice(0, 3);
-    const archive = items.slice(3);
-
-    featured.forEach(item => {
-        const date = new Date(item.created_at).toLocaleDateString('ar-IQ');
-        const uniqueId = `desc-${item.id}`;
-        const btnId = `btn-${item.id}`;
-        const cardId = `card-${item.id}`;
-        
-        featuredContainer.innerHTML += `
-            <div id="${cardId}" data-id="${item.id}" class="news-card bg-white rounded-lg shadow-md overflow-hidden border border-gray-200 flex flex-col">
-                <img src="${item.image_url}" alt="صورة الخبر" class="h-48 w-full object-cover">
-                <div class="p-4 flex flex-col flex-grow">
-                    <h3 class="font-bold text-lg mb-2 text-primary">${item.title}</h3>
-                    
-                    <div class="mb-4 flex-grow">
-                        <p id="${uniqueId}" class="text-gray-600 text-sm line-clamp-3 transition-all duration-300">${item.description}</p>
-                        <button id="${btnId}" onclick="toggleDescription('${uniqueId}', '${btnId}')" class="text-accent text-xs font-bold mt-1 hidden hover:underline focus:outline-none">عرض المزيد</button>
-                    </div>
-
-                    ${item.source_url ? `<a href="${item.source_url}" target="_blank" class="text-accent text-sm font-semibold mb-3 hover:underline"><i class="fa-solid fa-link ml-1"></i>المصدر</a>` : ''}
-                    
-                    <div class="flex justify-between items-center text-gray-400 text-xs border-t pt-3 mt-auto">
-                        <span><i class="fa-regular fa-clock ml-1"></i>${date}</span>
-                        <div class="space-x-3 space-x-reverse">
-                            <span class="hover:text-primary"><i class="fa-regular fa-eye ml-1"></i><span id="views-${item.id}">${item.views || 0}</span></span>
-                            <button onclick="incrementLikes(${item.id})" class="text-red-500 hover:opacity-80"><i class="fa-regular fa-heart ml-1"></i>${item.likes || 0}</button>
-                        </div>
-                    </div>
-                </div>
-            </div>
-        `;
-    });
 
     setTimeout(() => {
         featured.forEach(item => {
