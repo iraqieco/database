@@ -191,7 +191,7 @@ async function incrementViewsOnce(id) {
     const { data } = await _supabase.from(CONFIG.database.newsTable).select('views').eq('id', id).single();
     if (data) {
         const newViews = (data.views || 0) + 1;
-        const { error } = await _supabase.from('news').update({ views: newViews }).eq('id', id);
+        const { error } = await _supabase.from(CONFIG.database.newsTable).update({ views: newViews }).eq('id', id);
         if (!error) {
             localStorage.setItem(viewedKey, 'true');
             const viewSpan = document.getElementById(`views-${id}`);
@@ -209,10 +209,10 @@ async function incrementLikes(id) {
         return;
     }
 
-    const { data } = await _supabase.from('news').select('likes').eq('id', id).single();
+    const { data } = await _supabase.from(CONFIG.database.newsTable).select('likes').eq('id', id).single();
     const newLikes = (data.likes || 0) + 1;
     
-    const { error } = await _supabase.from('news').update({ likes: newLikes }).eq('id', id);
+    const { error } = await _supabase.from(CONFIG.database.newsTable).update({ likes: newLikes }).eq('id', id);
     
     if (!error) {
         // حفظ حالة الإعجاب في المتصفح لكي لا يضغط مرة أخرى
