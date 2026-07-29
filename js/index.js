@@ -309,42 +309,8 @@ downloadBtn.addEventListener("click", async () => {
 
 });
 
-    if (!targetCard) {
+    
 
-        alert("تعذر العثور على البطاقة.");
-
-        return;
-
-    }
-
-    const menu = targetCard.querySelector(".card-menu-btn");
-
-if (menu) {
-    menu.style.display = "none";
-}
-
-const canvas = await html2canvas(targetCard, {
-    backgroundColor: "#ffffff",
-    scale: 3,
-    useCORS: true
-});
-
-if (menu) {
-    menu.style.display = "";
-}
-
-    const link = document.createElement("a");
-
-    link.download =
-        (currentOrganism[SCHEMA.NAME_AR] || "organism") + ".png";
-
-    link.href = canvas.toDataURL("image/png");
-
-    link.click();
-
-    closeCardMenu();
-
-});
 
 editBtn.addEventListener("click", () => {
 
