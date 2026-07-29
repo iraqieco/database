@@ -314,3 +314,11 @@ async function deleteNews(id) {
     }
 }
 
+window.login = login;
+window.logout = logout;
+window.saveNews = saveNews;
+window.editNews = editNews;
+window.deleteNews = deleteNews;
+window.toggleAuthModal = toggleAuthModal;
+window.toggleDescription = toggleDescription;
+window.incrementLikes = incrementLikes;
