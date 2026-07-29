@@ -252,7 +252,8 @@ menuOverlay.addEventListener("click", (e) => {
 
   
 
-   downloadBtn.addEventListener("click", async () => {
+   
+downloadBtn.addEventListener("click", async () => {
 
     if (!currentOrganism) return;
 
@@ -269,19 +270,14 @@ menuOverlay.addEventListener("click", (e) => {
             title.textContent.trim() ===
             (currentOrganism[SCHEMA.NAME_AR] || "").trim()
         ) {
-
             targetCard = card;
-
         }
 
     });
 
     if (!targetCard) {
-
         alert("تعذر العثور على البطاقة.");
-
         return;
-
     }
 
     const menu = targetCard.querySelector(".card-menu-btn");
@@ -290,9 +286,11 @@ menuOverlay.addEventListener("click", (e) => {
         menu.style.display = "none";
     }
 
+    await new Promise(resolve => setTimeout(resolve, 100));
+
     const canvas = await html2canvas(targetCard, {
         backgroundColor: "#ffffff",
-        scale: 3,
+        scale: 4,
         useCORS: true
     });
 
@@ -300,35 +298,22 @@ menuOverlay.addEventListener("click", (e) => {
         menu.style.display = "";
     }
 
-    const { jsPDF } = window.jspdf;
+    const link = document.createElement("a");
 
-    const pdf = new jsPDF("p", "mm", "a4");
+    link.download =
+        (currentOrganism[SCHEMA.NAME_AR] || "organism") + ".png";
 
-    const pageWidth = pdf.internal.pageSize.getWidth();
+    link.href = canvas.toDataURL("image/png", 1);
 
-    const imgWidth = pageWidth - 20;
+    document.body.appendChild(link);
 
-    const imgHeight =
-        canvas.height * imgWidth / canvas.width;
+    link.click();
 
-    pdf.addImage(
-        canvas.toDataURL("image/png"),
-        "PNG",
-        10,
-        10,
-        imgWidth,
-        imgHeight
-    );
-
-    pdf.save(
-        (currentOrganism[SCHEMA.NAME_AR] || "organism") + ".pdf"
-    );
+    document.body.removeChild(link);
 
     closeCardMenu();
 
-}); 
-
-
+});
 editBtn.addEventListener("click", () => {
 
     if (!currentOrganism) return;
