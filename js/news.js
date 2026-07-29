@@ -264,10 +264,10 @@ async function saveNews(e) {
 
     let error;
     if (id) {
-        const res = await _supabase.from('news').update(postData).eq('id', id);
+        const res = await _supabase.from(CONFIG.database.newsTable).update(postData).eq('id', id);
         error = res.error;
     } else {
-        const res = await _supabase.from('news').insert([postData]);
+        const res = await _supabase.from(CONFIG.database.newsTable).insert([postData]);
         error = res.error;
     }
 
@@ -308,7 +308,7 @@ function editNews(id, title, desc, img, src, cat) {
 
 async function deleteNews(id) {
     if (confirm('هل أنت متأكد من الحذف؟')) {
-        const { error } = await _supabase.from('news').delete().eq('id', id);
+        const { error } = await _supabase.from(CONFIG.database.newsTable).delete().eq('id', id);
         if (error) alert(error.message);
         else fetchNews();
     }
