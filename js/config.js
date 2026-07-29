@@ -78,12 +78,10 @@ export const CONFIG = Object.freeze({
     =========================== */
 
     database: {
-
-        table: "organisms",
-
-        pageSize: 24
-
-    },
+    table: "organisms",
+    newsTable: "news",
+    pageSize: 24
+},
 
 
 
