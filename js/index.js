@@ -249,67 +249,84 @@ menuOverlay.addEventListener("click", (e) => {
     }
 
 });
-downloadBtn.addEventListener("click", async () => {
+
+  
+
+   downloadBtn.addEventListener("click", async () => {
 
     if (!currentOrganism) return;
 
+    const cards = document.querySelectorAll(".organism-card");
+
+    let targetCard = null;
+
+    cards.forEach(card => {
+
+        const title = card.querySelector(".organism-card-title");
+
+        if (
+            title &&
+            title.textContent.trim() ===
+            (currentOrganism[SCHEMA.NAME_AR] || "").trim()
+        ) {
+
+            targetCard = card;
+
+        }
+
+    });
+
+    if (!targetCard) {
+
+        alert("تعذر العثور على البطاقة.");
+
+        return;
+
+    }
+
+    const menu = targetCard.querySelector(".card-menu-btn");
+
+    if (menu) {
+        menu.style.display = "none";
+    }
+
+    const canvas = await html2canvas(targetCard, {
+        backgroundColor: "#ffffff",
+        scale: 3,
+        useCORS: true
+    });
+
+    if (menu) {
+        menu.style.display = "";
+    }
+
     const { jsPDF } = window.jspdf;
 
-    const doc = new jsPDF({
-        orientation: "portrait",
-        unit: "mm",
-        format: "a4"
-    });
+    const pdf = new jsPDF("p", "mm", "a4");
 
-    doc.setFontSize(20);
-    doc.text("Iraqi Eco", 105, 15, { align: "center" });
+    const pageWidth = pdf.internal.pageSize.getWidth();
 
-    doc.setFontSize(16);
-    doc.text(currentOrganism[SCHEMA.NAME_AR] || "", 105, 28, { align: "center" });
+    const imgWidth = pageWidth - 20;
 
-    doc.setFontSize(12);
-    doc.text(
-        currentOrganism[SCHEMA.SCIENTIFIC_NAME] || "",
-        105,
-        36,
-        { align: "center" }
+    const imgHeight =
+        canvas.height * imgWidth / canvas.width;
+
+    pdf.addImage(
+        canvas.toDataURL("image/png"),
+        "PNG",
+        10,
+        10,
+        imgWidth,
+        imgHeight
     );
 
-    let y = 50;
-
-    const fields = [
-
-        ["الطائفة", currentOrganism[SCHEMA.CLASS]],
-
-        ["المملكة", currentOrganism[SCHEMA.KINGDOM]],
-
-        ["الحالة", currentOrganism[SCHEMA.CONSERVATION_STATUS]],
-
-        ["الوصف", currentOrganism[SCHEMA.DESCRIPTION]]
-
-    ];
-
-    fields.forEach(([label, value]) => {
-
-        if (!value) return;
-
-        doc.setFontSize(12);
-
-        doc.text(`${label}: ${value}`, 15, y);
-
-        y += 10;
-
-    });
-
-    doc.save(
+    pdf.save(
         (currentOrganism[SCHEMA.NAME_AR] || "organism") + ".pdf"
     );
 
     closeCardMenu();
 
-});
-
-    
+}); 
 
 
 editBtn.addEventListener("click", () => {
