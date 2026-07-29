@@ -1,5 +1,6 @@
 import { getClient } from "./supabase.js";
-
+import { getClient } from "./supabase.js";
+import { CONFIG } from "./config.js";
 const _supabase = getClient();
 document.addEventListener('DOMContentLoaded', () => {
     fetchNews();
