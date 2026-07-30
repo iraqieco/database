@@ -94,7 +94,16 @@ export function initializeFilters(
         "input",
         render
     );
+// تحديث عدد الكائنات في أزرار الممالك
+document.querySelectorAll(".filter-btn").forEach(btn => {
+    const kingdom = btn.dataset.kingdom;
 
+    const count = kingdom
+        ? organisms.filter(o => o[SCHEMA.KINGDOM] === kingdom).length
+        : organisms.length;
+
+    btn.textContent = `${btn.textContent} (${count})`;
+});
     document.querySelectorAll(".filter-btn")
         .forEach(btn => {
 
