@@ -87,7 +87,36 @@ export function initializeFilters(
             );
 
         });
+// تحديث أعداد الممالك حسب النتائج الحالية
+document.querySelectorAll(".filter-btn").forEach(btn => {
 
+    const kingdom = btn.dataset.kingdom;
+
+    const count = kingdom
+        ? filtered.filter(o => o[SCHEMA.KINGDOM] === kingdom).length
+        : filtered.length;
+
+    btn.textContent = btn.textContent.replace(/\(\d+\)/, "").trim() + ` (${count})`;
+
+});
+
+// تحديث أعداد الصور حسب النتائج الحالية
+const withImages = filtered.filter(o =>
+    o[SCHEMA.IMAGE] && o[SCHEMA.IMAGE].trim() !== ""
+).length;
+
+const withoutImages = filtered.length - withImages;
+
+document.querySelectorAll(".image-btn").forEach(btn => {
+
+    let count = filtered.length;
+
+    if (btn.dataset.image === "with") count = withImages;
+    if (btn.dataset.image === "without") count = withoutImages;
+
+    btn.textContent = btn.textContent.replace(/\(\d+\)/, "").trim() + ` (${count})`;
+
+});
     }
 
     searchInput.addEventListener(
