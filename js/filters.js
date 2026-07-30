@@ -117,7 +117,22 @@ document.querySelectorAll(".filter-btn").forEach(btn => {
             });
 
         });
+// تحديث عدد الكائنات في أزرار الصور
+const withImages = organisms.filter(o =>
+    o[SCHEMA.IMAGE] && o[SCHEMA.IMAGE].trim() !== ""
+).length;
 
+const withoutImages = organisms.length - withImages;
+
+document.querySelectorAll(".image-btn").forEach(btn => {
+    if (btn.dataset.image === "") {
+        btn.textContent += ` (${organisms.length})`;
+    } else if (btn.dataset.image === "with") {
+        btn.textContent += ` (${withImages})`;
+    } else if (btn.dataset.image === "without") {
+        btn.textContent += ` (${withoutImages})`;
+    }
+});
     document.querySelectorAll(".image-btn")
         .forEach(btn => {
 
