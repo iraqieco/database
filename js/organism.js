@@ -164,11 +164,28 @@ document
   const schema = {
     "@context": "https://schema.org",
     "@type": "Taxon",
+
     "name": pageTitle,
-    "alternateName": organism[SCHEMA.SCIENTIFIC_NAME] || "",
+
+    "alternateName":
+        organism[SCHEMA.SCIENTIFIC_NAME] || "",
+
     "description": description,
+
+    "url": window.location.href,
+
     "image": organism[SCHEMA.IMAGE] || "",
-    "url": window.location.href
+
+    "identifier": organism.id,
+
+    "taxonRank":
+        organism[SCHEMA.SPECIES] ? "Species" : "",
+
+    "isPartOf": {
+        "@type": "WebSite",
+        "name": "عراقي إيكو",
+        "url": "https://iraqieco.github.io/database/"
+    }
 };
 
 document.getElementById("schema-jsonld").textContent =
