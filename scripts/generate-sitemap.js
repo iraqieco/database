@@ -8,7 +8,7 @@ const supabase = createClient(
 
 const { data, error } = await supabase
   .from("organisms")
-  .select("id, updated_at")
+  .select("id, updated_at, image")
   .order("id");
 
 if (error) {
