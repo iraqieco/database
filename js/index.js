@@ -161,8 +161,7 @@ card.addEventListener("click", (e) => {
     if (e.target === menuBtn) return;
 
     window.location.href =
-        `organism.html?id=${organism.id}`;
-
+    `organism/${organism.id}`;
 });
     return card;
 }
