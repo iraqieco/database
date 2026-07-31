@@ -132,7 +132,35 @@ function render(organism) {
         organism[SCHEMA.SCIENTIFIC_NAME];
 
     content.append(title);
+/* SEO */
 
+const pageTitle =
+    organism[SCHEMA.NAME_AR] ||
+    organism[SCHEMA.NAME_EN] ||
+    organism[SCHEMA.SCIENTIFIC_NAME] ||
+    "عراقي إيكو";
+
+document.title = `${pageTitle} | عراقي إيكو`;
+
+const description =
+    organism[SCHEMA.DESCRIPTION] ||
+    `معلومات عن ${pageTitle} في العراق.`;
+
+document
+    .querySelector('meta[name="description"]')
+    ?.setAttribute("content", description);
+
+document
+    .querySelector('meta[property="og:title"]')
+    ?.setAttribute("content", document.title);
+
+document
+    .querySelector('meta[property="og:description"]')
+    ?.setAttribute("content", description);
+
+document
+    .getElementById("canonical")
+    ?.setAttribute("href", window.location.href);
     if (hasValue(organism[SCHEMA.SCIENTIFIC_NAME])) {
 
         const scientific = document.createElement("div");
