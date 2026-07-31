@@ -156,7 +156,14 @@ function createCard(organism) {
     });
 
     card.append(menuBtn, image, body);
+card.addEventListener("click", (e) => {
 
+    if (e.target === menuBtn) return;
+
+    window.location.href =
+        `organism.html?id=${organism.id}`;
+
+});
     return card;
 }
 
