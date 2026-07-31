@@ -36,6 +36,10 @@ for (const item of data) {
   xml += `
 <url>
   <loc>https://iraqieco.github.io/database/organism.html?id=${item.id}</loc>
+  ${item.image ? `
+  <image:image xmlns:image="http://www.google.com/schemas/sitemap-image/1.1">
+    <image:loc>${item.image}</image:loc>
+  </image:image>` : ""}
   <lastmod>${(item.updated_at ?? new Date().toISOString()).split("T")[0]}</lastmod>
   <changefreq>weekly</changefreq>
   <priority>0.8</priority>
