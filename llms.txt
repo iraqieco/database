@@ -1,0 +1,26 @@
+# Iraqi Eco
+
+Website: https://iraqieco.github.io/database/
+
+Project: Iraqi Eco
+
+Description:
+Iraqi Eco is an open database documenting the biodiversity of Iraq, including animals, plants, fungi, protists, bacteria and other organisms. The project aims to provide accurate scientific information in Arabic with scientific names and conservation data.
+
+Content:
+- Organism profiles
+- Scientific classification
+- Habitat
+- Distribution
+- Conservation status
+- References
+- Images
+
+Language:
+Arabic (primary)
+
+License:
+All rights reserved unless otherwise stated.
+
+Contact:
+https://iraqieco.github.io/database/
