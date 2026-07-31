@@ -190,6 +190,33 @@ document
 
 document.getElementById("schema-jsonld").textContent =
     JSON.stringify(schema);
+if (organism[SCHEMA.IMAGE]) {
+
+    const imageSchema = {
+        "@context": "https://schema.org",
+        "@type": "ImageObject",
+
+        "contentUrl": organism[SCHEMA.IMAGE],
+
+        "name": pageTitle,
+
+        "description": description,
+
+        "author": {
+            "@type": "Organization",
+            "name": "عراقي إيكو"
+        }
+    };
+
+    const script = document.createElement("script");
+
+    script.type = "application/ld+json";
+
+    script.textContent = JSON.stringify(imageSchema);
+
+    document.head.appendChild(script);
+
+}
    if (hasValue(organism[SCHEMA.SCIENTIFIC_NAME])) {
 
         const scientific = document.createElement("div");
