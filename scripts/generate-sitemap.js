@@ -36,7 +36,7 @@ for (const item of data) {
   xml += `
 <url>
   <loc>https://iraqieco.github.io/database/organism.html?id=${item.id}</loc>
-  <lastmod>${(item.updated_at || new Date()).split("T")[0]}</lastmod>
+  <lastmod>${(item.updated_at ?? new Date().toISOString()).split("T")[0]}</lastmod>
   <changefreq>weekly</changefreq>
   <priority>0.8</priority>
 </url>`;
