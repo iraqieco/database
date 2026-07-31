@@ -1,0 +1,22 @@
+/* TEAM */
+
+Project: Iraqi Eco
+Website: https://iraqieco.github.io/database/
+Founder: Mohammed Al-Samarrai
+Role: Project Founder, Developer, Researcher
+
+/* PROJECT */
+
+Name: Iraqi Eco
+Description: Open biodiversity database for Iraq.
+Language: Arabic
+Technology: HTML, CSS, JavaScript, Supabase, GitHub Pages
+
+/* CONTACT */
+
+Website: https://iraqieco.github.io/database/
+GitHub: https://github.com/iraqieco/database
+
+/* THANKS */
+
+Thanks to everyone who contributes to documenting and protecting Iraq's biodiversity.
