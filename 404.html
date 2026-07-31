@@ -1,0 +1,21 @@
+<!DOCTYPE html>
+<html lang="ar">
+<head>
+<meta charset="UTF-8">
+<title>Redirecting...</title>
+<script>
+const path = window.location.pathname;
+
+if (path.includes("/organism/")) {
+    const id = path.split("/organism/")[1];
+    window.location.replace(
+        "/database/organism.html?id=" + encodeURIComponent(id)
+    );
+} else {
+    window.location.replace("/database/");
+}
+</script>
+</head>
+<body>
+</body>
+</html>
