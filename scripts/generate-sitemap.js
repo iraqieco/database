@@ -2,8 +2,8 @@ import { createClient } from "@supabase/supabase-js";
 import fs from "fs";
 
 const supabase = createClient(
-  "رابط_Supabase",
-  "مفتاح_Anon"
+  process.env.SUPABASE_URL,
+  process.env.SUPABASE_ANON_KEY
 );
 
 const { data, error } = await supabase
