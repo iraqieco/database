@@ -30,7 +30,7 @@ const downloadBtn = document.getElementById("card-download");
 const editBtn = document.getElementById("card-edit");
 const deleteBtn = document.getElementById("card-delete");
 const addImageBtn = document.getElementById("card-add-image");
-
+const shareBtn = document.getElementById("card-share");
 const imageDialog = document.getElementById("image-dialog");
 
 const imageUrlInput = document.getElementById("image-url-input");
