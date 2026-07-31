@@ -161,7 +161,19 @@ document
 document
     .getElementById("canonical")
     ?.setAttribute("href", window.location.href);
-    if (hasValue(organism[SCHEMA.SCIENTIFIC_NAME])) {
+  const schema = {
+    "@context": "https://schema.org",
+    "@type": "Taxon",
+    "name": pageTitle,
+    "alternateName": organism[SCHEMA.SCIENTIFIC_NAME] || "",
+    "description": description,
+    "image": organism[SCHEMA.IMAGE] || "",
+    "url": window.location.href
+};
+
+document.getElementById("schema-jsonld").textContent =
+    JSON.stringify(schema);
+   if (hasValue(organism[SCHEMA.SCIENTIFIC_NAME])) {
 
         const scientific = document.createElement("div");
 
