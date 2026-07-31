@@ -42,7 +42,26 @@ if ("serviceWorker" in navigator) {
     navigator.serviceWorker.register("sw.js");
 }
 </script>
-
+<script id="website-schema" type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "WebSite",
+  "name": "عراقي إيكو",
+  "alternateName": "Iraqi Eco",
+  "url": "https://iraqieco.github.io/database/",
+  "description": "قاعدة بيانات المخلوقات الحية في العراق",
+  "inLanguage": "ar",
+  "publisher": {
+    "@type": "Organization",
+    "name": "عراقي إيكو"
+  },
+  "potentialAction": {
+    "@type": "SearchAction",
+    "target": "https://iraqieco.github.io/database/search.html?q={search_term_string}",
+    "query-input": "required name=search_term_string"
+  }
+}
+</script>
 </head>
 
 <body>
