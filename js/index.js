@@ -375,6 +375,45 @@ saveImageBtn.addEventListener("click", async () => {
     }
 
 });
+shareBtn.addEventListener("click", async () => {
+
+    if (!currentOrganism) return;
+
+    const url =
+        `${window.location.origin}${window.location.pathname.replace("index.html", "")}organism.html?id=${currentOrganism.id}`;
+
+    try {
+
+        if (navigator.share) {
+
+            await navigator.share({
+
+                title: currentOrganism[SCHEMA.NAME_AR] ||
+                       currentOrganism[SCHEMA.SCIENTIFIC_NAME],
+
+                text: currentOrganism[SCHEMA.DESCRIPTION] || "",
+
+                url
+
+            });
+
+        } else {
+
+            await navigator.clipboard.writeText(url);
+
+            alert("تم نسخ الرابط.");
+
+        }
+
+    } catch (e) {
+
+        console.log(e);
+
+    }
+
+    closeCardMenu();
+
+});
 deleteBtn.addEventListener("click", async () => {
 
     if (!currentOrganism) return;
