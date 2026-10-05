@@ -2193,6 +2193,9 @@
 <url>
   <loc>https://iraqieco.github.io/database/organism.html?id=1210</loc>
   
+  <image:image xmlns:image="http://www.google.com/schemas/sitemap-image/1.1">
+    <image:loc>https://i.ibb.co/nqkmbHtd/image.jpg</image:loc>
+  </image:image>
   <lastmod>2026-10-05</lastmod>
   <changefreq>weekly</changefreq>
   <priority>0.8</priority>
