@@ -153,42 +153,172 @@ function createCard(item) {
    Pagination
    ========================================================================== */
 
+function renderPagination(
 
+    page,
+
+    total
+
+) {
+
+    pagination.innerHTML = "";
+
+
+
+    const pages =
+
+        Math.ceil(total / LIMIT);
+
+
+
+    if (pages <= 1) {
+
+        return;
+
+    }
+
+
+
+    for (
+
+        let i = 1;
+
+        i <= pages;
+
+        i++
+
+    ) {
+
+        const button =
+
+            document.createElement("button");
+
+
+
+        button.className =
+
+            "page-button";
+
+
+
+        if (i === page) {
+
+            button.classList.add("active");
+
+        }
+
+
+
+        button.textContent = i;
+
+
+
+        button.onclick = () => {
+
+            loadPage(i);
+
+        };
+
+
+
+        pagination.append(button);
+
+    }
+
+}
 
 /* ==========================================================================
-   Load All Organisms
+   Load
    ========================================================================== */
 
-async function loadOrganisms() {
+async function loadPage(page = 1) {
 
     try {
-        // استدعاء الدالة لجلب كافة البيانات بدون قيود
-        const result = await getOrganisms();
+
+        currentPage = page;
+
+
+
+        const result =
+
+            await getOrganisms(
+
+                page,
+
+                LIMIT
+
+            );
+
+
 
         grid.innerHTML = "";
 
-        if (result.data.length === 0) {
+
+
+        if (
+
+            result.data.length === 0
+
+        ) {
+
             grid.innerHTML =
+
                 `<div class="empty-state">
+
                     ${t("noData")}
+
                 </div>`;
+
             return;
+
         }
 
-        // عرض جميع الكائنات في الشبكة
+
+
         result.data.forEach(item => {
+
             grid.append(
+
                 createCard(item)
+
             );
+
+        });
+
+
+
+        renderPagination(
+
+            page,
+
+            result.count
+
+        );
+
+
+
+        window.scrollTo({
+
+            top: 0,
+
+            behavior: "smooth"
+
         });
 
     }
+
     catch (e) {
+
         console.error(e);
+
         error(
+
             t("error")
+
         );
+
     }
+
 }
 
 /* ==========================================================================
@@ -203,7 +333,7 @@ async function initialize() {
 
     initializeSupabase();
 
-    await loadOrganisms();
+    await loadPage(currentPage);
 
 }
 
