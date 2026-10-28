@@ -156,97 +156,39 @@ function createCard(item) {
 
 
 /* ==========================================================================
-   Load
+   Load All Organisms
    ========================================================================== */
 
-async function loadPage(page = 1) {
+async function loadOrganisms() {
 
     try {
-
-        currentPage = page;
-
-
-
-        const result =
-
-            await getOrganisms(
-
-                page,
-
-                LIMIT
-
-            );
-
-
+        // استدعاء الدالة لجلب كافة البيانات بدون قيود
+        const result = await getOrganisms();
 
         grid.innerHTML = "";
 
-
-
-        if (
-
-            result.data.length === 0
-
-        ) {
-
+        if (result.data.length === 0) {
             grid.innerHTML =
-
                 `<div class="empty-state">
-
                     ${t("noData")}
-
                 </div>`;
-
             return;
-
         }
 
-
-
+        // عرض جميع الكائنات في الشبكة
         result.data.forEach(item => {
-
             grid.append(
-
                 createCard(item)
-
             );
-
-        });
-
-
-
-        renderPagination(
-
-            page,
-
-            result.count
-
-        );
-
-
-
-        window.scrollTo({
-
-            top: 0,
-
-            behavior: "smooth"
-
         });
 
     }
-
     catch (e) {
-
         console.error(e);
-
         error(
-
             t("error")
-
         );
-
     }
-
 }
 
 /* ==========================================================================
@@ -261,7 +203,7 @@ async function initialize() {
 
     initializeSupabase();
 
-    await loadPage(currentPage);
+    await loadOrganisms();
 
 }
 
