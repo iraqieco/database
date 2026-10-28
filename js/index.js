@@ -183,9 +183,8 @@ function closeCardMenu() {
 async function loadLatest() {
 
     try {
-        // استدعاء الدالة وتخزين مصفوفة البيانات مباشرة
-        const result = await getOrganisms();
-        allOrganisms = result.data || result; // للتعامل مع الحالتين بسلاسة
+
+        allOrganisms = await getLatestOrganisms();
 
         allOrganisms.sort((a, b) => {
 
@@ -214,8 +213,6 @@ async function loadLatest() {
     }
 
 }
-
-
 
 /* ==========================================================================
    Initialize
