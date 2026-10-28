@@ -18,13 +18,7 @@ const TABLE = SCHEMA.TABLE;
    Get All
    ========================================================================== */
 
-export async function getOrganisms(
-    page = 1,
-    limit = CONFIG.pagination.defaultLimit
-) {
-
-    const from = (page - 1) * limit;
-    const to = from + limit - 1;
+export async function getOrganisms() {
 
     const { data, error, count } = await getClient()
 
@@ -35,8 +29,6 @@ export async function getOrganisms(
             count: "exact"
 
         })
-
-        .range(from, to)
 
         .order(
 
@@ -60,11 +52,12 @@ export async function getOrganisms(
 
         data,
 
-        count
+        count: data.length
 
     };
 
 }
+
 
 /* ==========================================================================
    Get By ID
