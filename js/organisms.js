@@ -153,79 +153,7 @@ function createCard(item) {
    Pagination
    ========================================================================== */
 
-function renderPagination(
 
-    page,
-
-    total
-
-) {
-
-    pagination.innerHTML = "";
-
-
-
-    const pages =
-
-        Math.ceil(total / LIMIT);
-
-
-
-    if (pages <= 1) {
-
-        return;
-
-    }
-
-
-
-    for (
-
-        let i = 1;
-
-        i <= pages;
-
-        i++
-
-    ) {
-
-        const button =
-
-            document.createElement("button");
-
-
-
-        button.className =
-
-            "page-button";
-
-
-
-        if (i === page) {
-
-            button.classList.add("active");
-
-        }
-
-
-
-        button.textContent = i;
-
-
-
-        button.onclick = () => {
-
-            loadPage(i);
-
-        };
-
-
-
-        pagination.append(button);
-
-    }
-
-}
 
 /* ==========================================================================
    Load
