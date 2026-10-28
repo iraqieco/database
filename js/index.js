@@ -183,8 +183,9 @@ function closeCardMenu() {
 async function loadLatest() {
 
     try {
-
-        allOrganisms = await getLatestOrganisms();
+        // استدعاء الدالة الشاملة لجلب كافة الكائنات دون استثناء
+        const result = await getOrganisms();
+        allOrganisms = result.data;
 
         allOrganisms.sort((a, b) => {
 
@@ -213,6 +214,7 @@ async function loadLatest() {
     }
 
 }
+
 
 /* ==========================================================================
    Initialize
