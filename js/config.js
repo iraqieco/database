@@ -80,7 +80,7 @@ export const CONFIG = Object.freeze({
     database: {
     table: "organisms",
     newsTable: "news",
-    pageSize: 24
+    pageSize: 2000
 },
 
 
