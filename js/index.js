@@ -183,9 +183,9 @@ function closeCardMenu() {
 async function loadLatest() {
 
     try {
-        // استدعاء الدالة الشاملة لجلب كافة الكائنات دون استثناء
+        // استدعاء الدالة وتخزين مصفوفة البيانات مباشرة
         const result = await getOrganisms();
-        allOrganisms = result.data;
+        allOrganisms = result.data || result; // للتعامل مع الحالتين بسلاسة
 
         allOrganisms.sort((a, b) => {
 
@@ -214,6 +214,7 @@ async function loadLatest() {
     }
 
 }
+
 
 
 /* ==========================================================================
