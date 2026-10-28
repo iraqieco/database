@@ -155,9 +155,9 @@ export const CONFIG = Object.freeze({
 
     pagination: {
 
-        defaultLimit: 24,
+        defaultLimit: 2000,
 
-        maximumLimit: 100
+        maximumLimit: 10000
 
     },
 
