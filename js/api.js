@@ -243,40 +243,41 @@ export async function updateOrganismImage(id, imageUrl) {
    Latest
    ========================================================================== */
 /* ==========================================================================
-   Latest (All Organisms without limit)
+   Latest (Fetch All without 1000 limit)
    ========================================================================== */
 
 export async function getLatestOrganisms() {
+    let allData = [];
+    let rangeSize = 1000;
+    let from = 0;
+    let to = rangeSize - 1;
+    let keepFetching = true;
 
-    // استخدام .range لتغطية كافة السجلات وتجاوز سقف الـ 1000 الافتراضي
-    const { data, error } = await getClient()
+    while (keepFetching) {
+        const { data, error } = await getClient()
+            .from(TABLE)
+            .select("*")
+            .range(from, to)
+            .order(SCHEMA.NAME_AR, { ascending: true });
 
-        .from(TABLE)
+        if (error) {
+            throw error;
+        }
 
-        .select("*")
-        
-        .range(0, 9999) // جلب كافة السجلات حتى 10 آلاف كائن
-
-        .order(
-
-            SCHEMA.NAME_AR,
-
-            {
-
-                ascending: true
-
+        if (data && data.length > 0) {
+            allData = allData.concat(data);
+            if (data.length < rangeSize) {
+                keepFetching = false;
+            } else {
+                from += rangeSize;
+                to += rangeSize;
             }
-
-        );
-
-    if (error) {
-
-        throw error;
-
+        } else {
+            keepFetching = false;
+        }
     }
 
-    return data;
-
+    return allData;
 }
 
 
