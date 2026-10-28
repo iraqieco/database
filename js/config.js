@@ -80,7 +80,7 @@ export const CONFIG = Object.freeze({
     database: {
     table: "organisms",
     newsTable: "news",
-    pageSize: 2000
+    pageSize: 24
 },
 
 
@@ -155,9 +155,9 @@ export const CONFIG = Object.freeze({
 
     pagination: {
 
-        defaultLimit: 2000,
+        defaultLimit: 24,
 
-        maximumLimit: 10000
+        maximumLimit: 100
 
     },
 
