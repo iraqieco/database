@@ -179,22 +179,22 @@ export async function createOrganism(record) {
    ========================================================================== */
 
 export async function updateOrganism(id, record) {
-
-    
+export async function updateOrganismImage(id, imageUrl) {
 
     const { data, error } = await getClient()
         .from(TABLE)
-        .update(record)
+        .update({
+            image: imageUrl
+        })
         .eq(SCHEMA.ID, id)
-        .select();
+        .select()
+        .single();
 
-    
-    if (error) {
-        throw error;
-    }
+    if (error) throw error;
 
     return data;
 }
+
 /* ==========================================================================
    Delete
    ========================================================================== */
