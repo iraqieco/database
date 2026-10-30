@@ -16,6 +16,9 @@
 <url>
   <loc>https://iraqieco.github.io/database/organism.html?id=1</loc>
   
+  <image:image xmlns:image="http://www.google.com/schemas/sitemap-image/1.1">
+    <image:loc>https://i.ibb.co/VcqnjVPh/Screenshot.jpg</image:loc>
+  </image:image>
   <lastmod>2026-10-30</lastmod>
   <changefreq>weekly</changefreq>
   <priority>0.8</priority>
